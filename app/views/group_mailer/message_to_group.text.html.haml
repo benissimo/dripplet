@@ -1,0 +1,6 @@
+= I18n.t 'mailer.group_notify.text',                                            |
+  :author => (h @sender),                                                       |
+  :text => (h @message),                                                        |
+  :title => (h @group.title),                                                   |
+  :link => (link_to (I18n.t 'mailer.group_notify.link_text',:url=>@url), @url), |
+  :url => @url                                                                  |

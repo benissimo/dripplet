@@ -1,0 +1,14 @@
+- @title = t('.title') + " [#{@count} #{t '.drippletcount'}]"
+- @side_type = :community
+- @show_all = true
+    
+#intro
+  %div
+    %h3= "Dripplet project"
+    = t('.text1', :drippletlink=>(link_to t('.drippletlink'), :story, :class=>'ul'))
+  .moreintro
+    = t('.text2')
+  .moreintro
+    = t('shared.sidebox.community.text')
+    %p.emphasis
+      = t('shared.sidebox.community.title')

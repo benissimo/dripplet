@@ -1,0 +1,561 @@
+                                                                     
+                                                                     
+                                                                     
+                                             
+# Italian translations for Ruby on Rails 
+# by Claudio Poli (masterkain@gmail.com)
+# maintained by Simone Carletti (weppos@weppos.net)
+#
+# This localization file targets Rails 2.3.2.
+# If you need a previous version go to http://github.com/weppos/rails-i18n/
+# and choose between available tags.
+
+it:
+  number:
+    format:
+      separator: ","
+      delimiter: "."
+      precision: 3
+      
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        
+    percentage:
+      format:
+        delimiter: ""
+        # precision: 
+        
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+        
+    human:
+      format:
+        # separator: 
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Byte"
+          kb: "Kb"
+          mb: "Mb"
+          gb: "Gb"
+          tb: "Tb"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names: [Domenica, Lunedì, Martedì, Mercoledì, Giovedì, Venerdì, Sabato]
+    abbr_day_names: [Dom, Lun, Mar, Mer, Gio, Ven, Sab]
+
+    month_names: [~, Gennaio, Febbraio, Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
+    abbr_month_names: [~, Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+          
+    am: 'am'
+    pm: 'pm'
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: "mezzo minuto"
+      less_than_x_seconds:
+        one:  "meno di un secondo"
+        other: "meno di {{count}} secondi"
+      x_seconds:
+        one:  "1 secondo"
+        other: "{{count}} secondi"
+      less_than_x_minutes:
+        one:  "meno di un minuto"
+        other: "meno di {{count}} minuti"
+      x_minutes:
+        one:  "1 minuto"
+        other: "{{count}} minuti"
+      about_x_hours:
+        one:  "circa un'ora"
+        other: "circa {{count}} ore"
+      x_days:
+        one:  "1 giorno"
+        other: "{{count}} giorni"
+      about_x_months:
+        one:  "circa un mese"
+        other: "circa {{count}} mesi"
+      x_months:
+        one:  "1 mese"
+        other: "{{count}} mesi"
+      about_x_years:
+        one:  "circa un anno"
+        other: "circa {{count}} anni"
+      over_x_years:
+        one:  "oltre un anno"
+        other: "oltre {{count}} anni"
+    prompts:
+      year:   "Anno"
+      month:  "Mese"
+      day:    "Giorno"
+      hour:   "Ora"
+      minute: "Minuto"
+      second: "Secondi"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: ", e "
+
+  restfulauthentication:
+     errors:
+       messages: # questi non sono usati al momento...
+         bad_email: "Email should look like an email address"
+         bad_login: "Use only letters and numbers for your user name"
+         bad_name: "Use only legal characters in your name"
+                     
+  activerecord:
+    errors:
+      template:
+        header: 
+          one: "Non posso salvare questo {{model}}: 1 errore"
+          other: "Non posso salvare questo {{model}}: {{count}} errori."
+        body: "Per favore ricontrolla i seguenti campi:"
+      messages:
+        inclusion: "non è incluso nella lista"
+        exclusion: "è riservato"
+        invalid: "non è valido"
+        confirmation: "non coincide con la conferma"
+        accepted: "deve essere accettata"
+        empty: "non può essere vuoto"
+        blank: "non può essere lasciato in bianco"
+        too_long: "è troppo lungo (il massimo è {{count}} lettere)"
+        too_short: "è troppo corto (il minimo è {{count}} lettere)"
+        wrong_length: "è della lunghezza sbagliata (deve essere di {{count}} lettere)"
+        taken: "è già in uso"
+        not_a_number: "non è un numero"
+        greater_than: "deve essere superiore a {{count}}"
+        greater_than_or_equal_to: "deve essere superiore o uguale a {{count}}"
+        equal_to: "deve essere uguale a {{count}}"
+        less_than: "deve essere meno di {{count}}"
+        less_than_or_equal_to: "deve essere meno o uguale a {{count}}"
+        odd: "deve essere dispari"
+        even: "deve essere pari"
+        bad_email: "deve sembrare un indirizzo valido"
+        bad_login: "- usare solo lettere, numeri, e .-_ per favore"
+    attributes: # form labels and error messages use these texts
+      water_point:
+        title: "Titolo"
+        note: "Descrizione"
+        notify: "Notifica"
+        photo: "Carica"
+      group:
+        title: "Nome"
+      user:
+        login: "Nome utente"
+
+
+#global field names
+  login: "Nome utente"
+  email: "Email"
+  password: "Password"
+  confirm_password: "Ripeti password"
+  note: "Qualcosa di me"
+  terms: "termini di servizio"
+  required: "obbligatori"
+  thanks_to: "grazie a:"
+        
+########################################################
+# Begin site-specific text.
+# 1) Do not use tabs, only spaces!
+# 2) All text should be in UTF8 (be sure your text editor uses that encoding)
+# 3) format is: LABEL: text. 
+# If you need to include a ' in the text, use this format: 
+#    LABEL: "text's got an apostrophe..." (double quotes around string)
+# If you need to include a " in the text, use this format: 
+#    LABEL: "text has \"a quote\" inside" (double quotes and backslash for embedded quotes)
+# Or if you want some leading/trailing whitespace in the text, use this format
+#    LABEL: " some text that begins with some whitespace and/or ends with some whitespace "
+# Otherwise, no need for quotes around text.
+#    LABEL: this is fine
+########################################################
+        
+  mailer:
+    forgot_password:
+      subject: "Dripplet, nuova password"
+      text: "Ciao, hai richiesto una nuova password per questo nome utente su dripplet:  {{login}}. La password è stata cambiata in: {{password}}  {{link}}"
+      link_text: "{{url}}"
+    comment_notify:
+      subject: "Dripplet, è stato aggiunto un commento"
+      text: "é stato aggiunto un nuovo commento a questo dripplet: {{link}} scritto da {{author}}. Il testo del commento è: {{text}}"
+      link_text: "(Clicca per vederlo sul sito)"
+    group_notify:
+      subject: "Dripplet, nuovo messaggio gruppo {{title}} da {{from}}"
+      text: "Un nuovo messaggio è stato postato per il gruppo {{title}}. Messaggio: {{text}} autore: {{author}} {{link}}"
+      link_text: "Clicca qui per rispondere al messaggio."
+    signup:
+      subject: "Dripplet, attivazione account"
+      text: "Il tuo account su dripplet.com è stato creato. Prima di accedere clicca sul link sottostante per attivarlo. In seguito potrai accedere con queste credenziali. User name: {{login}} Password: {{password}} {{link}}"
+      link_text: "Clicca qui per attivare il tuo account"
+    activated:
+      subject: "Dripplet, account attivato."
+      text: "Benvenuto su dripplet! Il tuo account è stato attivato. Inizia subito a aggiungere dripplet nella mappa! {{link}}"
+      link_text: "{{url}}"
+      
+  groups: #/it/groups/*
+    show: # /it/groups/1
+      created_by: "Creato da: "
+      title: "Gruppo {{group}}" #automatically inserts name of group...
+      join_this_group: "iscriviti"
+      save: "Salva"
+      member_list_updated: "La lista è stata aggiornata."
+    members: # members list used on /it/groups/1
+      members: "Membri"
+      view_profile: "Visualizza {{profile}}" #inserts link
+      profile: "profilo"
+      waterpoints: "dripplet"
+      votes: "voti"
+    send_message: #message form on /it/groups/1
+      title: "Invia un messaggio al gruppo"
+      send: "Invia"
+      thanks: "Grazie, il tuo messaggio è stato inviato al gruppo."
+    index: #/it/groups
+      title: "Lista Gruppi"
+      summary: "Vuoi riuniore i water hunters del tuo territorio? Sei interessato a un tipo di dripplet? Vuoi riunire i dripplet in pericolo? Crea o iscriviti a un gruppo d'interesse."
+      create_group: "crea gruppo"
+      created_by: "creato da: "
+    new: #/it/groups/new
+      title: "Crea gruppo"
+      summary: "Qui puoi creare il tuo gruppo e subito dopo inviare messaggi a tutti gli iscritti."
+      submit: "Crea gruppo"
+      
+  users:
+    index: # /it/users
+      title: "Community"
+      sort_by: "Ordina per:"
+      Date: "Data"
+      A-Z: "A-Z"
+      Posts: "Dripplet inseriti"
+      Votes: "Voti"
+    show: # /it/users/1
+      title: "Profilo Utente"
+      about_me: "Qualcosa su di me"
+      user_water_points: "I dripplet di {{user}}" #automatically inserts user name
+      posted: "dripplet inseriti"
+      scores: "verifiche ricevute!"
+      Edit: "modifica profilo" #displayed only if viewing user's own profile
+      Back: "torna alla Community" #or should we remove this link?
+    edit: # /it/users/1/edit
+      title: "Modifica profilo: {{user}}" #automatically inserts user name
+      hint: "Accettiamo file jpeg, gif, o png fino a 2MB."
+      Update: "Aggiorna profilo"
+      member_of: "Membro di questi gruppi:"
+      Show: "torna al profilo"
+      Back: "torna alla Community"
+    new: # /it/users/new
+      title: "Registrati"
+      summary: "Diventare un Water Hunter è semplice basta registrarsi e cominciare a cercare dripplet."
+      have_read_the_terms: "Ho letto e accetto i {{terms}}" #inserts link
+      terms: "termini di servizio"
+      submit: "Registra!"
+    forgot: # /it/users/forgot
+      title: "Recupera password"
+      summary: "Inserisci il tuo nome utente e l'indirizzo email con cui ti sei registrato, riceverai subito una email per recuperare la tua password."
+      Back: "torna al Login"
+      submit: "invio"
+    user_bar: # -- global snippet used for header
+      logged_in_as: "Water hunter:"
+      log_out: "esci"
+      login: "entra"
+      register: "registrati"
+      
+  welcome:
+      map: # /it/map (Explore...)
+        title: "Mappa"
+        fullscreen: "Visualizza la mappa a tutto schermo"
+        fullscreen_toggle: "visualizza standard - fullscreen"
+      index: # /it (Homepage)
+        title: "Home"
+        drippletlink: "dripplet"
+        text1: "Dripplet è un sistema per georeferenziare e condividere punti di acqua potabile accessibile (da ora in poi chiamati \"{{drippletlink}}\").<br/>
+Nessuna preclusione se si tratta di siti pubblici o privati, l’importante è che sia possibile accederci liberamente o almeno agevolmente.<br/>
+Trovare, condividere e proteggere i \"Dripplet\" è la missione dei Water  Hunters. Che la goccia rimbalzi nelle vostre mani!"
+        text2: "Dripplet è assolutamente gratuita e senza fini di lucro, ogni centesimo che sarà donato o sarà frutto di pubblicità sarà utilizzato per migliorare la piattaforma o per finanziare progetti che saranno accuratamente esposti e rendicontati.<br/>
+Molte delle persone che hanno lavorato al progetto l’hanno fatto gratuitamente o per cifre assolutamente modeste.
+<br/>
+Dripplet non può rispondere della veridicità delle informazioni immesse dagli iscritti e quindi vanno considerate come indicative."
+        drippletcount: "Dripplets"
+      links: # /it/links
+        title: "Dripplet Links"
+        summary: "La redazione di dripplet ha trovato interessanti questi link, se vuoi segnalarcene qualcun'altro scrivi a staff@dripplet.com"
+        category1: "Organizzazioni non governative e fondazioni"
+        category2: "Organizzazioni governative e internazionali"
+        category3: "Volontariato e iniziative sul campo"
+      story: # /it/story
+        title: "Gocce di rimbalzo (Dripplet)"
+        summary: "Tutti i giorni Lio, tornata da scuola, apriva l'acqua del rubinetto e beveva con la mano a coppa.<br />
+        Tutti i giorni Molengue andava a prendere l'acqua al fiume, ma prima di andarsene beveva mettendo la coppa della mano dove la corrente era più forte.<br />
+        Tutti i giorni Luise tirava su il secchio dal pozzo e versava l'acqua nell'anfora di coccio. Ma prima di andare beveva tre o quattro volte immergendo le mani giunte a coppa nel secchio e portandosela alle labbra.<br /><br />
+
+        Un giorno Lio tornando a casa aprì il rubinetto e uscì un filo di acqua che lasciava polvere rossa e sapeva di sale. C'è dell'acqua in bottiglia in frigo, disse la mamma.<br />
+        Un giorno Molengue  andò giù al fiume e vide centinaia di pesci a pancia all'aria. Prese un po di acqua nella mano e sentì un odore di benzina.<br />
+        Dietro a lui con un gran sorriso un uomo in divisa gli porse una sacca di plastica piena d'acqua e di scritte che dicevano: questo è un dono caritatevole.<br />
+        Un giorno Luise vide che intorno al pozzo c'era gente che discuteva animatamente. Nessun uccello si bagnava nell'acqua che cadeva dai secchi e un cartello con un teschio era stato appeso alla corda. Tutti dicevano che un pozzo nero aveva ucciso il pozzo buono.<br />
+        Ma un popolo ricco e d amico aveva mandato una autobotte con acqua che viene da lontano, acqua che si può bere ma è meglio prima metterla sul fuoco. Verrà, ogni giorno e basterà mettersi in fila e dire grazie.
+        <br /><br />
+        Lio, Molengue e Luise andarono a dormire irrequieti pensando che ora la loro acqua aveva un padrone e sognarono.
+        <br /><br />
+        Lio sognò che una enorme goccia cadeva nell'oceano e faceva uno schizzo di rimbalzo che arrivava fino al cielo come un rubinetto con la canna verso l'alto. <br />
+        Molengue sognò che dal cielo cadevano milioni d gocce enormi di acqua buonissima, come un fiume che venisse giù dal cielo.<br />
+        Luise sognò che le gocce arrivate a terra si conficcassero al suolo creando milioni di pozzi limpidi e freschi.<br />
+        Tutti e tre sognarono di prenderla nelle mani a coppa e di berla a grandi sorsi mentre sorridevano.<br />
+        E tutta la gente del mondo aveva le mani a coppa e dentro ci teneva l'acqua da coccolare e proteggere.<br />
+        E tutte e tre le loro mamme pensarono che sarebbe buono e giusto se per ogni goccia che cade libera ce ne fosse una libera che torna
+        <br /><br />
+        Salva i Dripplet, diventa Water Hunters!<br />
+        Salva le gocce di Rimbalzo, diventa un cacciatore d'acqua!
+        <br /><br />
+        Dripplet nasce da un sogno fatto in Africa trenta anni fa."
+      terms: # /it/terms
+        title: "TERMINI E CONDIZIONI"
+        summary: "Grazie per aver visitato www.dripplet.com.<br />
+					Prendetevi il tempo necessario per leggere e comprendere i termini e le condizioni del nostro sito Web, compresa la nostra politica sul diritto d'autore e la nostra Privacy Policy.<br />
+					Utilizzando il nostro sito Web, ci si impegna a rispettare questi termini e condizioni. Quindi, se non si è d'accordo con i presenti Termini e Condizioni, o qualsiasi altra politica di www.dripplet.com, si prega di non utilizzare questo sito.<br />
+					Internet è in continua evoluzione, e anche www.dripplet.com. <br />
+					Qualunque modifica ai nostri termini e condizioni verranno aggiunti a questa pagina e resta inteso che l'utilizzo del Sito dopo tali cambiamenti costituisce l'accettazione dei Termini e Condizioni e successive modifiche.<br /><br />
+					CONTENUTO<br />
+					Le informazioni presenti in questo sito, incluse  le notizie, i comunicati stampa, foto, grafica, testi, immagini, logo, icone, disegni, software, materiale audio e video, marchi di fabbrica  e altri materiali (\" Contenuti \"), appartengono a Made in Tomorrow srl che sviluppa  www.dripplet.com.<br />
+					E’ responsabilità degli utilizzatori valutare l'accuratezza, la completezza e l'utilità dei contenuti pubblicati sul nostro sito. Made in Tomorrow srl non si assume alcuna responsabilità e non dà alcuna garanzia riguardante l'affidabilità, l'accuratezza o la qualità dei contenuti.<br />
+					Visitando questo sito, l'utente riconosce e accetta che tutti i contenuti sono protetti dalle leggi in vigore in Canada, negli Stati Uniti, Europa e altrove sul diritto d'autore.<br /><br />
+PRIVACY POLICY - Trattamento dati personali<br />
+L'accesso ad alcune funzioni del sito denominato \"Dripplet\" (di seguito il \"Sito\") sarà subordinato all'inserimento di dati personali il cui trattamento da parte di Made in Tomorrow srl quale Titolare del trattamento, avverrà nel rispetto del D.Lgs. 196/2003 \"Codice in materia di protezione dei dati personali\" (di seguito il \"Codice\"). <br />
+L'informativa non è valida per altri siti web eventualmente consultabili tramite i \"link\" disponibili sul nostro sito, non essendo dripplet in alcun modo responsabile per detti siti.
+<br /><br />
+Informativa ai sensi dell'art. 13 Codice Privacy:<br />
+A) Finalità e modalità del trattamento.<br />
+Finalità del trattamento: il trattamento dei dati verrà effettuato per accedere alle funzionalità esposte sul sito dripplet.com. I dati registrati potranno anche essere utilizzati per rapporti statistici sulla nostra attività , nonché per l'invio all'interessato di informazioni relative alla stessa. <br />
+Modalità del trattamento: I dati personali saranno trattati in forma prevalentemente automatizzata, con logiche strettamente correlate alle predette finalità.<br />
+B - C) Natura obbligatoria e conseguenze del rifiuto dei dati.<br />
+Tutti i dati richiesti sono obbligatori, in caso di mancato inserimento di alcuno di essi l'interessato non potrà godere del servizio richiesto.<br />
+D) Soggetti a cui dati potranno essere comunicati - ambito di diffusione.<br />
+Ove necessario le finalità di cui al punto a), i dati potranno essere comunicati anche a soggetti terzi <br />
+E) Diritti dell'interessato.<br />
+In relazione al presente trattamento di dati personali, ai sensi dell'art. 7 Codice Privacy:<br />
+1. L'interessato ha diritto di ottenere la conferma dell'esistenza o meno di dati personali che lo riguardano, anche se non ancora registrati, e la loro comunicazione in forma intelligibile.<br />
+2. L’interessato ha diritto di ottenere l’indicazione:<br />
+a) dell’origine dei dati personali;<br />
+b) delle finalità e modalità del trattamento;<br />
+c) della logica applicata in caso di trattamento effettuato con l’ausilio di strumenti elettronici;<br />
+d) degli estremi identificativi del titolare, dei responsabili e del rappresentante designato ai sensi dell’articolo 5, comma 2;<br />
+e) dei soggetti o delle categorie di soggetti ai quali i dati personali possono essere comunicati o che possono venirne a conoscenza in qualità di rappresentante designato nel territorio dello Stato, di responsabili o incaricati.<br />
+3. L’interessato ha diritto di ottenere:<br />
+a) l'aggiornamento, la rettificazione ovvero, quando vi ha interesse, l'integrazione dei dati;<br />
+b) la cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge, compresi quelli di cui non è necessaria la conservazione in relazione agli scopi per i quali i dati sono stati raccolti o successivamente trattati;<br />
+c) l'attestazione che le operazioni di cui alle lettere a) e b) sono state portate a conoscenza, anche per quanto riguarda il loro contenuto, di coloro ai quali i dati sono stati comunicati o diffusi, eccettuato il caso in cui tale adempimento si rivela impossibile o comporta un impiego di mezzi manifestamente sproporzionato rispetto al diritto tutelato.<br />
+4. L’interessato ha diritto di opporsi, in tutto o in parte:<br />
+a) per motivi legittimi al trattamento dei dati personali che lo riguardano, ancorché pertinenti allo scopo della raccolta;<br />
+b) al trattamento di dati personali che lo riguardano a fini di invio di materiale pubblicitario o di vendita diretta o per il compimento di ricerche di mercato o di comunicazione commerciale. <br />
+F) Titolare del trattamento<br />
+\"Titolare\" del trattamento dei dati personali è Made in Tomorrow S.r.l., P.Iva 09934601007 con sede in Roma, Via dei Piceni 40 -Italia.<br />
+L'utente potrà, in qualunque momento, esercitare i diritti di cui all'art. 7 del Codice nonché conoscere l'elenco completo dei Responsabili inviando un messaggio di posta elettronica all'indirizzo del Titolare privacy@madeintomorrow.com, oppure una lettera da spedirsi tramite posta ordinaria presso: Made in Tomorrow srl via dei Piceni 40, 00185 Roma."
+      netiquette: # /it/netiquette
+        title: "Netiquette"
+        summary: "Poche e semplici regole di comportamento da tenere sul sito Dripplet
+<br />Per favore, non inserire contenuti non pertinenti agli obiettivi del sito, non inviare comunicazioni non legate al sito, catene di sant’antonio e messaggi a scopo pubblicitario. In tutte le parti di interazione,
+evita polemiche, usa un tono adeguato, rispetta le idee altrui, le religioni e le razze diverse dalla tua, non bestemmiare e non insultare nessuno. Evita il carattere maiuscolo se non strettamente necessario e finalizzato a far risaltare un determinato particolare.<br />
+Grazie"
+      credits: # /it/credits
+        title: "Credits"
+        summary: "www.dripplet.com è stato realizzato grazie alla buona volontà e all’impegno di molte persone.<br />
+Made in Tomorrow srl ha messo a disposizione la propria struttura e ha sostenuto, i costi iniziali ma tutti coloro che hanno collaborato lo hanno fatto gratutitamente o per cifre molto inferiori alla loro retribuzione usuale.<br />
+In particolare Made in Tomorrow ringrazia: Andrea Dezzi, Ben Ellis, Francesca Ferraro, Elisabetta Gagliardini, Tsuneo Kurihara, Andrea Leganza, Marta Leonori, Maurizio Lo Castro, Camilla Macro, Laura Mencuccini, Valentina Segatori"        
+  feedback:
+      report: # /it/feedback/report
+        title: "Feedback"
+        type: "Tipo di feedback"
+        choose: "---Per favore scegli una categoria" #select pulldown
+        offensive: "contenuto offensivo"
+        illegal: "contenuto illegale"
+        reg: "problemi con la registrazione o il login"
+        wp: "problemi nell'aggiunta di un dripplet"
+        suggest: "proponi un miglioramento"
+        other: "altro"
+        email: "Email:"
+        email_optional: "(opzionale, in modo che ti possiamo contattare)"
+        comments: "Commenti"
+        comment_be_specific: "Per favore cerca di essere puntuale nella tua segnalazione, sopratutto per la risoluzione dei problemi. Grazie per la preziosa collaborazione."
+        submit: "Invia Feedback"
+        
+  water_points:
+      index: # /it/water_points
+        title: "Dripplet"
+        sort_by: "Ordina per:"
+        score: "Voti"
+        comments: "Commenti"
+        date: "Data"
+      show: # /it/water_points/1
+        title: "Dripplet: {{wp}}"
+        created_by: "Creato da:"
+        comments: "Commenti"
+      add_comment: # add comment form on /it/water_points/1
+        receive_notify: "Voglio ricevere una notifica quando vengono aggiunti dei commenti a questo."
+        thanks_message: "Grazie!"
+        submit: "Invia"
+      new: # /it/water_points/new
+        title: "Aggiungi un dripplet"
+        summary: "Hai trovato un nuovo dripplet e vuoi conviderlo con la community? Inserisci le informazioni necessarie: se la foto contiene le coordinate GPS queste saranno automaticamente rilevate, altrimenti utilizza la mappa per posizionare il dripplet. Una volta creato un dripplet potrai modificarlo. se hai bisogno di supporto, scrivi a support@dripplet.com saremo felici di aiutarti."
+        when_somebody_posts: "quando qualcuno commenta questo dripplet."
+        your_wp_photo: "l'immagine del dripplet che hai trovato"
+        hint: "Accettiamo file jpg, gif, o png fino a 2MB"
+        if_gps: "Ricorda che se la tua foto contiene le coordinate GPS la posizione verrà individuata automaticamente e dovrai solo confermarla."
+        submit: "Continua"
+      edit: # /it/water_points/1/edit
+        title_gps: "Conferma la posizione del dripplet"
+        title_no_gps: "Inserisci la posizione del dripplet"
+        subtitle_gps: "Se il dripplet è correttamente posizionato usa il tasto conferma, altrimenti sposta la mappa o usa il cerca."
+        subtitle_no_gps: "Coordinate GPS non rilevate. Posiziona il dripplet trascinando la mappa direttamente con il mouse oppure usa il cerca. "
+        preview: "Anteprima"
+        submit: "Conferma"
+
+  sessions:
+    new: # /login
+      title: "Login"
+      summary: "Inserisci nome utente e password. "
+      submit: "Entra"
+      forgot: "recupera password"
+             
+##################################      
+  shared: # snippets included in other pages...
+    users: # user list on /it/users
+      view_profile: "Visualizza {{profile}}" #inserts link
+      profile: "Profilo"
+      waterpoints: "Dripplet"
+      votes: "voti"
+    comment: # individual comment on /it/water_points/1
+      remove_comment: "Elimina"
+    groups:
+      join: "Iscriviti o creare un nuovo gruppo"
+      member_of: "Membro di questi gruppi:"
+    sidebox: # blue sidebox in left column
+      add:
+        title: "Aggiungi un dripplet"
+        text: "Hey Water Hunter! Hai trovato un nuovo dripplet e vuoi conviderlo con la community? Aggiungi subito un dripplet!"
+        submit: "vai"
+      community:
+        title: "Diventa un Waterhunter!"
+        text: "Gli scienziati cercano l'acqua nello spazio, a noi basta trovarla sulla terra! <br>
+Cercare l'acqua nello spazio serve a capire se ci può essere vita nell'universo, trovarla e difenderla sulla terra serve a far continuare la vita dove siamo sicuri che c'è già."
+        submit: "vai"
+      mapsearch:
+        title: "Cerca dripplet"
+        text: "Usa il cerca o spostati direttamente sulla mappa"
+        submit: "cerca"
+        hint: "puoi cercare per Stato, città, via, numero civico: insomma prova!"
+      mapsearchconfirm:
+        title: "Ricerca posizione dripplet"
+        text: "Se la tua foto non contiene le coordinate GPS o non sono state correttamente acquisite, posizionati sulla mappa usando il cerca."
+        submit: "cerca"
+        hint: "puoi cercare per Stato, città, via, numero civico: insomma prova!"
+      upload:
+        title: "Hello Water Hunter!"
+        text: "Se la tua ricerca ha avuto successo e vuoi condividere un nuovo dripplet con tutti noi, qui sei nel posto giusto!"
+
+  layouts: 
+    main: #main layout
+      page_title: "Dripplet.com"
+      app_promo_title: "iPhone app corner"
+      app_title: "Drinking Water"
+      app_text: "La mappa delle fontanelle di Roma. Dove e come bere gratis una delle migliori acque del mondo. <br>
+Semplicemente nel tuo iphone – iPod" #http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=326356222&mt=8
+      app_link: "Provala subito!"
+      paypal_title: "Sostieni Dripplet"
+      paypal_text1: "Sostieni Dripplet aiutaci a migliorare dripplet con nuove funzionalit&agrave;."
+      paypal_text2: "Paypal &egrave; un sistema sicuro e immediato per effetuare donazioni tramite indirizzo email (www.paypal.com)"
+      #these next 3 become obsolete
+      find: "Trova"
+      share: "Condividi"
+      defend: "Difendi"
+      #new strings
+      breadcrumb_in: "Sei a:"
+      big_header: "Dripplet, the world map of drinking sources"
+      medium_header: "Find & Share in the map all accessible drinking water"
+      filter: #map filter options
+        by: "filtra risultati per:"
+        all: "tutti"
+        score: "piu' votati"
+        visits: "piu' visitati"
+        comments: "piu' commentati"
+      bookmark_us_at: "Parla di noi sui tuoi social network"
+      steps: #steps promo on homepage
+        login: "entra"
+        or: "o"
+        register: "registrati"
+        explore: "&egrave;"
+        add_wp: "aggiungi un dripplet"
+        submit: "Registrati ora!"
+      nav:
+        home: "Home"
+        map: "Mappa"
+        users: "Community"
+        groups: "Gruppi"
+        add_wp: "Aggiungi un dripplet"
+        wp: "Tutti i Dripplet"
+        links: "Link"
+        feedback: "Feedback"
+      copyright: "&copy; {{year}} MadeInTomorrow s.r.l." #inserts current year
+      netiquette: "Netiquette"
+      credits: "Credits"
+      powered_by: "powered by {{made}}"
+      madeintomorrow: "Made in Tomorrow srl"
+    mailer: #These texts are used when the site sends email messags
+      footer1: "Ti informiamo che in qualsiasi momento puoi modificare  le tue preferenze per la ricezione di email di notifica semplicemente entrando con il tuo account sul sito stesso."
+      footer2: "Questo messaggio &egrave; stato mandato a {{email}} mediante un sistema automatico. Per favore non rispondere a questa email direttamente."
+###################
+# flash messages are three types: notice, prompt, error
+  flash: #flash messages.
+    error: #messages appear in red
+      feedback: "si è verificato un problema processando il tuo feedback, per cortesia riprova..."
+      captcha_fail: "il controllo CAPTCHA (se non lo sapevi l'immagine con le lettere e i numeri si chiama captcha) è fallito, riprova a inserire la sequenza visualizzata"
+      login: "non riuscito autenticarti come {{user}}" #automatically inserts attempted user name
+      forgot: "non troviamo un utente per i dati forniti. riprova"
+      user: "per favore correggi gli errori indicati sotto"
+      terms: "per favore accetta i termini di servizio"
+      activation: #problems w activation code
+        blank: "manca un codice di attivazione"
+        invalid: "non siamo riusciti a trovare un utente per i dati ci hai fornito."
+      not_allowed: "azione non consentita" #l'utente ha provato accedere ad un azione riservata per admin.
+    notice: #messages appear in green
+      feedback: "il tuo feedback e' stato spedito"
+      group: "Gruppo creato"
+      group_update: "Gruppo aggiornato" #attualmente non usato.
+      forgot: "Controlla la tua posta per la tua nuova password"
+      user: "Grazie per esserti registrato. Controlla la tua posta per il link di conferma"
+      user_update: "I tuoi dati sono stati aggiornati"
+      activated: "Complimenti! Ora il tuo account e' attivo. Autenticati per continuare."
+      wp: "Dripplet creato correttamente"
+    prompt: #messages appear in orange
+      wp: "Dripplet caricato. Se posizionato correttamente, clicca sul bottone conferma."
+      
+  #pagination strings
+  previous: "precedente"
+  next: "successivo"
+  
+  #breadcrumb strings
+  bc:
+    Groups: Lista Gruppi
+    Group: Gruppo
+    EditWaterPoint: Edit Dripplet

@@ -1,0 +1,34 @@
+- @title = t('.title')
+- @side_type = :community
+- @user.password = @user.password_confirmation = nil
+- unless @user.errors
+  .summary
+    = t('.summary')
+= error_messages_for :user
+- form_for :user, :url => users_path, :html=> {:id => 'reg', :name => 'reg', :onsubmit => 'return WH_reg_terms(this);'} do |f|
+
+  .row
+    =label_tag 'login', t('login')
+    =f.text_field :login
+
+  .row
+    =label_tag 'email', t('email')
+    =f.text_field :email
+
+  .row
+    =label_tag 'password', t('password')
+    =f.password_field :password
+
+  .row
+    =label_tag 'password_confirmation', t('confirm_password')
+    =f.password_field :password_confirmation
+
+  .row
+    =label_tag :note, t('note')
+    =f.text_area :note, :cols =>20, :rows =>4
+
+  %span.terms
+    = check_box_tag 'terms', 1, (params[:terms])
+    = t('.have_read_the_terms', :terms=>(link_to t('.terms'), :terms, :target=>:new, :class=>'ul'))
+  %span.submit
+    = submit_tag t('.submit')

@@ -1,0 +1,24 @@
+- @title = t '.title'
+- @side_type = :community
+.summary= t '.summary'
+%p
+  = link_to((t ".create_group"), new_group_path, :class=>'big_button')
+%br{:clear => "both"}/
+#groups
+  - unless @groups.blank?
+    - @groups.each do |group|
+      .group.bluelinebottom
+        .title
+          %h2= link_to h(group.title), group
+        .creator
+          = t '.created_by'
+          - unless group.creator.blank? or group.creator.login.blank?
+            = link_to h(group.creator.login), group.creator
+          - else
+            (missing)
+        - if logged_in? and (current_user.login == 'admin')
+          = link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete, :class => "admin"
+%br/
+%p
+  = link_to t(".create_group"), new_group_path, :class=>'big_button'
+%br{:clear => "both"}/

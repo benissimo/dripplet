@@ -1,0 +1,2 @@
+page[:send_message_text].value = ''
+page.visual_effect(:slide_down, 'thanks', :duration => 2.0) 

@@ -1,0 +1,17 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .header
+      = link_to image_tag("http://assets.dripplet.com/images/logo_gray.png",:border=>0,:alt=>"Dripplet.com"), 'http://www.dripplet.com/'
+      = link_to image_tag("http://assets.dripplet.com/images/dripplet_#{@locale}.png",:border=>0,:alt=>"Dripplet.com"), 'http://www.dripplet.com/'
+    %div{:style => "background-color:#295ba0; height:20px"} &nbsp;
+    %div
+      %h1 Dripplet.com
+      = yield
+    %div{:style => "padding-top:100px; border-bottom:solid 1px #ccc;"}
+      = t('.footer1')
+    %div{:style => "color:#295ba0; padding-top:20px"}
+      \&copy; #{link_to 'MadeInTomorrow s.r.l.', 'http://www.madeintomorrow.com/'} 2010 - All Rights Reserved
+    %div{:style => "padding-top:10px; color:#999; font-size:12px;"}
+      = t('.footer2',:email=>(h @to))

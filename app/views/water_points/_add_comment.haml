@@ -1,0 +1,13 @@
+#thanks{:style => "display:none;"}
+  %div
+    = t('.thanks_message')
+#add_comment
+  %div
+    - remote_form_for(:comment, :url => :comments, :method => :post, :html=>{:id=>:add_comment_form, :target=>:_self}) do |form|
+      %input{:name => "[comment]water_point_id", :type => "hidden", :value => @water_point.id}
+      = form.text_area :text, :cols =>40, :rows =>4, :id=>:add_comment_text
+      = check_box_tag 'subscribe', "1", @subscribed, :onclick => toggleSubscribe(@water_point)
+      = t('.receive_notify')
+      = image_tag 'spinner.gif', :id => "spinner-subscribe-#{@water_point.id}", :style=>'display:none'
+      %br{:clear => "both"}/
+      = submit_tag t('.submit'), :style=>"float:right"

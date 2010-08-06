@@ -1,0 +1,10 @@
+#thanks{:style => "display:none;"}
+  %div
+    = t '.thanks'
+#send_message
+  %div
+    .title= t '.title'
+    - form_remote_tag (:url => :message_to_group, :method => :post, :html=>{:id=>:message_group_form}) do
+      %input{:name => "id", :type => "hidden", :value => @group.id}
+        = text_area_tag 'message', nil, :cols =>40, :rows =>6, :id=>:send_message_text
+        = submit_tag t('.send')

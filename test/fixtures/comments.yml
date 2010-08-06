@@ -1,0 +1,30 @@
+# == Schema Information
+# Schema version: 20100613162817
+#
+# Table name: comments
+#
+#  id             :integer(4)      not null, primary key
+#  text           :text
+#  water_point_id :integer(4)
+#  user_id        :integer(4)
+#  ip_addr        :string(255)
+#  enabled        :boolean(1)      default(TRUE)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  text: MyText
+  water_point_id: 1
+  user_id: 1
+  created_at: 2009-12-01 17:56:48
+  ip_addr: MyString
+
+two:
+  text: MyText
+  water_point_id: 1
+  user_id: 1
+  created_at: 2009-12-01 17:56:48
+  ip_addr: MyString

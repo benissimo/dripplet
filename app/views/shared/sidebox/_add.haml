@@ -1,0 +1,6 @@
+#sidebox_title= t('.title')
+#sidebox
+  = t('.text')
+  %form{:action => new_water_point_path, :method => "GET"}
+    = submit_tag t('.submit'), {:class=>'submit'}
+    %br{:clear => "all"}/

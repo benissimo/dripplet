@@ -1,0 +1,18 @@
+%p
+  %b Text:
+  = h @comment.text
+%p
+  %b Water point:
+  = h @comment.water_point_id
+%p
+  %b User:
+  = h @comment.user_id
+%p
+  %b Created at:
+  = h @comment.created_at
+%p
+  %b Ip addr:
+  = h @comment.ip_addr
+= link_to 'Edit', edit_comment_path(@comment)
+|
+\#{link_to 'Back', comments_path}

@@ -1,0 +1,18 @@
+%h1 New vote
+- form_for(@vote) do |f|
+  = f.error_messages
+  %p
+    = f.label :water_point_id
+    %br/
+    = f.text_field :water_point_id
+  %p
+    = f.label :user_id
+    %br/
+    = f.text_field :user_id
+  %p
+    = f.label :rating
+    %br/
+    = f.text_field :rating
+  %p
+    = f.submit 'Create'
+= link_to 'Back', votes_path

@@ -1,0 +1,14 @@
+%h1 Listing group_members
+%table
+  %tr
+    %th User
+    %th Group
+  - @group_members.each do |group_member|
+    %tr
+      %td= h group_member.user_id
+      %td= h group_member.group_id
+      %td= link_to 'Show', group_member
+      %td= link_to 'Edit', edit_group_member_path(group_member)
+      %td= link_to 'Destroy', group_member, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New group_member', new_group_member_path

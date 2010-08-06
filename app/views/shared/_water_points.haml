@@ -1,0 +1,15 @@
+#water_points.water_points_list
+  - water_points.each do |water_point|
+    .wp
+      .photo{:style => "float:left; margin:8px;", :valign => "top"}
+        = photo_for water_point, :medium
+      .water_point{:style => "text-align:left; margin-top:20px; padding-top:6px;"}
+        %span.wp_result_title
+          = link_to h(water_point.title), water_point
+          - if current_user and (current_user.login == water_point.posted_by.login)
+            = link_to "(Edit)", {:action=>"edit",:id=>water_point.id,:controller=>"water_points"}
+            = link_to '(Delete)', {:action=>:disable, :id=>water_point.id, :controller=>"water_points"}, :confirm => 'Are you sure?', :method => :delete
+        %br/
+        = h(water_point.note)
+        - if logged_in? and (current_user.login == 'admin')
+          = link_to 'Destroy', water_point, :confirm => 'Are you sure?', :method => :delete, :class => "admin"

@@ -1,0 +1,16 @@
+%h1 Listing votes
+%table
+  %tr
+    %th Water point
+    %th User
+    %th Rating
+  - @votes.each do |vote|
+    %tr
+      %td= h vote.water_point_id
+      %td= h vote.user_id
+      %td= h vote.rating
+      %td= link_to 'Show', vote
+      %td= link_to 'Edit', edit_vote_path(vote)
+      %td= link_to 'Destroy', vote, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New vote', new_vote_path

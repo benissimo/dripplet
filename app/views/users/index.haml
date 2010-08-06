@@ -1,0 +1,19 @@
+- @title = t('.title')
+.wp_pagination.bluelinebottom
+  %span.sorting
+    %span.title
+      = t('.sort_by')
+    = link_to_unless((@sort == :date), t('.Date'), :sort=>nil)
+    \|
+    = link_to_unless((@sort == :alpha), t('.A-Z'), :sort=>'alpha')
+    \|
+    = link_to_unless((@sort == :posts), t('.Posts'), :sort=>'posts')
+    \|
+    = link_to_unless((@sort == :score), t('.Votes'), :sort=>'score')
+  %span.pages
+    = will_paginate @users
+= render 'shared/users', :object=>@users, :as=>@users
+.wp_pagination
+  \&nbsp;
+  %span.pages
+    = will_paginate @users, :page_links=>true

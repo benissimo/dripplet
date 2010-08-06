@@ -1,0 +1,29 @@
+- if @water_point.lat && @water_point.lng && @water_point.lng
+  - @gps = :true
+  - @title = t('.title_gps')
+- else
+  - @gps = nil
+  - @title = t('.title_no_gps')
+.maptitle
+.preview.bluelinetop.bluelinebottom
+  .previewtitle= t('.preview')
+  .previewimg
+    = photo_for @water_point, :medium
+  .previewtext
+    %span.wp_result_title= link_to h(@water_point.title), @water_point
+    %br/
+    = h(@water_point.note)
+  %br{:clear => "both"}/
+- form_for(@water_point, :html => { :multipart => true }) do |f|
+  = f.error_messages
+  %input{:name => "water_point[confirmed]", :type => "hidden", :value => "1"}/
+  = f.hidden_field :lat
+  = f.hidden_field :lng
+  .row
+    = f.label :title
+    = f.text_field :title
+  .row
+    = f.label :note
+    = f.text_area :note, :cols =>40, :rows =>4
+  %span.submit
+    = f.submit t('.submit')

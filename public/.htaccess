@@ -1,0 +1,54 @@
+<IfModule mod_headers.c>
+# any Header directives go here
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css)$">
+# allow Last-modified?
+#Header unset Last-Modified
+Header unset ETag
+FileETag None
+</FilesMatch>
+
+<IfModule mod_deflate.c>
+# Insert filter
+SetOutputFilter DEFLATE
+ 
+# Netscape 4.x has some problems...
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+ 
+# Netscape 4.06-4.08 have some more problems
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+ 
+# MSIE masquerades as Netscape, but it is fine
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+# Don't compress images
+SetEnvIfNoCase Request_URI \
+\.(?:gif|jpe?g|png)$ no-gzip dont-vary
+ 
+# Make sure proxies don't deliver the wrong content
+Header append Vary User-Agent env=!dont-vary
+</IfModule>
+
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+# 1 year
+ExpiresByType image/gif A29030400
+ExpiresByType image/png A29030400
+ExpiresByType image/jpg A29030400
+ExpiresByType image/jpeg A29030400
+ExpiresByType image/x-icon A29030400
+ExpiresByType application/pdf A29030400
+ExpiresByType text/css A29030400
+ExpiresByType text/x-component A29030400
+# 30 days
+ExpiresByType application/x-javascript A2592000
+ExpiresByType application/javascript A2592000
+ExpiresByType text/plain A2592000
+</IfModule>
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+%p
+  %b Water point:
+  = h @vote.water_point_id
+%p
+  %b User:
+  = h @vote.user_id
+%p
+  %b Rating:
+  = h @vote.rating
+= link_to 'Edit', edit_vote_path(@vote)
+|
+\#{link_to 'Back', votes_path}

@@ -1,0 +1,551 @@
+/* BEGIN global reset */
+/* END global reset */
+/* BEGIN STRUCTURE
+ *************************************************************** */
+/* DEFAULTS
+ * !ninesixty_gutter_width = 20px
+ * !ninesixty_grid_width = 960px
+ * !ninesixty_columns = 12
+ * Using instead:
+ * 24 columns
+ * 10px gutter width
+ * 960px grid width */
+/* line 75, ../../app/stylesheets/iphone.sass */
+#footer, #footer a, #copy, #powered {
+  color: black;
+}
+
+/* line 77, ../../app/stylesheets/iphone.sass */
+#powered a {
+  text-transform: uppercase;
+}
+
+/* lang */
+/* line 81, ../../app/stylesheets/iphone.sass */
+#lang {
+  font-weight: bold;
+}
+/* line 83, ../../app/stylesheets/iphone.sass */
+#lang a:hover {
+  color: #295ba0;
+  font-weight: bold;
+}
+
+/* admin */
+/* line 92, ../../app/stylesheets/iphone.sass */
+a.admin {
+  color: red;
+  text-decoration: underline;
+  font-weight: bold;
+}
+/* line 96, ../../app/stylesheets/iphone.sass */
+a.ul {
+  text-decoration: underline;
+}
+
+/* site layout */
+/* line 102, ../../app/stylesheets/iphone.sass */
+#logo {
+  height: 80px;
+  width: 80px;
+  text-indent: -9999em;
+  overflow: hidden;
+  text-align: left;
+  background-image: url(/images/2/logo_gray.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+/* line 109, ../../app/stylesheets/iphone.sass */
+#logo a {
+  display: block;
+  height: 100%;
+}
+
+/* line 112, ../../app/stylesheets/iphone.sass */
+#sitename_en, #sitename_it {
+  display: none;
+  width: 360px;
+  height: 80px;
+}
+/* line 119, ../../app/stylesheets/iphone.sass */
+#sitename_en a, #sitename_it a {
+  display: block;
+  height: 100%;
+}
+
+/* line 122, ../../app/stylesheets/iphone.sass */
+#sitename_en {
+  text-indent: -9999em;
+  overflow: hidden;
+  text-align: left;
+  background-image: url(/images/2/dripplet_en.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+/* line 124, ../../app/stylesheets/iphone.sass */
+#sitename_it {
+  text-indent: -9999em;
+  overflow: hidden;
+  text-align: left;
+  background-image: url(/images/2/dripplet_it.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+/* red, blue bg for debug */
+/* forms in general */
+/* line 130, ../../app/stylesheets/iphone.sass */
+input[type='text'], input[type='file'] {
+  /* nothing */
+}
+
+/* line 133, ../../app/stylesheets/iphone.sass */
+textarea {
+  /* nothing */
+}
+
+/* form error handling */
+/* line 138, ../../app/stylesheets/iphone.sass */
+.fieldWithErrors input {
+  border-color: red;
+}
+
+/* line 141, ../../app/stylesheets/iphone.sass */
+.errorExplanation ul {
+  list-style: disc outside none;
+  margin: auto;
+  padding: 2px 0px 0px 20px;
+  color: red;
+}
+/* line 142, ../../app/stylesheets/iphone.sass */
+.errorExplanation ul li {
+  list-style: disc outside none;
+  margin: auto;
+  padding: 4px 0px 4px 2px;
+  color: red;
+}
+
+/* line 152, ../../app/stylesheets/iphone.sass */
+#errorExplanation {
+  width: 100%;
+}
+
+/* utility classes */
+/* line 157, ../../app/stylesheets/iphone.sass */
+.bluelinetop {
+  border-top: 1px solid #295ba0;
+}
+
+/* line 160, ../../app/stylesheets/iphone.sass */
+.bluelinebottom {
+  border-bottom: 1px solid #295ba0;
+}
+
+/* line 163, ../../app/stylesheets/iphone.sass */
+.summary {
+  color: #999999;
+}
+
+/* status msgs */
+/* line 171, ../../app/stylesheets/iphone.sass */
+#prompt-msg {
+  background-color: #ff9900;
+  border: 1px dotted;
+  color: black;
+  font-size: 16px;
+  padding: 14px;
+}
+
+/* line 178, ../../app/stylesheets/iphone.sass */
+#notice-msg {
+  background-color: #c3ce00;
+  border: 1px dotted;
+  color: black;
+  font-size: 16px;
+  padding: 14px;
+}
+
+/* line 185, ../../app/stylesheets/iphone.sass */
+#error-msg, #errorExplanation {
+  background-color: red;
+  /*border:1px dotted; */
+}
+
+/* line 189, ../../app/stylesheets/iphone.sass */
+#error-msg {
+  color: black;
+  font-size: 16px;
+}
+
+/* line 194, ../../app/stylesheets/iphone.sass */
+#errorExplanation h2, #errorExplanation p, #errorExplanation ul li {
+  color: black;
+  font-size: 16px;
+}
+
+/* line 200, ../../app/stylesheets/iphone.sass */
+#errorExplanation p, #errorExplanation h2 {
+  display: none;
+}
+
+/* mapsearchbox or communitypromo */
+/* line 208, ../../app/stylesheets/iphone.sass */
+.mapfilterlabel {
+  color: #295ba0;
+}
+
+/* line 211, ../../app/stylesheets/iphone.sass */
+#fullscreen_overlay .mapfilterlabel {
+  color: white;
+}
+
+/* line 215, ../../app/stylesheets/iphone.sass */
+#sort_filter input {
+  border: none;
+}
+/* line 217, ../../app/stylesheets/iphone.sass */
+#sort_filter label {
+  color: #999999;
+}
+
+/* line 221, ../../app/stylesheets/iphone.sass */
+#fullscreen_overlay #sort_filter label {
+  color: white;
+}
+
+/* line 224, ../../app/stylesheets/iphone.sass */
+#header_title {
+  color: #295ba0;
+}
+
+/* line 229, ../../app/stylesheets/iphone.sass */
+.scorehl {
+  color: #d2238c;
+  font-size: 24px;
+  vertical-align: middle;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* line 236, ../../app/stylesheets/iphone.sass */
+.usernote {
+  color: #888888;
+}
+
+/* is this OK for all places where img appears or do we need to make this rule more context-specific? */
+/* line 241, ../../app/stylesheets/iphone.sass */
+img.avatar {
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* line 247, ../../app/stylesheets/iphone.sass */
+.avatar, .photo {
+  vertical-align: text-top;
+  border: 1px solid #dedede;
+}
+
+/* waterpoint results. to do: move all of these from inline to stylesheet */
+/* #water_points {margin:0px; width:400px;} */
+/* line 255, ../../app/stylesheets/iphone.sass */
+.wp_result_title {
+  font-weight: bold;
+}
+
+/* line 258, ../../app/stylesheets/iphone.sass */
+.wp {
+  clear: both;
+  border-bottom: 1px solid #ccccff;
+  padding-bottom: 40px;
+  min-height: 50px;
+}
+
+/* what color blue to use??? */
+/* line 266, ../../app/stylesheets/iphone.sass */
+.wp_pagination {
+  background-color: #eaeaea;
+  padding: 3px;
+}
+/* line 269, ../../app/stylesheets/iphone.sass */
+.wp_pagination .title {
+  font-weight: bold;
+  color: #295ba0;
+}
+/* line 272, ../../app/stylesheets/iphone.sass */
+.wp_pagination .sorting {
+  color: #888888;
+}
+/* line 274, ../../app/stylesheets/iphone.sass */
+.wp_pagination .sorting a {
+  color: #888888;
+  text-decoration: underline;
+}
+/* line 277, ../../app/stylesheets/iphone.sass */
+.wp_pagination .sorting a:hover {
+  text-decoration: underline;
+}
+/* line 279, ../../app/stylesheets/iphone.sass */
+.wp_pagination .pages {
+  float: right;
+}
+
+/* line 282, ../../app/stylesheets/iphone.sass */
+.pagination {
+  font-size: 0.9em;
+}
+/* line 283, ../../app/stylesheets/iphone.sass */
+.pagination a {
+  text-decoration: underline;
+}
+/* line 285, ../../app/stylesheets/iphone.sass */
+.pagination a:hover {
+  text-decoration: underline;
+}
+
+/* line 289, ../../app/stylesheets/iphone.sass */
+label {
+  font-weight: bold;
+}
+
+/* table-less forms */
+/* line 296, ../../app/stylesheets/iphone.sass */
+#reg .terms, #reg .terms a, #reg .forgot, #reg .forgot a, #auth .terms, #auth .terms a, #auth .forgot, #auth .forgot a, #new_group .terms, #new_group .terms a, #new_group .forgot, #new_group .forgot a, #new_water_point .terms, #new_water_point .terms a, #new_water_point .forgot, #new_water_point .forgot a, .edit_water_point .terms, .edit_water_point .terms a, .edit_water_point .forgot, .edit_water_point .forgot a {
+  color: #999999;
+}
+
+/* wp detail */
+/* line 303, ../../app/stylesheets/iphone.sass */
+.wpdetailwrapper {
+  background-color: #d8d8d8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  height: 90px;
+}
+
+/* line 309, ../../app/stylesheets/iphone.sass */
+.wpdetail {
+  /* height:80px; */
+  min-height: 80px;
+  /* overflow: auto; */
+  /*otherwise layout breaks with long descriptions... */
+  background-color: #eeeeee;
+  display: block;
+  padding: 5px;
+}
+
+/* line 320, ../../app/stylesheets/iphone.sass */
+.wpnote {
+  padding-left: 10px;
+  color: black;
+}
+
+/* line 325, ../../app/stylesheets/iphone.sass */
+.wpdetail .wpnote {
+  display: block;
+  padding-left: 0;
+}
+/* line 328, ../../app/stylesheets/iphone.sass */
+.wpdetail .photo {
+  float: left;
+  margin-right: 15px;
+}
+
+/* wp detail: vote */
+/* line 334, ../../app/stylesheets/iphone.sass */
+.wpvote {
+  background-color: #e5e5e5;
+  width: 120px;
+  height: 90px;
+}
+
+/* line 341, ../../app/stylesheets/iphone.sass */
+.votebox .title {
+  color: black;
+  font-weight: bold;
+  background: url(/images/aiuto.png) right no-repeat;
+  padding-left: 10px;
+  width: 110px;
+  height: 16px;
+}
+/* line 348, ../../app/stylesheets/iphone.sass */
+.votebox .upbox, .votebox .downbox {
+  float: left;
+  width: 45px;
+  margin-left: 10px;
+  background: white;
+}
+/* line 353, ../../app/stylesheets/iphone.sass */
+.votebox .upbox .score, .votebox .downbox .score {
+  border: 1px solid #cccccc;
+  margin: 1px;
+  text-align: center;
+  color: #333333;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 360, ../../app/stylesheets/iphone.sass */
+.votebox .vote {
+  margin: 1px;
+  border: 1px solid #cccccc;
+}
+/* line 363, ../../app/stylesheets/iphone.sass */
+.votebox .vote a {
+  display: block;
+  width: 41px;
+  color: white;
+  height: 24px;
+  text-decoration: none;
+}
+/* line 369, ../../app/stylesheets/iphone.sass */
+.votebox .vote a:hover {
+  text-decoration: none;
+}
+/* line 371, ../../app/stylesheets/iphone.sass */
+.votebox .upbox .vote a {
+  background: url(/images/up_off.png) no-repeat;
+}
+/* line 373, ../../app/stylesheets/iphone.sass */
+.votebox .downbox .vote a {
+  background: url(/images/down_off.png) no-repeat;
+}
+/* line 376, ../../app/stylesheets/iphone.sass */
+.votebox .upbox .vote a:hover, .votebox .upbox .vote a.on {
+  background: green url(/images/up_over.png) no-repeat;
+  color: green;
+  font-size: 0px;
+}
+/* line 381, ../../app/stylesheets/iphone.sass */
+.votebox .downbox .vote a:hover, .votebox .downbox .vote a.on {
+  background: red url(/images/down_over.png) no-repeat;
+  color: red;
+  font-size: 0px;
+}
+
+/* line 388, ../../app/stylesheets/iphone.sass */
+#comments .title {
+  background: url(/images/comments-logo.png) no-repeat;
+  padding-left: 40px;
+  padding-bottom: 40px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* line 395, ../../app/stylesheets/iphone.sass */
+.commentheader {
+  height: 30px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 400, ../../app/stylesheets/iphone.sass */
+.comment {
+  padding-left: 80px;
+  margin-bottom: 30px;
+}
+/* line 403, ../../app/stylesheets/iphone.sass */
+.comment a {
+  text-decoration: underline;
+}
+
+/* line 406, ../../app/stylesheets/iphone.sass */
+.commentremove {
+  float: right;
+}
+
+/* line 409, ../../app/stylesheets/iphone.sass */
+.commentbody {
+  padding-top: 10px;
+  color: black;
+}
+
+/* wp confirm */
+/* line 415, ../../app/stylesheets/iphone.sass */
+.preview {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 420, ../../app/stylesheets/iphone.sass */
+.previewtitle {
+  color: #999999;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+/* line 425, ../../app/stylesheets/iphone.sass */
+.previewimg {
+  float: left;
+}
+
+/* line 428, ../../app/stylesheets/iphone.sass */
+.previewtext {
+  padding-left: 80px;
+}
+
+/* homepage */
+/* line 434, ../../app/stylesheets/iphone.sass */
+#intro div .emphasis {
+  font-weight: bold;
+  color: black;
+}
+
+/* recaptcha: http://wiki.recaptcha.net/index.php/How_to_change_reCAPTCHA_colors */
+/* line 440, ../../app/stylesheets/iphone.sass */
+#recaptcha_table, .recaptchatable #recaptcha_image {
+  border-color: #295ba0 !important;
+  /* reCaptcha widget border color */
+}
+
+/* users */
+/* line 447, ../../app/stylesheets/iphone.sass */
+#users .user {
+  margin-top: 6px;
+  overflow: hidden;
+}
+/* line 450, ../../app/stylesheets/iphone.sass */
+#users .user .photobox {
+  vertical-align: middle;
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+/* line 455, ../../app/stylesheets/iphone.sass */
+#users .user .avatar {
+  width: 32px;
+  float: none;
+  margin: auto;
+}
+/* line 459, ../../app/stylesheets/iphone.sass */
+#users .title {
+  vertical-align: middle;
+  font-weight: bold;
+  width: 300px;
+  float: left;
+}
+/* line 464, ../../app/stylesheets/iphone.sass */
+#users .posts, #users .votes {
+  color: #999999;
+  font-size: 12px;
+  float: left;
+  width: 100px;
+}
+/* line 469, ../../app/stylesheets/iphone.sass */
+#users .profile {
+  float: left;
+  color: #999999;
+  font-size: 0.9em;
+}
+/* line 473, ../../app/stylesheets/iphone.sass */
+#users .profile a {
+  text-decoration: underline;
+  color: #999999;
+}
+
+/* line 480, ../../app/stylesheets/iphone.sass */
+#links .link a {
+  color: #999999;
+}

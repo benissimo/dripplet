@@ -1,0 +1,132 @@
+!!!
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %title
+      = @title + ' - ' + t('.page_title')
+    = stylesheet_link_tag 'iui', 'iphone' #no cache.
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no">
+    
+    / builder before effects, re: http://www.dotcompromotions.com.au/blog/?p=52
+    / skipping dragdrop and control.
+    = javascript_include_tag "prototype", "builder", "effects", "application", :cache => true
+
+
+    <link rel="apple-touch-icon" href="/images/iui/iui-logo-touch-icon.png" />
+
+    %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+    %meta{:content => "3Os66Agb0jnNDNPxdPu_vthSCSUXMFMySWr4m6s2ADI", :name => "google-site-verification"}/
+  %body
+    .toolbar
+      %h1#pageTitle="Dripplet"
+      %a#backButton.button{:href=>'#'}
+    #home{:selected=>"true",:title=>@title}
+      #page
+        -if @show_all
+          #controls
+            #user
+              = render 'users/user_bar'
+            #lang
+              = render 'shared/locale'
+          #logos
+            #logo
+              = link_to 'Home', root_path
+            %div{:id => "sitename_#{@locale}"}
+              = link_to 'Dripplet.com', root_path
+          #nav
+            %ul
+              %li= link_to_unless_current t(".nav.home"), root_path do |name| "<span>#{name}</span>" end
+              %li= link_to_unless_current t(".nav.map"), map_path  do |name| "<span>#{name}</span>" end
+              %li= link_to_unless_current t(".nav.add_wp"), new_water_point_path do |name| "<span>#{name}</span>" end
+              %li= link_to_unless_current t(".nav.users"), users_path  do |name| "<span>#{name}</span>" end
+              %li= link_to_unless_current t(".nav.groups"), groups_path do |name| "<span>#{name}</span>" end
+              %li= link_to_unless_current t(".nav.wp"), water_points_path do |name| "<span>#{name}</span>" end
+          #header
+            .big
+              = t('.big_header')
+            .medium
+              = t('.medium_header')
+              
+        - # end if show_all      
+        #content
+          -unless @show_all
+            #side
+              #breadcrumb
+                = t('.breadcrumb_in') 
+                - # ancestors breadcrumb does not fit in layout. skip it.
+                = link_to "Home", root_path
+                &gt;
+                - if @page_ancestors and false
+                  - for page in @page_ancestors.reverse
+                    = link_to h(page[:name]), page[:url]
+                    &gt;
+                = @bc_title || @title
+              //load sidebox
+
+          #main
+            -unless @show_all
+              %h1= @title
+            / page title                      
+            / status msgs                      
+            - if flash[:notice]
+              #notice-msg= h flash[:notice]
+            - elsif flash[:prompt]
+              #prompt-msg= h flash[:prompt]
+            - elsif flash[:error]
+              #error-msg= h flash[:error]
+
+            #main_content
+              = yield
+
+            - if @map
+              #map_container
+                %form#sort_filter{:method => "GET", :onsubmit => "return false;"}
+                  %span.mapfilterlabel= t('.filter.by')
+                  = radio_button_tag 'sort', 'all', (params[:sort].blank? or params[:sort] == "all")
+                  %label{:for => "sort_all"}= t('.filter.all')
+                  = radio_button_tag 'sort', 'score', (params[:sort] == "score")
+                  %label{:for => "sort_score"}= t('.filter.score')
+                  = radio_button_tag 'sort', 'visits', (params[:sort] == "visits")
+                  %label{:for => "sort_visits"}= t('.filter.visits')
+                  = radio_button_tag 'sort', 'comments', (params[:sort] == "comments")
+                  %label{:for => "sort_comments"}= t('.filter.comments')
+                - deferred do
+                  = javascript_tag "new Form.EventObserver($('sort_filter'),WH_LoadMarkerFeedRadioButtonFire);"
+                = @map.div
+                - if @side_type == :map_search
+                  = render 'shared/sidebox/mapsearch'
+                - elsif @side_type == :map_search_confirm
+                  = render 'shared/sidebox/mapsearchconfirm'
+              = #yield :map_side
+      - if @show_all
+        #footer
+          #footer_left
+            %span#copy= t('.copyright', :year=>Date.today.year)
+            %span.footernav
+              = link_to t('.netiquette'), netiquette_path
+              |
+              \#{link_to t('.credits'), credits_path}
+            |
+            %span#feedback= link_to_unless((request.params[:controller] == "feedback"), "Feedback", {:controller=>:feedback, :action=>:report, :ref=>request.url}) do |name| "<span>#{name}</span>" end   
+            |
+            %span= link_to_unless_current t(".nav.links"), links_path do |name| "<span>#{name}</span>" end
+           
+          #footer_right
+            %span#powered= t('.powered_by',:made=>(link_to t('.madeintomorrow'), 'http://www.madeintomorrow.com'))
+
+    = #javascript_include_tag "prototype", "effects", "builder", "dragdrop", "controls", "application", :cache => true
+    
+    - if @map
+      / begin map header      
+      :javascript
+        var mgr;
+        var feed_type;
+      = GMap.header(:hl=>"#{@locale}")
+      = @map.header_width_height(@map_conf[:width],@map_conf[:height])
+      = @map.to_html
+      / end map header    
+    / deferred javascript calls    
+    = @deferred_content

@@ -1,0 +1,19 @@
+- @title = t('.title') + " [#{@count} #{t '.drippletcount'}]"
+- @side_type = :community
+- @no_js = true
+.splash
+  %map{:name=>"hp_map"}
+    %area{:href=>"#{map_path}", :shape=>"rect", :coords=>"200,0,600,150"}
+    %area{:href=>"#{new_water_point_path}", :shape=>"rect", :coords=>"500,280,600,350"}
+  %img{:src=>"/images/2/hp_#{@locale}.png", :alt=>"homepage", :usemap=>"#hp_map"}
+    
+#intro
+  %div
+    %h2= "Dripplet project"
+    = t('.text1', :drippletlink=>(link_to t('.drippletlink'), :story, :class=>'ul'))
+  .moreintro
+    = t('.text2')
+  .moreintro
+    = t('shared.sidebox.community.text')
+    %p.emphasis
+      = t('shared.sidebox.community.title')

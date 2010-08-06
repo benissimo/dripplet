@@ -1,0 +1,14 @@
+- @title = t('.title')
+- @side_type = :uploading
+= error_messages_for :water_point, :photo
+.summary= t('.summary')
+- form_for(@water_point, :url=>{:locale => params[:locale], :action=>:create}, :html => { :multipart => true }) do |f|
+  = hidden_field_tag :locale, params[:locale]
+  .row
+    = f.label :title
+    = f.text_field :title
+  .row
+    = f.label :note
+    = f.text_area :note, :cols =>40, :rows =>4
+  %span.submit
+    = f.submit t('.submit')

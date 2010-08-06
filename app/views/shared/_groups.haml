@@ -1,0 +1,8 @@
+#groups.groups_list
+  - unless groups.blank?
+    .title.bluelinebottom=t('.member_of')
+    - groups.each do |group|
+      .group
+        = link_to h(group.title), group
+  .more.bluelinebottom
+    = link_to(t('.join'), groups_path)

@@ -1,0 +1,25 @@
+- @title = "#{t '.title', :group =>(h @group.title)}"
+- @side_type = :community
+%br/
+.bluelinebottom
+  %span
+    %h2= h @group.title
+  %span{:style => "float:right"}
+    = t '.created_by'
+    - unless @group.creator.blank? or @group.creator.login.blank?
+      = link_to h(@group.creator.login), @group.creator
+    - else
+      (missing)
+  %br{:clear => "all"}/
+- if logged_in?
+  #memberlistupdated{:style => "display:none"}
+    %div
+      = t '.member_list_updated'
+  %p{:align => "right"}
+    = check_box_tag 'subscribe', "1", @subscribed
+    = t '.join_this_group'
+    = button_to_function t('.save'), :onclick => toggleGroupMembership(@group), :class => 'subscription'
+  = image_tag 'spinner.gif', :id => "spinner-subscribe-#{@group.id}", :style=>'display:none'
+  = render 'groups/send_message'
+#members
+  = render 'groups/members'

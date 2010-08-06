@@ -1,0 +1,17 @@
+#users.users_list
+  - users.each do |user|
+    .user
+      %span.photobox= avatar_for user, :small
+      %span.title= link_to h(user.login), user
+      %span.posts
+        = h user.water_points_count
+        = t('.waterpoints')
+      %span.votes
+        = h user.up_scores
+        = t('.votes')
+      %span.profile= t('.view_profile', :profile=>(link_to t('.profile'), user))
+      - if logged_in? and (current_user.login == 'admin')
+        = link_to 'Purge', purge_user_path(user), :confirm => 'Are you sure? NB: this will destroy the user and all data created by that user.', :method => :delete, :action => :purge, :class=>"admin"
+        = link_to 'Disable', user, :confirm => 'Are you sure? NB: this will prevent the user from logging in.', :method => :delete, :action => :destroy, :class=>"admin"
+    %br{:clear => "all"}/
+    .bluelinebottom

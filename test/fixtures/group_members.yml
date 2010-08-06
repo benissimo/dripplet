@@ -1,0 +1,21 @@
+# == Schema Information
+# Schema version: 20100613162817
+#
+# Table name: group_members
+#
+#  id         :integer(4)      not null, primary key
+#  user_id    :integer(4)
+#  group_id   :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  group_id: 1
+
+two:
+  user_id: 1
+  group_id: 1

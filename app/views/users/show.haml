@@ -1,0 +1,25 @@
+- @title = t('.title')
+= avatar_for @user
+%h2.big= h @user.login
+- @side_type = :community
+%br{:clear => "all"}/
+%div
+  %b= t('.about_me')
+  %br/
+  %span.usernote= h @user.note
+%br/
+.bluelinebottom
+  %b= t('.user_water_points', :user=>@user.login)
+%br/
+= image_tag "marker_shadow.png", :style=>'vertical-align:middle'
+%span.scorehl= @user.water_points.visible.count
+= t('.posted')
+|
+%span.scorehl= @user.up_scores
+= t('.scores')
+= render 'shared/water_points', :object=>@user.water_points.visible.filo, :as=>@water_points
+- if logged_in? && current_user == @user
+  = render 'shared/groups', :object=>@user.groups, :as=>@groups
+  = link_to t('.Edit'), edit_user_path(@user)
+  |
+= link_to t('.Back'), users_path

@@ -1,0 +1,194 @@
+!!!
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %title
+      = @title + ' - ' + t('.page_title')
+    = stylesheet_link_tag "lightbox", "site2", :cache => true
+    /[if IE 7]
+      <style type="text/css">
+      \/* IE 7 hacks */
+      html>body input {width:auto;}
+      html>body textarea {width:;}
+      \.header {overflow:hidden; display:inline-block; position:relative}
+      \.welcome {position:absolute;}
+      </style>
+
+    - unless @no_js
+      / builder before effects, re: http://www.dotcompromotions.com.au/blog/?p=52
+      / skipping dragdrop and control.
+      = javascript_include_tag "prototype", "builder", "effects", "application", "lightbox", :cache => true
+    - if @map
+      <script src="http://maps.google.com/maps/api/js?sensor=false&language=#{@locale}" type="text/javascript"></script>
+      = javascript_include_tag "mm/markermanager_packed"
+
+      / begin map header      
+      :javascript
+        var mgr;
+        var feed_type;
+        var map;
+        var id_to_skip;
+
+      :css 
+        v:* { behavior:url(#default#VML);}
+        #map {
+          width: #{@map_conf[:width]}px;
+          height: #{@map_conf[:height]}px;
+        }
+        
+      :javascript
+        var infowindow = new google.maps.InfoWindow({maxWidth: 500});
+        var geocoder;
+
+        function load_map() {
+
+          geocoder = new google.maps.Geocoder();
+
+          var where2center = new google.maps.LatLng(#{@map['lat']},#{@map['lng']});
+          var mapOptions = {
+            center: where2center,
+            zoom: #{@map['zoom']},
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            streetViewControl: true
+          }
+
+          map = new google.maps.Map(document.getElementById("map"),mapOptions);
+
+          if ((#{@map_type.to_json} == 'detail') || (#{@map_type.to_json} == 'search')) {
+
+            infowindow.setContent('<div id="popup">' + #{@map['marker_info'].to_json} + '</div>');
+
+            var marker = new google.maps.Marker({
+              position: where2center,
+              map: map,
+              icon: "/images/markers/lightblue.png"
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+              if (infowindow) infowindow.close();
+              infowindow.open(map,marker);
+            });
+            infowindow.open(map,marker);
+            //invoking open the auto-pan does not add vertical space for the menu the way it does on click.          
+            //map.panTo(marker.getPosition());
+            //map.panBy(0,200);
+
+          }
+
+          if (#{@map_type.to_json} == 'confirm') {
+            #{@map['crosshair_js']}
+          }
+
+          window.WH_mgr = new MarkerManager(map);
+          id_to_skip = #{@map['skip_id'].to_json};
+          WH_LoadMarkerFeed(map,window.WH_mgr,'all',#{@map['skip_id'].to_json});
+
+        };
+
+    %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+    %meta{:content => "3Os66Agb0jnNDNPxdPu_vthSCSUXMFMySWr4m6s2ADI", :name => "google-site-verification"}/
+  %body{:onload => "#{@map.blank? ? '' : 'load_map()'}"}
+    #wrapper
+      #page
+        #controls
+          #user
+            = render 'users/user_bar'
+          #lang
+            = render 'shared/locale'
+        #logos
+          #logo
+            = link_to 'Home', root_path
+          %div{:id => "sitename_#{@locale}"}
+            = link_to 'Dripplet.com', root_path
+        #nav
+          %ul
+            %li= link_to_unless_current t(".nav.home"), root_path do |name| "<span>#{name}</span>" end
+            %li= link_to_unless_current t(".nav.map"), map_path  do |name| "<span>#{name}</span>" end
+            %li= link_to_unless_current t(".nav.add_wp"), new_water_point_path do |name| "<span>#{name}</span>" end
+            %li= link_to_unless_current t(".nav.users"), users_path  do |name| "<span>#{name}</span>" end
+            -# %li= link_to_unless_current t(".nav.groups"), groups_path do |name| "<span>#{name}</span>" end
+            %li= link_to_unless_current t(".nav.wp"), water_points_path do |name| "<span>#{name}</span>" end
+        #header
+          .big
+            = t('.big_header')
+          .medium
+            = t('.medium_header')
+        #content
+          #side
+            #breadcrumb
+              = t('.breadcrumb_in') 
+              - # ancestors breadcrumb does not fit in layout. skip it.
+              - if @page_ancestors and false
+                - for page in @page_ancestors.reverse
+                  = link_to h(page[:name]), page[:url]
+                  &gt;
+              = @bc_title || @title
+            //load sidebox
+            - if @side_type == :map_search
+              = render 'shared/sidebox/mapsearch'
+            - elsif @side_type == :map_search_confirm
+              = render 'shared/sidebox/mapsearchconfirm'
+            - elsif @side_type ==  :add
+              = render 'shared/sidebox/add'
+            - elsif @side_type ==  :uploading
+              = render 'shared/sidebox/upload'
+            - else
+              = render 'shared/sidebox/community'
+            #paypal_title
+              = t('.paypal_title')
+            #paypal
+              .text= t('.paypal_text1')
+              %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post"}
+                %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}
+                %input{:name => "hosted_button_id", :type => "hidden", :value => "JSWNNEURS9YV6"}
+                %input{:alt => "PayPal - The safer, easier way to pay online.", :border => "0", :name => "submit", :src => "https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif", :type => "image"}
+                %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypal.com/it_IT/i/scr/pixel.gif", :width => "1"}
+              .text
+                = t('.paypal_text2')
+              
+          #main
+            %h1= @title
+            / page title                      
+            / status msgs                      
+            - if flash[:notice]
+              #notice-msg= h flash[:notice]
+            - elsif flash[:prompt]
+              #prompt-msg= h flash[:prompt]
+            - elsif flash[:error]
+              #error-msg= h flash[:error]
+            / map: map and map_side get printed before main_content
+            - if @map
+              #map_container
+                %form#sort_filter{:method => "GET", :onsubmit => "return false;"}
+                  %span.mapfilterlabel= t('.filter.by')
+                  = radio_button_tag 'sort', 'all', (params[:sort].blank? or params[:sort] == "all")
+                  %label{:for => "sort_all"}= t('.filter.all')
+                  = radio_button_tag 'sort', 'score', (params[:sort] == "score")
+                  %label{:for => "sort_score"}= t('.filter.score')
+                  = radio_button_tag 'sort', 'visits', (params[:sort] == "visits")
+                  %label{:for => "sort_visits"}= t('.filter.visits')
+                  = radio_button_tag 'sort', 'comments', (params[:sort] == "comments")
+                  %label{:for => "sort_comments"}= t('.filter.comments')
+                - deferred do
+                  = javascript_tag "new Form.EventObserver($('sort_filter'),WH_LoadMarkerFeedRadioButtonFire);"
+                #map
+              = yield :map_side
+            #main_content
+              = yield
+      #footer
+        #footer_left
+          %span#copy= t('.copyright', :year=>Date.today.year)
+          %span.footernav
+            = link_to t('.netiquette'), netiquette_path
+            |
+            \#{link_to t('.credits'), credits_path}
+          |
+          %span#feedback= link_to_unless((request.params[:controller] == "feedback"), "Feedback", {:controller=>:feedback, :action=>:report, :ref=>request.url}) do |name| "<span>#{name}</span>" end   
+          |
+          %span= link_to_unless_current t(".nav.links"), links_path do |name| "<span>#{name}</span>" end
+           
+        #footer_right
+          %span#powered= t('.powered_by',:made=>(link_to t('.madeintomorrow'), 'http://www.madeintomorrow.com'))
+
+    / deferred javascript calls    
+    = @deferred_content

@@ -1,0 +1,18 @@
+- @title = t('.title')
+- @side_type = :add
+.wp_pagination.bluelinebottom
+  %span.sorting
+    %span.title
+      = t('.sort_by')
+    = link_to_unless((@sort == :score), t('.score'), :sort=>nil)
+    \|
+    = link_to_unless((@sort == :comments), t('.comments'), :sort=>'comments')
+    \|
+    = link_to_unless((@sort == :date), t('.date'), :sort=>'date')
+  %span.pages
+    = will_paginate @water_points
+= render 'shared/water_points', :object=>@water_points, :as=>@water_points
+.wp_pagination
+  \&nbsp;
+  %span.pages
+    = will_paginate (@water_points, :page_links=>true)

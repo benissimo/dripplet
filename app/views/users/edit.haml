@@ -1,0 +1,38 @@
+- @title = t(".title", :user =>(h @user.login))
+= error_messages_for :user, :avatar
+- form_for(@user, :html => { :multipart => true }) do |f|
+  = f.error_messages
+  %p
+    = f.label :email
+    %br/
+    %b= h @user.email
+  %p
+    = f.label :password
+    %br/
+    = f.text_field :password
+  %p
+    = f.label :password_confirmation
+    %br/
+    = f.text_field :password_confirmation
+  %p
+    = f.label :note
+    %br/
+    = f.text_area :note, :cols =>40, :rows =>4
+  %p
+    = label :user, :avatar
+    = avatar_for @user, :medium
+    %br/
+    = file_field_tag :avatar_file
+    %span.hint
+      = t('.hint')
+  %p
+    = f.submit t('.Update'), :class=>'big_button'
+- unless @user.groups.blank?
+  %p
+    = t('.member_of')
+    %ul
+      - @user.groups.each do |group|
+        %li= link_to h(group.title), group
+= link_to t('.Show'), @user
+|
+\#{link_to t('.Back'), users_path}

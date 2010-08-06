@@ -1,0 +1,9 @@
+%p
+  %b User:
+  = h @group_member.user_id
+%p
+  %b Group:
+  = h @group_member.group_id
+= link_to 'Edit', edit_group_member_path(@group_member)
+|
+\#{link_to 'Back', group_members_path}

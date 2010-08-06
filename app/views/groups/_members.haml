@@ -1,0 +1,18 @@
+%h2= t '.members'
+#users.users_list
+  - unless @group.blank? or @group.group_members.blank?
+    - @group.group_members.each do |m|
+      .user
+        %span.photobox= avatar_for m.user, :small
+        %span.title= link_to h(m.user.login), m.user
+        %span.posts
+          = h m.user.water_points_count
+          = t '.waterpoints'
+        %span.votes
+          = h m.user.up_scores
+          = t '.votes'
+        %span.profile= t ('.view_profile', :profile=>(link_to (t '.profile'), m.user))
+        - if logged_in? and (current_user.login == 'admin')
+          = link_to 'Destroy', m.user, :confirm => 'Are you sure? NB: this will destroy the user and all data created by that user.', :method => :delete, :class => "admin"
+      %br{:clear => "all"}/
+      .bluelinebottom

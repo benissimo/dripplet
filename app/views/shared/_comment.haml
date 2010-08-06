@@ -1,0 +1,11 @@
+%div{:id => "comment-#{comment.id}"}
+  = avatar_for comment.author
+  .comment
+    %span.commentuser
+      = link_to(comment.author.login, comment.author)
+    %span.commentremove
+      - if logged_in? && (current_user.login == comment.author.login)
+        = link_to(t(".remove_comment"), "javascript:void(0)", :onclick=> remove_comment(comment))
+        = image_tag('spinner.gif', :id=> "spinner-#{comment.id}",:style=> 'display: none')
+    .commentbody= h comment.text
+%br{:clear => "both"}/

@@ -1,0 +1,1309 @@
+//import compass utilities
+@import compass/utilities/general/reset.sass
+@import compass/utilities/general/clearfix.sass
+@import compass/utilities/text.sass
+//import 960 grid system
+@import 960/grid.sass
+//my rounded corners
+@import roundedcorners.sass
+
+=rounded-corners-nohtc($radius)
+  /* rounded corners
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+  
+//my colors
+$bgcolor: #ccc
+$pagecolor: #fff
+$langcolor: #3e8ef7 //sky blue
+$sideboxtitlecolor: #dfdfdf
+$quotecolor: #dfdfdf
+$quotehlcolor: #d2238c //fuchsia
+$labelcolor: #295ba0 //dark blue, default color for most text...
+
+
+/* BEGIN global reset
+
++global-reset
+
+/* END global reset
+
+
+/* BEGIN STRUCTURE
+   ***************************************************************
+
+body
+  text-align: center
+  background:
+    color: $bgcolor
+
+/* DEFAULTS
+   !ninesixty_gutter_width = 20px
+   !ninesixty_grid_width = 960px
+   !ninesixty_columns = 12
+   Using instead:
+   24 columns
+   10px gutter width
+   960px grid width
+
+$ninesixty_columns: 12
+$ninesixty_gutter_width: 10px
+$ninesixty_grid_width: 960px
+
+//my own vars
+$left_gutter: 10px
+$right_gutter: 10px
+$title_height: 50px
+
+$summary_right_gutter: 0px
+$error_right_gutter: 0px
+
+//
+///* site.css
+//   080AC1 titolo grande pagina: la più grande...
+//   3772FF titolo piccolo pagina:  trovala condividila bla bla
+//   625E5A sottotitolo lorem ipsum pagina
+//   3D3E3F tutti i contenuti testuali piccoli di testo quali intro, spiegazioni
+//   3772FF scritta water
+//   0A13BB scritta hunting
+//   d2238c fuchsia instead of 66cc33 (6c3)
+//   295ba0
+//   #295ba0 -- the only blue: now #295ba0
+//*/
+
+
+/* 
+  +grid(24, 24)
+  +alpha
+  +omega
+/* structure
+#wrapper
+  text-align: left
+  +grid-container
+  position: relative
+  z-index: 0
+  /* 0 instead of inherit
+  +has_layout
+  background:
+    color: $bgcolor
+  #page
+    +grid(24,24)
+    +alpha
+    +omega
+    background-color: $pagecolor
+    border: none
+    //need to specify border-color for IE 6 and 7...
+    border-color: $pagecolor 
+    +rounded-corners-nohtc(11px)
+    #controls
+      +grid(11,24)
+      +grid-prefix(13,24)
+      text-align: right
+      float: right
+      +alpha
+      +omega
+      #user
+        //float: left
+        +grid(6,24)
+        +alpha
+        text-align: right
+      #lang
+        ul
+          display: inline
+          float: right
+          margin-right: 20px
+        +grid(5,24)
+        +omega
+        //float: left
+        li
+          display: block
+          background-color: $langcolor
+          color: #fff
+          float: left
+          padding: 5px 3px
+          margin-left: 1px
+          text-align: center
+          width: 77px
+          a
+            color: #fff
+    #logos
+      +grid(12,24)
+      +alpha
+      padding-left: $left_gutter 
+      width: auto
+      #logo
+        display: inline
+        float: left
+        height: 80px
+        width: 80px
+        //+replace-text(unquote("../images/header/logoINAIL_header.png"))
+        +replace-text(unquote("/images/2/logo_gray.png"))
+        a
+          display: block
+          height: 100%
+      #sitename_en, #sitename_it
+        display: inline
+        float: left
+        width: 360px
+        height: 80px
+        a
+          display: block
+          height: 100%
+      #sitename_en
+        +replace-text(unquote("/images/2/dripplet_en.png"))
+      #sitename_it
+        +replace-text(unquote("/images/2/dripplet_it.png"))
+    #nav
+      +grid(12,24)
+      +omega
+      width: 490px
+      padding-top: 58px
+      ul
+        display: inline
+        float: right
+        margin-right: 10px
+        li
+          float: left
+          /* was: 0 6px
+          margin: 0 10px
+          font-size: 11px
+          color: black
+          font-weight: bold
+          text-transform: uppercase
+          a
+            font-size: 11px
+            color: black
+            font-weight: normal
+            text-transform: uppercase
+    #header
+      +grid(24,24)
+      +alpha
+      +omega
+      margin-top: 10px
+      background: url(/images/2/header_bg.png) repeat-x
+      height: 88px
+      .big, .medium
+        margin-left: $left_gutter + 20px
+        color: #fff
+      .big
+        margin-top: 20px
+        font-size: 1.6em
+      .medium
+        font-size: 1.2em
+    #content
+      +grid(24,24)
+      +alpha
+      +omega
+      #side
+        +grid(6,24)
+        +alpha
+        #breadcrumb
+          margin-left: $left_gutter
+          /* height: 20px
+          line-height: $title_height
+          font-size: 0.9em
+          color: black
+        #sidebox_title
+          background-color: $sideboxtitlecolor
+        #sidebox_title, #paypal_title
+          padding: 5px 0 5px $left_gutter
+          color: black
+          font-weight: bold
+          font-size: 1.0em
+          /* margin-top: 10px
+          margin-bottom: 20px
+        #sidebox, #paypal
+          color: black
+          font-size: 0.8em
+          padding-left: $left_gutter
+        #sidebox
+          height: 300px
+        #paypal
+          margin-bottom: 20px
+          form
+            margin: 20px 0
+            input 
+              /* paypal image input...
+              width: 160px
+              height: 47px
+              margin: 0 15px
+      #main
+        +grid(18,24)
+        +omega
+        /* overrides, instead of 710px and 0 margin right.
+        width: 690px
+        margin-right: 20px
+        #map_container
+          +grid(12,24)
+          +alpha
+        #map_side
+          +grid(6,24)
+          +omega
+      #main_content
+        +grid(18,24)
+        +alpha
+        +omega
+        /* overrides, instead of 710px and 0 margin right.
+        width: 690px
+        margin-right: 20px
+  #footer
+    +grid(24,24)
+    +alpha
+    +omega
+    margin-top: 10px
+    margin-bottom: 20px
+  #footer_left
+    +grid(14,24)
+    +alpha
+    text-align: left
+    margin-left: 20px
+  #footer_right
+    +grid(9,24)
+    /* leave room for margins... 
+    +omega
+    text-align: right
+    margin-right: 20px
+
+#footer, #footer a, #copy, #powered
+  font-size: 12px
+  color: #000
+#powered a
+  text-transform: uppercase
+
+#old
+  display: none
+/* font
+body, p, ol, ul, td, div, span, li, a, h1, h2, h3, h4, h5, h6, input, textarea
+  font-family: Arial
+
+/* links
+a
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+/* headers
+
+h1, h2, h3, h4, h5, h6
+  font-family: Georgia
+
+h1
+  font-size: 18px
+  line-height: $title_height
+
+/* lang
+#lang
+  a
+    &:hover
+      color: #295ba0
+      font-weight: bold
+  font-weight: bold
+
+#user
+  display: inline
+  float: left
+  color: black
+  font-size: 0.9em
+  padding-top: 6px
+  a
+    font-size: 0.9em
+    color: black
+
+/* admin
+
+a
+  &.admin
+    color: red
+    text-decoration: underline
+    font-weight: bold
+  &.ul
+    text-decoration: underline
+
+/* site layout
+
+h1, h2, h3
+  color: #295ba0
+
+h2.big
+  font-size: 36px
+  line-height: 36px
+
+body, p, ol, ul, td, a
+  color: #295ba0
+  font-family: Arial
+
+/* red, blue bg for debug
+
+.leftside .top, .rightside .top
+  background-color: #fff
+  height: 97px
+
+.leftside .top
+  background: url(/images/sx_top_shadow.jpg) no-repeat top right
+
+.rightside .top
+  background: url(/images/dx_top_shadow.jpg) no-repeat top left
+
+.leftside .middle, .rightside .middle
+  background-color: #295ba0
+  height: 80px
+
+/* add graduated bg, remove height
+
+.leftside .bottom
+  .edge
+    background: url(/images/ombra_page_sx.jpg) no-repeat top right
+    height: 500px
+  background: white url(/images/bg_main.jpg) repeat-x top right
+  height: 500px
+
+.rightside .bottom
+  .edge
+    background: url(/images/ombra_page_dx.jpg) no-repeat top left
+    height: 500px
+  background: white url(/images/bg_main.jpg) repeat-x top right
+  height: 500px
+
+.footer_edge
+  background-color: #295ba0
+
+
+.header
+  height: 97px
+  width: 940px
+  overflow: hidden
+
+#OLDlogo
+  height: 80px
+  width: 80px
+  margin-top: 8px
+
+/* forms in general
+/* form {width: 300px;}
+
+input
+  height: 24px
+  font-family: Arial
+  font-size: 12px
+  width: 100%
+input[type = 'text'], input[type = 'file']
+  border: 1px solid #295ba0
+
+textarea
+  border: 1px solid #295ba0
+  font-family: Arial
+  font-size: 12px
+  width: 100%
+
+/* form error handling
+
+.fieldWithErrors input
+  border-color: red
+
+.errorExplanation ul
+  li
+    list-style: disc outside none
+    margin: auto
+    padding: 4px 0px 4px 2px
+    color: red
+  list-style: disc outside none
+  margin: auto
+  padding: 2px 0px 0px 20px
+  color: red
+
+#errorExplanation
+  width: 100%
+
+/* utility classes
+
+.bluelinetop
+  border-top: 1px solid #295ba0
+
+.bluelinebottom
+  border-bottom: 1px solid #295ba0
+
+.summary
+  color: #999
+  padding-top: 34px
+  padding-bottom: 10px
+  padding-right: $summary_right_gutter
+  
+#errorExplanation
+  margin-right: $error_right_gutter
+  width: auto
+
+form
+  p
+    padding-bottom: 10px
+  &.edit_water_point
+    width: auto
+    height: auto
+  &#mapsearch, &#sort_filter
+    width: auto
+    height: auto
+    input
+      width: auto
+      height: auto
+
+input#notify
+  width: auto
+  height: auto
+
+form#add_comment_form
+  width: auto
+  height: auto
+  input
+    width: auto
+    height: auto
+
+input#subscribe
+  width: auto
+  height: auto
+
+#sidebox
+  form, input
+    width: auto
+    height: auto
+
+input#terms
+  width: auto
+  height: auto
+
+.maptitle
+  padding-top: 10px
+  padding-bottom: 10px
+
+/* NB: margin-top should be same as value of top for leader
+
+.contenttable
+  top: 31px
+  position: relative
+
+/* central content 940px width: 200 + 500 + 240
+
+.leftbar
+  width: 200px
+  padding-left: 6px
+
+.sidebar
+  width: 240px
+
+.main
+  width: 500px
+
+.top
+  height: 50px
+
+/* divider and leader
+
+.divider
+  height: 80px
+  width: 100%
+  background: #295ba0 url(/images/terra.jpg) no-repeat
+
+.leader
+  float: right
+  top: 26px
+  position: relative
+  font-weight: bold
+  font-size: 14px
+  color: #FFF
+  .box
+    float: left
+    width: 80px
+    img
+      height: 66px
+      width: 66px
+      background-color: gray
+      border: solid 1px #d2238c
+
+/* status msgs
+
+#prompt-msg
+  background-color: #FF9900
+  border: 1px dotted
+  color: black
+  font-size: 16px
+  padding: 14px
+
+#notice-msg
+  background-color: #C3CE00
+  border: 1px dotted
+  color: black
+  font-size: 16px
+  padding: 14px
+
+#error-msg, #errorExplanation
+  background-color: red
+  /*border:1px dotted;
+
+#error-msg
+  color: black
+  font-size: 16px
+
+#errorExplanation
+  h2, p, ul li
+    color: black
+    font-size: 16px
+
+#error-msg
+  padding: 14px
+
+#errorExplanation
+  ul
+    margin-left: 10px
+  p, h2
+    display: none
+
+#prompt-msg, #notice-msg, #error-msg
+
+/* mapsearchbox or communitypromo
+
+
+#sidebox
+  input
+    &.submit
+      float: right
+      margin-top: 5px
+      margin-bottom: 20px
+      padding: 3px 10px
+    &.search
+      width: 100%
+
+/* mapsearchbox or communitypromo
+#fullscreen_overlay
+  background-color: white
+  .logos
+    float: left
+    display: inline
+#fullscreen_overlay .topsearch
+  background-color: $langcolor
+  color: #FFF
+  font-size: 12px
+  padding: 10px
+  margin-bottom: 20px
+  #sidebox
+    padding: 0
+    margin: 0 0 0 0
+    text-align: left
+    input.submit
+      padding: 0
+      margin: 0
+  #sidebox_title, h2
+    display: none
+  input
+    &.search
+      width: 80%
+
+
+/* navigation
+
+.abovenav
+  height: 130px
+
+
+/* TO DO: revisit these rules....
+
+#container
+  position: relative
+  top: -50px
+  text-align: left
+  padding: 0 20px
+  min-height: 300px
+
+.main .image
+  float: right
+  background-color: #FFDDDD
+  width: 120px
+  height: 80px
+
+#map, .main .image
+  border: solid 1px #295ba0
+
+#sort_filter.fullscreen
+  position: fixed
+  height: 100px
+  width: 100%
+  top: 0
+  left: 50%
+  background: white
+  padding-top: 50px
+
+#wrapper #page #logos.fullscreen
+  position: fixed
+  height: 100px
+  width: 50%
+  top: 0
+  left: 0
+  background-color: white
+
+#map.fullscreen
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 100px
+  left: 0
+
+#map_toggle.fullscreen
+  position: fixed
+  top: 20px
+  left: 50%
+  background-color: white
+  /* border: solid 1px #295ba0
+
+#map_toggle.fullscreen a
+  text-decoration: underline
+
+#mapsearch.fullscreen #q
+  position: fixed
+  top: 70px
+  left: 50%
+  z-index: 999
+  height: 20px
+  width: 18%
+#mapsearch.fullscreen .submit
+  position: fixed
+  top: 70px
+  left: 70%
+  z-index: 999
+  height: 20px
+  width: 100px
+
+
+.mapfilterlabel
+  color: #295ba0
+  font-weight: bold
+  font-size: 12px
+
+#fullscreen_overlay .mapfilterlabel
+  color: white
+
+#sort_filter
+  margin-bottom: 10px
+  input
+    border: none
+  label
+    font-size: 9px
+    color: #999
+
+#fullscreen_overlay #sort_filter
+  margin-bottom: 0px
+  margin-top: 5px
+  label
+    color: white
+
+/* iphone app promo, paypal
+
+.app_promo .section, .paypal .section
+  border-bottom: 1px solid #cbcbcb
+  text-align: left
+  padding-top: 3px
+  padding-bottom: 3px
+  color: #999
+
+.app_promo .section span, .paypal .section span
+  margin-bottom: 10px
+  text-align: right
+  padding-left: 4px
+
+.app_promo .app
+  text-align: left
+  color: #888888
+  padding-top: 2px
+  img
+    float: right
+  span
+    font-size: 12px
+    &.title
+      font-size: 12px
+      font-weight: bold
+    &.blurb
+      line-height: 12px
+      a
+        color: #888
+        text-decoration: underline
+
+.paypal
+  width: 100%
+  text-align: center
+  .section
+    margin-bottom: 3px
+  input
+    border: none
+    width: 160px
+    height: 47px
+    margin: 3px auto
+  .text
+    text-align: left
+    color: #888
+    font-size: 12px
+
+.app_promo
+  margin-bottom: 20px
+
+.paypal
+  margin-bottom: 20px
+  .text
+    margin-bottom: 5px
+
+.air
+  height: 40px
+
+#header_title
+  font-size: 18px
+  color: #295ba0
+
+#OLD_header
+  background-color: #295ba0
+
+.welcome
+  font-weight: bold
+  color: #295ba0
+  font-size: 12px
+  a
+    font-weight: bold
+    color: #295ba0
+    font-size: 12px
+  display: inline
+  overflow: hidden
+  float: right
+  margin-top: 30px
+  margin-right: 10px
+
+/* OK for username up to 16 chars
+
+.hdrlogos
+  display: inline
+  overflow: hidden
+  float: left
+
+.welcome
+  div
+    display: inline
+    &#user-bar-action
+      display: block
+    a:hover
+      text-decoration: underline
+  .username a
+    color: #d2238c
+
+/* TO DO: find how to make this do a <br/> in place...
+
+/* bookmarks
+
+#bookmarkarea
+  margin-bottom: 5px
+
+.bookmark_text
+  font-size: 10px
+  color: #666
+
+#main_img
+  width: 475px
+  height: 280px
+  border: solid 1px #295ba0
+
+.steps
+  text-align: left
+  margin-bottom: -26px
+  font-family: Georgia
+  font-size: 20px
+  color: #295ba0
+  ol
+    li
+      font-family: Georgia
+      font-size: 20px
+      color: #295ba0
+      a
+        font-family: Georgia
+        font-size: 20px
+        color: #295ba0
+      padding-bottom: 20px
+    list-style: decimal
+    margin: 10px
+    padding: 40px 20px 20px 20px
+  a.hl
+    text-decoration: underline
+
+.promo_button
+  background: url(/images/promobutton.png) no-repeat
+  width: 191px
+  height: 42px
+  vertical-align: middle
+  padding-top: 10px
+  a
+    font-size: 18px
+    font-weight: normal
+    color: #FFF
+
+/* .promo_button a:hover { color:#295ba0;}
+
+.big_button
+  background: url(/images/promobutton.png) no-repeat
+  width: 191px
+  height: 42px
+  vertical-align: middle
+  line-height: 42px
+  float: right
+  border: none
+  font-size: 18px
+  font-weight: normal
+  color: #FFF
+  &:hover
+    text-decoration: underline
+
+/* .big_button:hover { color:#295ba0;}
+
+a.big_button
+  text-align: center
+
+
+/* hack fix for background image link bug
+
+/* user detail. same green used for border around leader imgs
+
+.scorehl
+  color: #d2238c
+  font-size: 24px
+  vertical-align: middle
+  padding-left: 6px
+  padding-right: 6px
+
+.usernote
+  color: #888888
+
+/* is this OK for all places where img appears or do we need to make this rule more context-specific?
+
+img.avatar
+  float: left
+  margin-right: 10px
+  margin-top: 10px
+  text-align: center
+
+.avatar, .photo
+  vertical-align: text-top
+  border: 1px solid #dedede
+
+/* waterpoint results. to do: move all of these from inline to stylesheet
+/* #water_points {margin:0px; width:400px;}
+
+.water_point
+
+.wp_result_title
+  font-weight: bold
+
+.wp
+  clear: both
+  border-bottom: 1px solid #ccf
+  padding-bottom: 40px
+  min-height: 50px
+
+/* what color blue to use???
+
+.wp_pagination
+  background-color: #eaeaea
+  padding: 3px
+  .title
+    font-weight: bold
+    color: #295ba0
+  .sorting
+    color: #888888
+    a
+      color: #888888
+      text-decoration: underline
+      &:hover
+        text-decoration: underline
+  .pages
+    float: right
+
+.pagination
+  a
+    text-decoration: underline
+    &:hover
+      text-decoration: underline
+  font-size: 0.9em
+
+label
+  font-weight: bold
+
+
+
+/* table-less forms
+#reg, #auth, #new_group, #new_water_point, .edit_water_point
+  label
+    +grid(4,24)
+    +alpha
+    color: #000
+    font-size: 14px
+    font-weight: normal  
+  .notify, .upload, .hint, .hint p
+    color: #000
+    font-size: 14px
+    font-weight: normal
+    label
+      width: auto
+      display: inline
+  .row
+    +grid(13,24)
+    +grid-suffix(5,24)
+    +alpha
+    +omega
+    margin-bottom: 10px
+  input, textarea
+    +grid(8,24)
+    +omega
+  .terms, .terms a, .forgot, .forgot a
+    color: #999
+    font-size: 12px
+  .terms, .submit, .forgot, .notify, .upload, .hint
+    +grid-prefix(4,24)
+    +alpha
+    +omega
+    +grid(8,24)
+    +grid-suffix(5,24)
+    margin-bottom: 10px
+    input
+      margin: 0
+      width: auto
+  .upload
+    margin-bottom: 2px
+  .terms input, .notify input
+    /* checkbox margin
+    margin-right: 10px
+  .submit input, .forgot a
+    float: right
+
+#new_water_point
+  #photo_file
+    width: auto
+    margin: 10px 0
+    display: block
+
+/* wp detail
+/* alignment of two columns of variable height thanks to: http://matthewjamestaylor.com/blog/equal-height-columns-2-column.htm
+.wpdetailwrapper2
+  clear: left
+  float: left
+  width: 100%
+  overflow: hidden
+  /* column 2 bgcolor
+  background-color: #e5e5e5
+
+.wpdetailwrapper
+  /* column 1 bgcolor
+  /* background-color: #d8d8d8 
+  /* commented out for IE7...
+  width: 100%
+  position: relative
+  float: left
+  /* right: 50% 
+  right: 80%
+  /* what is the correct width to set?
+  /* padding-top: 4px
+  /* padding-bottom: 4px
+  /* height: 90px
+
+.wpdetail
+  /* height:80px;
+  min-height: 100px
+  /* overflow: auto;
+  /*otherwise layout breaks with long descriptions...
+  background-color: #eeeeee
+  /* display: block
+  /* width: 46% 
+  width: 80%
+  /* what is the correct width?
+  /* left: 52% 
+  left: 80% 
+  /* what is the correct width?
+  position: relative
+  overflow: hidden
+  /* width: 546px
+  float: left
+  /* padding: 5px
+
+.wpnote
+  padding-left: 10px
+  color: black
+
+.wpdetail
+  .wpnote
+    display: block
+    padding-left: 0
+  .photo
+    float: left
+    margin-right: 15px
+
+/* wp detail: vote
+
+.wpvote
+  /* background-color: #e5e5e5
+  /* width: 120px
+  /* float: right
+  position: relative
+  overflow: hidden
+  /* width: 46%
+  width: 20% 
+  /* what is the correct width?
+  /* left: 56% 
+  left: 80%
+  /* what is the correct width?
+  float: left
+  /* height: 90px
+  
+.wpinner
+  margin: 6px
+
+.votebox
+  .title
+    color: black
+    font-weight: bold
+    background: url(/images/aiuto.png) right no-repeat
+    padding-left: 10px
+    width: 110px
+    height: 16px
+  .upbox, .downbox
+    float: left
+    width: 45px
+    margin-left: 10px
+    background: #fff
+  .upbox .score, .downbox .score
+    border: 1px solid #ccc
+    margin: 1px
+    text-align: center
+    color: #333
+    padding-top: 10px
+    padding-bottom: 10px
+  .vote
+    margin: 1px
+    border: 1px solid #ccc
+    a
+      display: block
+      width: 41px
+      color: #fff
+      height: 24px
+      text-decoration: none
+      &:hover
+        text-decoration: none
+  .upbox .vote a
+    background: url(/images/up_off.png) no-repeat
+  .downbox .vote a
+    background: url(/images/down_off.png) no-repeat
+  .upbox .vote a
+    &:hover, &.on
+      background: green url(/images/up_over.png) no-repeat
+      color: green
+      font-size: 0px
+  .downbox .vote a
+    &:hover, &.on
+      background: red url(/images/down_over.png) no-repeat
+      color: red
+      font-size: 0px
+
+.wpvote a.up
+
+#comments .title
+  background: url(/images/comments-logo.png) no-repeat
+  padding-left: 40px
+  padding-bottom: 40px
+  font-weight: bold
+  font-size: 16px
+
+.commentheader
+  height: 30px
+  padding-top: 10px
+  margin-bottom: 10px
+
+.comment
+  padding-left: 80px
+  margin-bottom: 30px
+  a
+    text-decoration: underline
+
+.commentremove
+  float: right
+
+.commentbody
+  padding-top: 10px
+  color: black
+
+/* wp confirm
+
+.preview
+  padding-top: 10px
+  padding-bottom: 10px
+  margin-bottom: 10px
+
+.previewtitle
+  color: #999
+  font-size: 14px
+  padding-bottom: 10px
+
+.previewimg
+  float: left
+
+.previewtext
+  padding-left: 80px
+
+/* homepage
+.splash
+  width: 690px
+  height: 350px
+  margin: 0
+#intro
+  div
+    float: left
+    display: inline
+    width: 190px
+    height: 220px
+    margin: 0
+    padding-left: 15px
+    padding-right: 15px
+    color: black
+    font-size: 12px
+    border-left: 1px solid #ccc
+    .emphasis
+      text-align: right
+      font-weight: bold
+      color: black
+      margin-top: 10px
+    h2
+      color: black
+      font-size: 14px
+      font-family: Arial
+      margin-bottom: 10px
+      font-weight: bold
+  .moreintro
+    /* values should add up to intro div height
+    padding-top: 24px
+    height: 196px
+
+/* recaptcha: http://wiki.recaptcha.net/index.php/How_to_change_reCAPTCHA_colors
+
+#recaptcha_table, .recaptchatable #recaptcha_image
+  border-color: #295ba0 !important
+  /* reCaptcha widget border color
+
+/* users
+
+#users
+  margin-top: 20px
+  .user
+    margin-top: 6px
+    overflow: hidden
+    .photobox
+      vertical-align: middle
+      float: left
+      width: 40px
+      height: 40px
+    .avatar
+      width: 32px
+      float: none
+      margin: auto
+  .title
+    vertical-align: middle
+    font-weight: bold
+    width: 300px
+    float: left
+  .posts, .votes
+    color: #999
+    font-size: 12px
+    float: left
+    width: 100px
+  .profile
+    float: left
+    color: #999
+    font-size: 0.9em
+    a
+      text-decoration: underline
+      color: #999
+
+/* create group
+
+form.new_group input, input.subscription
+  width: auto
+
+/* group page
+
+#send_message
+  .title
+    font-weight: bold
+    padding-left: 40px
+    height: 30px
+    background: url(/images/send-msg.png) no-repeat
+  input
+    width: auto
+    margin-top: 6px
+
+#message_group_form
+  text-align: right
+  width: auto
+
+#members h2
+  padding-left: 42px
+  padding-top: 8px
+  height: 36px
+  background: url(/images/members.png) no-repeat
+
+/* groups listings
+
+.group
+  .title
+    width: 250px
+    float: left
+  padding-top: 10px
+  padding-bottom: 10px
+
+
+/* groups listings on user page */
+#groups
+  margin: 20px 0
+  .title
+    font-weight: bold
+  .group
+    border-bottom: 1px solid #CCCCCF
+    height: 20px
+    margin-top: 0px
+  .more
+    margin-top: 20px
+
+/* links
+
+#links
+  .link
+    a
+      color: #999
+    padding-left: 50px
+    padding-top: 10px
+    padding-bottom: 10px
+    border-bottom: solid 1px #ccc
+  .category .title
+    padding-bottom: 10px
+    padding-top: 10px
+
+.about_us
+  margin-top: 10px
+
+.non_profit
+  font-size: 75%
+  margin: 10px 0
+  line-height: 1.2em
+
+.promo_one, .promo_two
+  font-family: arial
+  font-size: 14px
+  color: #939393
+
+.promo_one img, .promo_two img
+  border: dotted #939393 1px
+
+.promo_one, .promo_two
+  margin-top: 30px
+
+/* infowindow popup (maps)  
+#popup
+  overflow: auto
+  min-height: 100px
+  max-height: 200px
+  margin: 4px

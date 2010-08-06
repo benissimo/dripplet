@@ -1,0 +1,5 @@
+= I18n.t 'mailer.comment_notify.text',                                            |
+  :author => @comment.author.login,                                               |
+  :text => (h @comment.text),                                                     |
+  :link => (link_to (I18n.t 'mailer.comment_notify.link_text',:url=>@url), @url), |
+  :url => @url                                                                    |

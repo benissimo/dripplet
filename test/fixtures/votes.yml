@@ -1,0 +1,24 @@
+# == Schema Information
+# Schema version: 20100613162817
+#
+# Table name: votes
+#
+#  id             :integer(4)      not null, primary key
+#  water_point_id :integer(4)
+#  user_id        :integer(4)
+#  rating         :integer(4)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  water_point_id: 1
+  user_id: 1
+  rating: 1
+
+two:
+  water_point_id: 1
+  user_id: 1
+  rating: 1

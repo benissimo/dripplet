@@ -1,0 +1,36 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+----------------
+Useful command for testing production host performance:
+
+curl -u dripplet:dr1pdr0p --user-agent 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3' --trace-time -v -I 'http://www.dripplet.com/en/'
+
+NB: without valid (curl's default is not OK) useragent string, mod_security responds with 406.
+
+=================
+To Do:
+
+togliere la mappa dal homepage (0g)
+--> DONE. waiting on new layout from
+
+valutare come/se ridurre il peso della mappa in generale (lasciare che il browser lo tiene in cache, 
+omettere i marker degli altri dripplet quando l'utente naviga via iphone, ecc.)
+
+rifare il layout (2gg)
+
+offrire la possibilita' di modificare i dripplet (1g)
+
+controllare casi dove i coordinati delle mappe non corrispondono a quelli di google maps (se mi potete segnalare dei casi, controllero')
+
+aumentare il livello di zoom per le mappe in tutti i contesti tranne quella del mondo intero (0g)
+studiare se ci sia un modo di consentire la stampa della mappa del mondo intero ad alta risoluzione
+
+implementare e applicare procedure di batch import (2gg)
+
+dati in formato csv
+2800 fontanelle di andaluscia, ? fontanelle di roma
+sia con coordinati lat/lon che con indirizzi civici
+senza foto (andaluscia) oppure scaricando le foto da un sito (roma)
+assegnando i dripplet generati ad un insieme di utenti "finti" in modo che ognuno inserisce al massimo 100 dripplet
+scadenza il 15 giugno (o al massimo 19) in modo di essere pronto per l'evento a Spoleto

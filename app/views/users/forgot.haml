@@ -1,0 +1,13 @@
+- @title = t('.title')
+.summary= t('.summary')
+- form_tag forgot_password_check_path do
+  %p
+    = label_tag 'login'
+    %br/
+    = text_field_tag 'login', @login
+  %p
+    = label_tag 'email'
+    %br/
+    = text_field_tag 'email', @email
+  = link_to t('.Back'), login_path
+  %p{:align => "right"}= submit_tag t('.submit'), :class=>'big_button'

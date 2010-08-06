@@ -1,0 +1,14 @@
+#sidebox_title= t('.title')
+#sidebox
+  = t('.text')
+  - filler = ',true' if @map_type == :search
+  %form#mapsearch{:method => "GET", :onsubmit => "WH_address_search(this.q.value#{filler}); return false;"}
+    = text_field_tag 'q', params[:q], :size => 20, :maxlength => 75, :class=>'search'
+    = submit_tag t('.submit'), {:class=>'submit'}
+    %br{:clear => "all"}/
+  = t('.hint')
+  - if params[:q]
+    - deferred do
+      :javascript
+        WH_address_search($('q').value, true);
+    

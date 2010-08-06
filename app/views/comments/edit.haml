@@ -1,0 +1,28 @@
+%h1 Editing comment
+- form_for(@comment) do |f|
+  = f.error_messages
+  %p
+    = f.label :text
+    %br/
+    = f.text_area :text
+  %p
+    = f.label :water_point_id
+    %br/
+    = f.text_field :water_point_id
+  %p
+    = f.label :user_id
+    %br/
+    = f.text_field :user_id
+  %p
+    = f.label :created_at
+    %br/
+    = f.datetime_select :created_at
+  %p
+    = f.label :ip_addr
+    %br/
+    = f.text_field :ip_addr
+  %p
+    = f.submit 'Update'
+= link_to 'Show', @comment
+|
+\#{link_to 'Back', comments_path}

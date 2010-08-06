@@ -1,0 +1,41 @@
+- if logged_in?
+  - if @current_vote && @current_vote.rating
+    - up_class = @current_vote.rating == 1 ? 'on' : ''
+    - down_class = @current_vote.rating == -1 ? 'on' : ''
+  - else
+    - up_class = ''
+    - down_class = ''
+
+  #votebox.votebox
+    .title{:title => "vote UP to verify the water point, vote down if the water point is missing or is out of order"} verified WP
+    .upbox
+      .score
+        = h @water_point.up_score
+      .vote
+        - if @current_user && @current_user.login == @water_point.posted_by.login
+          / (you can't vote on your own posts)  
+          %a{:class=>up_class,:id=>'upvote',:href=>'javascript:void(0)',:title=>"cannot vote your own post"}
+        - else     
+          = link_to_remote("&nbsp;",                                                 |
+            :update=>'votebox',                                                      |
+            :url=>"/#{@locale}/votes/toggle",                                        |
+            :with => "'vote[rating]=1&amp;vote[water_point_id]=#{@water_point.id}'", |
+            :html=>{:class=>up_class,                                                |
+            :id=>'upvote'})                                                          |
+    .downbox
+      .score
+        = h @water_point.down_score
+      .vote
+        - if @current_user && @current_user.login == @water_point.posted_by.login
+          / (you can't vote on your own posts)  
+          %a{:class=>down_class,:id=>'downvote',:href=>'javascript:void(0)',:title=>"cannot vote your own post"}
+        - else     
+          = link_to_remote("&nbsp;",                                                  |
+            :update=>'votebox',                                                       |
+            :url=>"/#{@locale}/votes/toggle",                                         |
+            :with => "'vote[rating]=-1&amp;vote[water_point_id]=#{@water_point.id}'", |
+            :html=>{:class=>down_class,                                               |
+            :id=>'downvote'})                                                         |
+    = image_tag('spinner.gif', :id=> "spinner-vote-#{@water_point.id}",:style=> 'display: none')
+- else
+  = link_to "Login to cast your vote.", login_path

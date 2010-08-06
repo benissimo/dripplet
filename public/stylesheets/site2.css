@@ -1,0 +1,1872 @@
+/* BEGIN global reset */
+/* line 14, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 17, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+/* line 19, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 21, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+/* line 23, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 25, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: "" "";
+}
+/* line 96, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+}
+
+/* line 27, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* END global reset */
+/* BEGIN STRUCTURE
+ *************************************************************** */
+/* line 36, ../../app/stylesheets/site2.sass */
+body {
+  text-align: center;
+  background-color: #cccccc;
+}
+
+/* DEFAULTS
+ * !ninesixty_gutter_width = 20px
+ * !ninesixty_grid_width = 960px
+ * !ninesixty_columns = 12
+ * Using instead:
+ * 24 columns
+ * 10px gutter width
+ * 960px grid width */
+/* +grid(24, 24)
+ * +alpha
+ * +omega */
+/* structure */
+/* line 81, ../../app/stylesheets/site2.sass */
+#wrapper {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  position: relative;
+  z-index: 0;
+  /* 0 instead of inherit */
+  display: inline-block;
+  background-color: #cccccc;
+}
+/* line 8, ../../../../.rvm/gems/ruby-1.8.7-p249%rails2/gems/compass-0.10.2/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
+#wrapper {
+  display: block;
+}
+/* line 90, ../../app/stylesheets/site2.sass */
+#wrapper #page {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 950px;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: white;
+  border: none;
+  border-color: white;
+  /* rounded corners */
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  border-radius: 11px;
+}
+/* line 99, ../../app/stylesheets/site2.sass */
+#wrapper #page #controls {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 430px;
+  padding-left: 520px;
+  text-align: right;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 106, ../../app/stylesheets/site2.sass */
+#wrapper #page #controls #user {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 230px;
+  margin-left: 0;
+  text-align: right;
+}
+/* line 111, ../../app/stylesheets/site2.sass */
+#wrapper #page #controls #lang {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 190px;
+  margin-right: 0;
+}
+/* line 112, ../../app/stylesheets/site2.sass */
+#wrapper #page #controls #lang ul {
+  display: inline;
+  float: right;
+  margin-right: 20px;
+}
+/* line 119, ../../app/stylesheets/site2.sass */
+#wrapper #page #controls #lang li {
+  display: block;
+  background-color: #3e8ef7;
+  color: white;
+  float: left;
+  padding: 5px 3px;
+  margin-left: 1px;
+  text-align: center;
+  width: 77px;
+}
+/* line 128, ../../app/stylesheets/site2.sass */
+#wrapper #page #controls #lang li a {
+  color: white;
+}
+/* line 130, ../../app/stylesheets/site2.sass */
+#wrapper #page #logos {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 470px;
+  margin-left: 0;
+  padding-left: 10px;
+  width: auto;
+}
+/* line 135, ../../app/stylesheets/site2.sass */
+#wrapper #page #logos #logo {
+  display: inline;
+  float: left;
+  height: 80px;
+  width: 80px;
+  text-indent: -9999em;
+  overflow: hidden;
+  text-align: left;
+  background-image: url(/images/2/logo_gray.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+/* line 142, ../../app/stylesheets/site2.sass */
+#wrapper #page #logos #logo a {
+  display: block;
+  height: 100%;
+}
+/* line 145, ../../app/stylesheets/site2.sass */
+#wrapper #page #logos #sitename_en, #wrapper #page #logos #sitename_it {
+  display: inline;
+  float: left;
+  width: 360px;
+  height: 80px;
+}
+/* line 150, ../../app/stylesheets/site2.sass */
+#wrapper #page #logos #sitename_en a, #wrapper #page #logos #sitename_it a {
+  display: block;
+  height: 100%;
+}
+/* line 153, ../../app/stylesheets/site2.sass */
+#wrapper #page #logos #sitename_en {
+  text-indent: -9999em;
+  overflow: hidden;
+  text-align: left;
+  background-image: url(/images/2/dripplet_en.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+/* line 155, ../../app/stylesheets/site2.sass */
+#wrapper #page #logos #sitename_it {
+  text-indent: -9999em;
+  overflow: hidden;
+  text-align: left;
+  background-image: url(/images/2/dripplet_it.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+/* line 157, ../../app/stylesheets/site2.sass */
+#wrapper #page #nav {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 470px;
+  margin-right: 0;
+  width: 490px;
+  padding-top: 58px;
+}
+/* line 162, ../../app/stylesheets/site2.sass */
+#wrapper #page #nav ul {
+  display: inline;
+  float: right;
+  margin-right: 10px;
+}
+/* line 166, ../../app/stylesheets/site2.sass */
+#wrapper #page #nav ul li {
+  float: left;
+  /* was: 0 6px */
+  margin: 0 10px;
+  font-size: 11px;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* line 174, ../../app/stylesheets/site2.sass */
+#wrapper #page #nav ul li a {
+  font-size: 11px;
+  color: black;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+/* line 179, ../../app/stylesheets/site2.sass */
+#wrapper #page #header {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 950px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 10px;
+  background: url(/images/2/header_bg.png) repeat-x;
+  height: 88px;
+}
+/* line 186, ../../app/stylesheets/site2.sass */
+#wrapper #page #header .big, #wrapper #page #header .medium {
+  margin-left: 30px;
+  color: white;
+}
+/* line 189, ../../app/stylesheets/site2.sass */
+#wrapper #page #header .big {
+  margin-top: 20px;
+  font-size: 1.6em;
+}
+/* line 192, ../../app/stylesheets/site2.sass */
+#wrapper #page #header .medium {
+  font-size: 1.2em;
+}
+/* line 194, ../../app/stylesheets/site2.sass */
+#wrapper #page #content {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 950px;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 198, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 230px;
+  margin-left: 0;
+}
+/* line 201, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side #breadcrumb {
+  margin-left: 10px;
+  /* height: 20px */
+  line-height: 50px;
+  font-size: 0.9em;
+  color: black;
+}
+/* line 207, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side #sidebox_title {
+  background-color: #dfdfdf;
+}
+/* line 209, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side #sidebox_title, #wrapper #page #content #side #paypal_title {
+  padding: 5px 0 5px 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+  /* margin-top: 10px */
+  margin-bottom: 20px;
+}
+/* line 216, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side #sidebox, #wrapper #page #content #side #paypal {
+  color: black;
+  font-size: 0.8em;
+  padding-left: 10px;
+}
+/* line 220, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side #sidebox {
+  height: 300px;
+}
+/* line 222, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side #paypal {
+  margin-bottom: 20px;
+}
+/* line 224, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side #paypal form {
+  margin: 20px 0;
+}
+/* line 226, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #side #paypal form input {
+  /* paypal image input... */
+  width: 160px;
+  height: 47px;
+  margin: 0 15px;
+}
+/* line 231, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #main {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 710px;
+  margin-right: 0;
+  /* overrides, instead of 710px and 0 margin right. */
+  width: 690px;
+  margin-right: 20px;
+}
+/* line 237, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #main #map_container {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 470px;
+  margin-left: 0;
+}
+/* line 240, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #main #map_side {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 230px;
+  margin-right: 0;
+}
+/* line 243, ../../app/stylesheets/site2.sass */
+#wrapper #page #content #main_content {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 710px;
+  margin-left: 0;
+  margin-right: 0;
+  /* overrides, instead of 710px and 0 margin right. */
+  width: 690px;
+  margin-right: 20px;
+}
+/* line 250, ../../app/stylesheets/site2.sass */
+#wrapper #footer {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 950px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+/* line 256, ../../app/stylesheets/site2.sass */
+#wrapper #footer_left {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 550px;
+  margin-left: 0;
+  text-align: left;
+  margin-left: 20px;
+}
+/* line 261, ../../app/stylesheets/site2.sass */
+#wrapper #footer_right {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 350px;
+  /* leave room for margins... */
+  margin-right: 0;
+  text-align: right;
+  margin-right: 20px;
+}
+
+/* line 268, ../../app/stylesheets/site2.sass */
+#footer, #footer a, #copy, #powered {
+  font-size: 12px;
+  color: black;
+}
+
+/* line 271, ../../app/stylesheets/site2.sass */
+#powered a {
+  text-transform: uppercase;
+}
+
+/* line 274, ../../app/stylesheets/site2.sass */
+#old {
+  display: none;
+}
+
+/* font */
+/* line 277, ../../app/stylesheets/site2.sass */
+body, p, ol, ul, td, div, span, li, a, h1, h2, h3, h4, h5, h6, input, textarea {
+  font-family: Arial;
+}
+
+/* links */
+/* line 281, ../../app/stylesheets/site2.sass */
+a {
+  text-decoration: none;
+}
+/* line 283, ../../app/stylesheets/site2.sass */
+a:hover {
+  text-decoration: underline;
+}
+
+/* headers */
+/* line 288, ../../app/stylesheets/site2.sass */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia;
+}
+
+/* line 291, ../../app/stylesheets/site2.sass */
+h1 {
+  font-size: 18px;
+  line-height: 50px;
+}
+
+/* lang */
+/* line 296, ../../app/stylesheets/site2.sass */
+#lang {
+  font-weight: bold;
+}
+/* line 298, ../../app/stylesheets/site2.sass */
+#lang a:hover {
+  color: #295ba0;
+  font-weight: bold;
+}
+
+/* line 303, ../../app/stylesheets/site2.sass */
+#user {
+  display: inline;
+  float: left;
+  color: black;
+  font-size: 0.9em;
+  padding-top: 6px;
+}
+/* line 309, ../../app/stylesheets/site2.sass */
+#user a {
+  font-size: 0.9em;
+  color: black;
+}
+
+/* admin */
+/* line 316, ../../app/stylesheets/site2.sass */
+a.admin {
+  color: red;
+  text-decoration: underline;
+  font-weight: bold;
+}
+/* line 320, ../../app/stylesheets/site2.sass */
+a.ul {
+  text-decoration: underline;
+}
+
+/* site layout */
+/* line 325, ../../app/stylesheets/site2.sass */
+h1, h2, h3 {
+  color: #295ba0;
+}
+
+/* line 328, ../../app/stylesheets/site2.sass */
+h2.big {
+  font-size: 36px;
+  line-height: 36px;
+}
+
+/* line 332, ../../app/stylesheets/site2.sass */
+body, p, ol, ul, td, a {
+  color: #295ba0;
+  font-family: Arial;
+}
+
+/* red, blue bg for debug */
+/* line 338, ../../app/stylesheets/site2.sass */
+.leftside .top, .rightside .top {
+  background-color: white;
+  height: 97px;
+}
+
+/* line 342, ../../app/stylesheets/site2.sass */
+.leftside .top {
+  background: url(/images/sx_top_shadow.jpg) no-repeat top right;
+}
+
+/* line 345, ../../app/stylesheets/site2.sass */
+.rightside .top {
+  background: url(/images/dx_top_shadow.jpg) no-repeat top left;
+}
+
+/* line 348, ../../app/stylesheets/site2.sass */
+.leftside .middle, .rightside .middle {
+  background-color: #295ba0;
+  height: 80px;
+}
+
+/* add graduated bg, remove height */
+/* line 354, ../../app/stylesheets/site2.sass */
+.leftside .bottom {
+  background: white url(/images/bg_main.jpg) repeat-x top right;
+  height: 500px;
+}
+/* line 355, ../../app/stylesheets/site2.sass */
+.leftside .bottom .edge {
+  background: url(/images/ombra_page_sx.jpg) no-repeat top right;
+  height: 500px;
+}
+
+/* line 361, ../../app/stylesheets/site2.sass */
+.rightside .bottom {
+  background: white url(/images/bg_main.jpg) repeat-x top right;
+  height: 500px;
+}
+/* line 362, ../../app/stylesheets/site2.sass */
+.rightside .bottom .edge {
+  background: url(/images/ombra_page_dx.jpg) no-repeat top left;
+  height: 500px;
+}
+
+/* line 368, ../../app/stylesheets/site2.sass */
+.footer_edge {
+  background-color: #295ba0;
+}
+
+/* line 372, ../../app/stylesheets/site2.sass */
+.header {
+  height: 97px;
+  width: 940px;
+  overflow: hidden;
+}
+
+/* line 377, ../../app/stylesheets/site2.sass */
+#OLDlogo {
+  height: 80px;
+  width: 80px;
+  margin-top: 8px;
+}
+
+/* forms in general */
+/* form {width: 300px;} */
+/* line 385, ../../app/stylesheets/site2.sass */
+input {
+  height: 24px;
+  font-family: Arial;
+  font-size: 12px;
+  width: 100%;
+}
+
+/* line 390, ../../app/stylesheets/site2.sass */
+input[type='text'], input[type='file'] {
+  border: 1px solid #295ba0;
+}
+
+/* line 393, ../../app/stylesheets/site2.sass */
+textarea {
+  border: 1px solid #295ba0;
+  font-family: Arial;
+  font-size: 12px;
+  width: 100%;
+}
+
+/* form error handling */
+/* line 401, ../../app/stylesheets/site2.sass */
+.fieldWithErrors input {
+  border-color: red;
+}
+
+/* line 404, ../../app/stylesheets/site2.sass */
+.errorExplanation ul {
+  list-style: disc outside none;
+  margin: auto;
+  padding: 2px 0px 0px 20px;
+  color: red;
+}
+/* line 405, ../../app/stylesheets/site2.sass */
+.errorExplanation ul li {
+  list-style: disc outside none;
+  margin: auto;
+  padding: 4px 0px 4px 2px;
+  color: red;
+}
+
+/* line 415, ../../app/stylesheets/site2.sass */
+#errorExplanation {
+  width: 100%;
+}
+
+/* utility classes */
+/* line 420, ../../app/stylesheets/site2.sass */
+.bluelinetop {
+  border-top: 1px solid #295ba0;
+}
+
+/* line 423, ../../app/stylesheets/site2.sass */
+.bluelinebottom {
+  border-bottom: 1px solid #295ba0;
+}
+
+/* line 426, ../../app/stylesheets/site2.sass */
+.summary {
+  color: #999999;
+  padding-top: 34px;
+  padding-bottom: 10px;
+  padding-right: 0px;
+}
+
+/* line 432, ../../app/stylesheets/site2.sass */
+#errorExplanation {
+  margin-right: 0px;
+  width: auto;
+}
+
+/* line 437, ../../app/stylesheets/site2.sass */
+form p {
+  padding-bottom: 10px;
+}
+/* line 439, ../../app/stylesheets/site2.sass */
+form.edit_water_point {
+  width: auto;
+  height: auto;
+}
+/* line 442, ../../app/stylesheets/site2.sass */
+form#mapsearch, form#sort_filter {
+  width: auto;
+  height: auto;
+}
+/* line 445, ../../app/stylesheets/site2.sass */
+form#mapsearch input, form#sort_filter input {
+  width: auto;
+  height: auto;
+}
+
+/* line 449, ../../app/stylesheets/site2.sass */
+input#notify {
+  width: auto;
+  height: auto;
+}
+
+/* line 453, ../../app/stylesheets/site2.sass */
+form#add_comment_form {
+  width: auto;
+  height: auto;
+}
+/* line 456, ../../app/stylesheets/site2.sass */
+form#add_comment_form input {
+  width: auto;
+  height: auto;
+}
+
+/* line 460, ../../app/stylesheets/site2.sass */
+input#subscribe {
+  width: auto;
+  height: auto;
+}
+
+/* line 465, ../../app/stylesheets/site2.sass */
+#sidebox form, #sidebox input {
+  width: auto;
+  height: auto;
+}
+
+/* line 469, ../../app/stylesheets/site2.sass */
+input#terms {
+  width: auto;
+  height: auto;
+}
+
+/* line 473, ../../app/stylesheets/site2.sass */
+.maptitle {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* NB: margin-top should be same as value of top for leader */
+/* line 479, ../../app/stylesheets/site2.sass */
+.contenttable {
+  top: 31px;
+  position: relative;
+}
+
+/* central content 940px width: 200 + 500 + 240 */
+/* line 485, ../../app/stylesheets/site2.sass */
+.leftbar {
+  width: 200px;
+  padding-left: 6px;
+}
+
+/* line 489, ../../app/stylesheets/site2.sass */
+.sidebar {
+  width: 240px;
+}
+
+/* line 492, ../../app/stylesheets/site2.sass */
+.main {
+  width: 500px;
+}
+
+/* line 495, ../../app/stylesheets/site2.sass */
+.top {
+  height: 50px;
+}
+
+/* divider and leader */
+/* line 500, ../../app/stylesheets/site2.sass */
+.divider {
+  height: 80px;
+  width: 100%;
+  background: #295ba0 url(/images/terra.jpg) no-repeat;
+}
+
+/* line 505, ../../app/stylesheets/site2.sass */
+.leader {
+  float: right;
+  top: 26px;
+  position: relative;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+}
+/* line 512, ../../app/stylesheets/site2.sass */
+.leader .box {
+  float: left;
+  width: 80px;
+}
+/* line 515, ../../app/stylesheets/site2.sass */
+.leader .box img {
+  height: 66px;
+  width: 66px;
+  background-color: gray;
+  border: solid 1px #d2238c;
+}
+
+/* status msgs */
+/* line 523, ../../app/stylesheets/site2.sass */
+#prompt-msg {
+  background-color: #ff9900;
+  border: 1px dotted;
+  color: black;
+  font-size: 16px;
+  padding: 14px;
+}
+
+/* line 530, ../../app/stylesheets/site2.sass */
+#notice-msg {
+  background-color: #c3ce00;
+  border: 1px dotted;
+  color: black;
+  font-size: 16px;
+  padding: 14px;
+}
+
+/* line 537, ../../app/stylesheets/site2.sass */
+#error-msg, #errorExplanation {
+  background-color: red;
+  /*border:1px dotted; */
+}
+
+/* line 541, ../../app/stylesheets/site2.sass */
+#error-msg {
+  color: black;
+  font-size: 16px;
+}
+
+/* line 546, ../../app/stylesheets/site2.sass */
+#errorExplanation h2, #errorExplanation p, #errorExplanation ul li {
+  color: black;
+  font-size: 16px;
+}
+
+/* line 550, ../../app/stylesheets/site2.sass */
+#error-msg {
+  padding: 14px;
+}
+
+/* line 554, ../../app/stylesheets/site2.sass */
+#errorExplanation ul {
+  margin-left: 10px;
+}
+/* line 556, ../../app/stylesheets/site2.sass */
+#errorExplanation p, #errorExplanation h2 {
+  display: none;
+}
+
+/* mapsearchbox or communitypromo */
+/* line 566, ../../app/stylesheets/site2.sass */
+#sidebox input.submit {
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  padding: 3px 10px;
+}
+/* line 571, ../../app/stylesheets/site2.sass */
+#sidebox input.search {
+  width: 100%;
+}
+
+/* mapsearchbox or communitypromo */
+/* line 575, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay {
+  background-color: white;
+}
+/* line 577, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay .logos {
+  float: left;
+  display: inline;
+}
+
+/* line 580, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay .topsearch {
+  background-color: #3e8ef7;
+  color: white;
+  font-size: 12px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+/* line 586, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay .topsearch #sidebox {
+  padding: 0;
+  margin: 0 0 0 0;
+  text-align: left;
+}
+/* line 590, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay .topsearch #sidebox input.submit {
+  padding: 0;
+  margin: 0;
+}
+/* line 593, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay .topsearch #sidebox_title, #fullscreen_overlay .topsearch h2 {
+  display: none;
+}
+/* line 596, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay .topsearch input.search {
+  width: 80%;
+}
+
+/* navigation */
+/* line 602, ../../app/stylesheets/site2.sass */
+.abovenav {
+  height: 130px;
+}
+
+/* TO DO: revisit these rules.... */
+/* line 608, ../../app/stylesheets/site2.sass */
+#container {
+  position: relative;
+  top: -50px;
+  text-align: left;
+  padding: 0 20px;
+  min-height: 300px;
+}
+
+/* line 615, ../../app/stylesheets/site2.sass */
+.main .image {
+  float: right;
+  background-color: #ffdddd;
+  width: 120px;
+  height: 80px;
+}
+
+/* line 621, ../../app/stylesheets/site2.sass */
+#map, .main .image {
+  border: solid 1px #295ba0;
+}
+
+/* line 624, ../../app/stylesheets/site2.sass */
+#sort_filter.fullscreen {
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  background: white;
+  padding-top: 50px;
+}
+
+/* line 633, ../../app/stylesheets/site2.sass */
+#wrapper #page #logos.fullscreen {
+  position: fixed;
+  height: 100px;
+  width: 50%;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+/* line 641, ../../app/stylesheets/site2.sass */
+#map.fullscreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 100px;
+  left: 0;
+}
+
+/* line 648, ../../app/stylesheets/site2.sass */
+#map_toggle.fullscreen {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  background-color: white;
+  /* border: solid 1px #295ba0 */
+}
+
+/* line 655, ../../app/stylesheets/site2.sass */
+#map_toggle.fullscreen a {
+  text-decoration: underline;
+}
+
+/* line 658, ../../app/stylesheets/site2.sass */
+#mapsearch.fullscreen #q {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  z-index: 999;
+  height: 20px;
+  width: 18%;
+}
+
+/* line 665, ../../app/stylesheets/site2.sass */
+#mapsearch.fullscreen .submit {
+  position: fixed;
+  top: 70px;
+  left: 70%;
+  z-index: 999;
+  height: 20px;
+  width: 100px;
+}
+
+/* line 674, ../../app/stylesheets/site2.sass */
+.mapfilterlabel {
+  color: #295ba0;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* line 679, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay .mapfilterlabel {
+  color: white;
+}
+
+/* line 682, ../../app/stylesheets/site2.sass */
+#sort_filter {
+  margin-bottom: 10px;
+}
+/* line 684, ../../app/stylesheets/site2.sass */
+#sort_filter input {
+  border: none;
+}
+/* line 686, ../../app/stylesheets/site2.sass */
+#sort_filter label {
+  font-size: 9px;
+  color: #999999;
+}
+
+/* line 690, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay #sort_filter {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+/* line 693, ../../app/stylesheets/site2.sass */
+#fullscreen_overlay #sort_filter label {
+  color: white;
+}
+
+/* iphone app promo, paypal */
+/* line 698, ../../app/stylesheets/site2.sass */
+.app_promo .section, .paypal .section {
+  border-bottom: 1px solid #cbcbcb;
+  text-align: left;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: #999999;
+}
+
+/* line 705, ../../app/stylesheets/site2.sass */
+.app_promo .section span, .paypal .section span {
+  margin-bottom: 10px;
+  text-align: right;
+  padding-left: 4px;
+}
+
+/* line 710, ../../app/stylesheets/site2.sass */
+.app_promo .app {
+  text-align: left;
+  color: #888888;
+  padding-top: 2px;
+}
+/* line 714, ../../app/stylesheets/site2.sass */
+.app_promo .app img {
+  float: right;
+}
+/* line 716, ../../app/stylesheets/site2.sass */
+.app_promo .app span {
+  font-size: 12px;
+}
+/* line 718, ../../app/stylesheets/site2.sass */
+.app_promo .app span.title {
+  font-size: 12px;
+  font-weight: bold;
+}
+/* line 721, ../../app/stylesheets/site2.sass */
+.app_promo .app span.blurb {
+  line-height: 12px;
+}
+/* line 723, ../../app/stylesheets/site2.sass */
+.app_promo .app span.blurb a {
+  color: #888888;
+  text-decoration: underline;
+}
+
+/* line 727, ../../app/stylesheets/site2.sass */
+.paypal {
+  width: 100%;
+  text-align: center;
+}
+/* line 730, ../../app/stylesheets/site2.sass */
+.paypal .section {
+  margin-bottom: 3px;
+}
+/* line 732, ../../app/stylesheets/site2.sass */
+.paypal input {
+  border: none;
+  width: 160px;
+  height: 47px;
+  margin: 3px auto;
+}
+/* line 737, ../../app/stylesheets/site2.sass */
+.paypal .text {
+  text-align: left;
+  color: #888888;
+  font-size: 12px;
+}
+
+/* line 742, ../../app/stylesheets/site2.sass */
+.app_promo {
+  margin-bottom: 20px;
+}
+
+/* line 745, ../../app/stylesheets/site2.sass */
+.paypal {
+  margin-bottom: 20px;
+}
+/* line 747, ../../app/stylesheets/site2.sass */
+.paypal .text {
+  margin-bottom: 5px;
+}
+
+/* line 750, ../../app/stylesheets/site2.sass */
+.air {
+  height: 40px;
+}
+
+/* line 753, ../../app/stylesheets/site2.sass */
+#header_title {
+  font-size: 18px;
+  color: #295ba0;
+}
+
+/* line 757, ../../app/stylesheets/site2.sass */
+#OLD_header {
+  background-color: #295ba0;
+}
+
+/* line 760, ../../app/stylesheets/site2.sass */
+.welcome {
+  font-weight: bold;
+  color: #295ba0;
+  font-size: 12px;
+  display: inline;
+  overflow: hidden;
+  float: right;
+  margin-top: 30px;
+  margin-right: 10px;
+}
+/* line 764, ../../app/stylesheets/site2.sass */
+.welcome a {
+  font-weight: bold;
+  color: #295ba0;
+  font-size: 12px;
+}
+
+/* OK for username up to 16 chars */
+/* line 776, ../../app/stylesheets/site2.sass */
+.hdrlogos {
+  display: inline;
+  overflow: hidden;
+  float: left;
+}
+
+/* line 782, ../../app/stylesheets/site2.sass */
+.welcome div {
+  display: inline;
+}
+/* line 784, ../../app/stylesheets/site2.sass */
+.welcome div#user-bar-action {
+  display: block;
+}
+/* line 786, ../../app/stylesheets/site2.sass */
+.welcome div a:hover {
+  text-decoration: underline;
+}
+/* line 788, ../../app/stylesheets/site2.sass */
+.welcome .username a {
+  color: #d2238c;
+}
+
+/* TO DO: find how to make this do a <br/> in place... */
+/* bookmarks */
+/* line 795, ../../app/stylesheets/site2.sass */
+#bookmarkarea {
+  margin-bottom: 5px;
+}
+
+/* line 798, ../../app/stylesheets/site2.sass */
+.bookmark_text {
+  font-size: 10px;
+  color: #666666;
+}
+
+/* line 802, ../../app/stylesheets/site2.sass */
+#main_img {
+  width: 475px;
+  height: 280px;
+  border: solid 1px #295ba0;
+}
+
+/* line 807, ../../app/stylesheets/site2.sass */
+.steps {
+  text-align: left;
+  margin-bottom: -26px;
+  font-family: Georgia;
+  font-size: 20px;
+  color: #295ba0;
+}
+/* line 813, ../../app/stylesheets/site2.sass */
+.steps ol {
+  list-style: decimal;
+  margin: 10px;
+  padding: 40px 20px 20px 20px;
+}
+/* line 814, ../../app/stylesheets/site2.sass */
+.steps ol li {
+  font-family: Georgia;
+  font-size: 20px;
+  color: #295ba0;
+  padding-bottom: 20px;
+}
+/* line 818, ../../app/stylesheets/site2.sass */
+.steps ol li a {
+  font-family: Georgia;
+  font-size: 20px;
+  color: #295ba0;
+}
+/* line 826, ../../app/stylesheets/site2.sass */
+.steps a.hl {
+  text-decoration: underline;
+}
+
+/* line 829, ../../app/stylesheets/site2.sass */
+.promo_button {
+  background: url(/images/promobutton.png) no-repeat;
+  width: 191px;
+  height: 42px;
+  vertical-align: middle;
+  padding-top: 10px;
+}
+/* line 835, ../../app/stylesheets/site2.sass */
+.promo_button a {
+  font-size: 18px;
+  font-weight: normal;
+  color: white;
+}
+
+/* .promo_button a:hover { color:#295ba0;} */
+/* line 842, ../../app/stylesheets/site2.sass */
+.big_button {
+  background: url(/images/promobutton.png) no-repeat;
+  width: 191px;
+  height: 42px;
+  vertical-align: middle;
+  line-height: 42px;
+  float: right;
+  border: none;
+  font-size: 18px;
+  font-weight: normal;
+  color: white;
+}
+/* line 853, ../../app/stylesheets/site2.sass */
+.big_button:hover {
+  text-decoration: underline;
+}
+
+/* .big_button:hover { color:#295ba0;} */
+/* line 858, ../../app/stylesheets/site2.sass */
+a.big_button {
+  text-align: center;
+}
+
+/* hack fix for background image link bug */
+/* user detail. same green used for border around leader imgs */
+/* line 866, ../../app/stylesheets/site2.sass */
+.scorehl {
+  color: #d2238c;
+  font-size: 24px;
+  vertical-align: middle;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* line 873, ../../app/stylesheets/site2.sass */
+.usernote {
+  color: #888888;
+}
+
+/* is this OK for all places where img appears or do we need to make this rule more context-specific? */
+/* line 878, ../../app/stylesheets/site2.sass */
+img.avatar {
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* line 884, ../../app/stylesheets/site2.sass */
+.avatar, .photo {
+  vertical-align: text-top;
+  border: 1px solid #dedede;
+}
+
+/* waterpoint results. to do: move all of these from inline to stylesheet */
+/* #water_points {margin:0px; width:400px;} */
+/* line 893, ../../app/stylesheets/site2.sass */
+.wp_result_title {
+  font-weight: bold;
+}
+
+/* line 896, ../../app/stylesheets/site2.sass */
+.wp {
+  clear: both;
+  border-bottom: 1px solid #ccccff;
+  padding-bottom: 40px;
+  min-height: 50px;
+}
+
+/* what color blue to use??? */
+/* line 904, ../../app/stylesheets/site2.sass */
+.wp_pagination {
+  background-color: #eaeaea;
+  padding: 3px;
+}
+/* line 907, ../../app/stylesheets/site2.sass */
+.wp_pagination .title {
+  font-weight: bold;
+  color: #295ba0;
+}
+/* line 910, ../../app/stylesheets/site2.sass */
+.wp_pagination .sorting {
+  color: #888888;
+}
+/* line 912, ../../app/stylesheets/site2.sass */
+.wp_pagination .sorting a {
+  color: #888888;
+  text-decoration: underline;
+}
+/* line 915, ../../app/stylesheets/site2.sass */
+.wp_pagination .sorting a:hover {
+  text-decoration: underline;
+}
+/* line 917, ../../app/stylesheets/site2.sass */
+.wp_pagination .pages {
+  float: right;
+}
+
+/* line 920, ../../app/stylesheets/site2.sass */
+.pagination {
+  font-size: 0.9em;
+}
+/* line 921, ../../app/stylesheets/site2.sass */
+.pagination a {
+  text-decoration: underline;
+}
+/* line 923, ../../app/stylesheets/site2.sass */
+.pagination a:hover {
+  text-decoration: underline;
+}
+
+/* line 927, ../../app/stylesheets/site2.sass */
+label {
+  font-weight: bold;
+}
+
+/* table-less forms */
+/* line 934, ../../app/stylesheets/site2.sass */
+#reg label, #auth label, #new_group label, #new_water_point label, .edit_water_point label {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 150px;
+  margin-left: 0;
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+}
+/* line 940, ../../app/stylesheets/site2.sass */
+#reg .notify, #reg .upload, #reg .hint, #reg .hint p, #auth .notify, #auth .upload, #auth .hint, #auth .hint p, #new_group .notify, #new_group .upload, #new_group .hint, #new_group .hint p, #new_water_point .notify, #new_water_point .upload, #new_water_point .hint, #new_water_point .hint p, .edit_water_point .notify, .edit_water_point .upload, .edit_water_point .hint, .edit_water_point .hint p {
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+}
+/* line 944, ../../app/stylesheets/site2.sass */
+#reg .notify label, #reg .upload label, #reg .hint label, #reg .hint p label, #auth .notify label, #auth .upload label, #auth .hint label, #auth .hint p label, #new_group .notify label, #new_group .upload label, #new_group .hint label, #new_group .hint p label, #new_water_point .notify label, #new_water_point .upload label, #new_water_point .hint label, #new_water_point .hint p label, .edit_water_point .notify label, .edit_water_point .upload label, .edit_water_point .hint label, .edit_water_point .hint p label {
+  width: auto;
+  display: inline;
+}
+/* line 947, ../../app/stylesheets/site2.sass */
+#reg .row, #auth .row, #new_group .row, #new_water_point .row, .edit_water_point .row {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 510px;
+  padding-right: 200px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+/* line 953, ../../app/stylesheets/site2.sass */
+#reg input, #reg textarea, #auth input, #auth textarea, #new_group input, #new_group textarea, #new_water_point input, #new_water_point textarea, .edit_water_point input, .edit_water_point textarea {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 310px;
+  margin-right: 0;
+}
+/* line 956, ../../app/stylesheets/site2.sass */
+#reg .terms, #reg .terms a, #reg .forgot, #reg .forgot a, #auth .terms, #auth .terms a, #auth .forgot, #auth .forgot a, #new_group .terms, #new_group .terms a, #new_group .forgot, #new_group .forgot a, #new_water_point .terms, #new_water_point .terms a, #new_water_point .forgot, #new_water_point .forgot a, .edit_water_point .terms, .edit_water_point .terms a, .edit_water_point .forgot, .edit_water_point .forgot a {
+  color: #999999;
+  font-size: 12px;
+}
+/* line 959, ../../app/stylesheets/site2.sass */
+#reg .terms, #reg .submit, #reg .forgot, #reg .notify, #reg .upload, #reg .hint, #auth .terms, #auth .submit, #auth .forgot, #auth .notify, #auth .upload, #auth .hint, #new_group .terms, #new_group .submit, #new_group .forgot, #new_group .notify, #new_group .upload, #new_group .hint, #new_water_point .terms, #new_water_point .submit, #new_water_point .forgot, #new_water_point .notify, #new_water_point .upload, #new_water_point .hint, .edit_water_point .terms, .edit_water_point .submit, .edit_water_point .forgot, .edit_water_point .notify, .edit_water_point .upload, .edit_water_point .hint {
+  padding-left: 160px;
+  margin-left: 0;
+  margin-right: 0;
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 310px;
+  padding-right: 200px;
+  margin-bottom: 10px;
+}
+/* line 966, ../../app/stylesheets/site2.sass */
+#reg .terms input, #reg .submit input, #reg .forgot input, #reg .notify input, #reg .upload input, #reg .hint input, #auth .terms input, #auth .submit input, #auth .forgot input, #auth .notify input, #auth .upload input, #auth .hint input, #new_group .terms input, #new_group .submit input, #new_group .forgot input, #new_group .notify input, #new_group .upload input, #new_group .hint input, #new_water_point .terms input, #new_water_point .submit input, #new_water_point .forgot input, #new_water_point .notify input, #new_water_point .upload input, #new_water_point .hint input, .edit_water_point .terms input, .edit_water_point .submit input, .edit_water_point .forgot input, .edit_water_point .notify input, .edit_water_point .upload input, .edit_water_point .hint input {
+  margin: 0;
+  width: auto;
+}
+/* line 969, ../../app/stylesheets/site2.sass */
+#reg .upload, #auth .upload, #new_group .upload, #new_water_point .upload, .edit_water_point .upload {
+  margin-bottom: 2px;
+}
+/* line 971, ../../app/stylesheets/site2.sass */
+#reg .terms input, #reg .notify input, #auth .terms input, #auth .notify input, #new_group .terms input, #new_group .notify input, #new_water_point .terms input, #new_water_point .notify input, .edit_water_point .terms input, .edit_water_point .notify input {
+  /* checkbox margin */
+  margin-right: 10px;
+}
+/* line 974, ../../app/stylesheets/site2.sass */
+#reg .submit input, #reg .forgot a, #auth .submit input, #auth .forgot a, #new_group .submit input, #new_group .forgot a, #new_water_point .submit input, #new_water_point .forgot a, .edit_water_point .submit input, .edit_water_point .forgot a {
+  float: right;
+}
+
+/* line 978, ../../app/stylesheets/site2.sass */
+#new_water_point #photo_file {
+  width: auto;
+  margin: 10px 0;
+  display: block;
+}
+
+/* wp detail */
+/* alignment of two columns of variable height thanks to: http://matthewjamestaylor.com/blog/equal-height-columns-2-column.htm */
+/* line 985, ../../app/stylesheets/site2.sass */
+.wpdetailwrapper2 {
+  clear: left;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  /* column 2 bgcolor */
+  background-color: #e5e5e5;
+}
+
+/* line 993, ../../app/stylesheets/site2.sass */
+.wpdetailwrapper {
+  /* column 1 bgcolor */
+  /* background-color: #d8d8d8 */
+  /* commented out for IE7... */
+  width: 100%;
+  position: relative;
+  float: left;
+  /* right: 50% */
+  right: 80%;
+  /* what is the correct width to set? */
+  /* padding-top: 4px */
+  /* padding-bottom: 4px */
+  /* height: 90px */
+}
+
+/* line 1007, ../../app/stylesheets/site2.sass */
+.wpdetail {
+  /* height:80px; */
+  min-height: 100px;
+  /* overflow: auto; */
+  /*otherwise layout breaks with long descriptions... */
+  background-color: #eeeeee;
+  /* display: block */
+  /* width: 46% */
+  width: 80%;
+  /* what is the correct width? */
+  /* left: 52% */
+  left: 80%;
+  /* what is the correct width? */
+  position: relative;
+  overflow: hidden;
+  /* width: 546px */
+  float: left;
+  /* padding: 5px */
+}
+
+/* line 1026, ../../app/stylesheets/site2.sass */
+.wpnote {
+  padding-left: 10px;
+  color: black;
+}
+
+/* line 1031, ../../app/stylesheets/site2.sass */
+.wpdetail .wpnote {
+  display: block;
+  padding-left: 0;
+}
+/* line 1034, ../../app/stylesheets/site2.sass */
+.wpdetail .photo {
+  float: left;
+  margin-right: 15px;
+}
+
+/* wp detail: vote */
+/* line 1040, ../../app/stylesheets/site2.sass */
+.wpvote {
+  /* background-color: #e5e5e5 */
+  /* width: 120px */
+  /* float: right */
+  position: relative;
+  overflow: hidden;
+  /* width: 46% */
+  width: 20%;
+  /* what is the correct width? */
+  /* left: 56% */
+  left: 80%;
+  /* what is the correct width? */
+  float: left;
+  /* height: 90px */
+}
+
+/* line 1055, ../../app/stylesheets/site2.sass */
+.wpinner {
+  margin: 6px;
+}
+
+/* line 1059, ../../app/stylesheets/site2.sass */
+.votebox .title {
+  color: black;
+  font-weight: bold;
+  background: url(/images/aiuto.png) right no-repeat;
+  padding-left: 10px;
+  width: 110px;
+  height: 16px;
+}
+/* line 1066, ../../app/stylesheets/site2.sass */
+.votebox .upbox, .votebox .downbox {
+  float: left;
+  width: 45px;
+  margin-left: 10px;
+  background: white;
+}
+/* line 1071, ../../app/stylesheets/site2.sass */
+.votebox .upbox .score, .votebox .downbox .score {
+  border: 1px solid #cccccc;
+  margin: 1px;
+  text-align: center;
+  color: #333333;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 1078, ../../app/stylesheets/site2.sass */
+.votebox .vote {
+  margin: 1px;
+  border: 1px solid #cccccc;
+}
+/* line 1081, ../../app/stylesheets/site2.sass */
+.votebox .vote a {
+  display: block;
+  width: 41px;
+  color: white;
+  height: 24px;
+  text-decoration: none;
+}
+/* line 1087, ../../app/stylesheets/site2.sass */
+.votebox .vote a:hover {
+  text-decoration: none;
+}
+/* line 1089, ../../app/stylesheets/site2.sass */
+.votebox .upbox .vote a {
+  background: url(/images/up_off.png) no-repeat;
+}
+/* line 1091, ../../app/stylesheets/site2.sass */
+.votebox .downbox .vote a {
+  background: url(/images/down_off.png) no-repeat;
+}
+/* line 1094, ../../app/stylesheets/site2.sass */
+.votebox .upbox .vote a:hover, .votebox .upbox .vote a.on {
+  background: green url(/images/up_over.png) no-repeat;
+  color: green;
+  font-size: 0px;
+}
+/* line 1099, ../../app/stylesheets/site2.sass */
+.votebox .downbox .vote a:hover, .votebox .downbox .vote a.on {
+  background: red url(/images/down_over.png) no-repeat;
+  color: red;
+  font-size: 0px;
+}
+
+/* line 1106, ../../app/stylesheets/site2.sass */
+#comments .title {
+  background: url(/images/comments-logo.png) no-repeat;
+  padding-left: 40px;
+  padding-bottom: 40px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* line 1113, ../../app/stylesheets/site2.sass */
+.commentheader {
+  height: 30px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 1118, ../../app/stylesheets/site2.sass */
+.comment {
+  padding-left: 80px;
+  margin-bottom: 30px;
+}
+/* line 1121, ../../app/stylesheets/site2.sass */
+.comment a {
+  text-decoration: underline;
+}
+
+/* line 1124, ../../app/stylesheets/site2.sass */
+.commentremove {
+  float: right;
+}
+
+/* line 1127, ../../app/stylesheets/site2.sass */
+.commentbody {
+  padding-top: 10px;
+  color: black;
+}
+
+/* wp confirm */
+/* line 1133, ../../app/stylesheets/site2.sass */
+.preview {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 1138, ../../app/stylesheets/site2.sass */
+.previewtitle {
+  color: #999999;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+/* line 1143, ../../app/stylesheets/site2.sass */
+.previewimg {
+  float: left;
+}
+
+/* line 1146, ../../app/stylesheets/site2.sass */
+.previewtext {
+  padding-left: 80px;
+}
+
+/* homepage */
+/* line 1150, ../../app/stylesheets/site2.sass */
+.splash {
+  width: 690px;
+  height: 350px;
+  margin: 0;
+}
+
+/* line 1155, ../../app/stylesheets/site2.sass */
+#intro div {
+  float: left;
+  display: inline;
+  width: 190px;
+  height: 220px;
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: black;
+  font-size: 12px;
+  border-left: 1px solid #cccccc;
+}
+/* line 1166, ../../app/stylesheets/site2.sass */
+#intro div .emphasis {
+  text-align: right;
+  font-weight: bold;
+  color: black;
+  margin-top: 10px;
+}
+/* line 1171, ../../app/stylesheets/site2.sass */
+#intro div h2 {
+  color: black;
+  font-size: 14px;
+  font-family: Arial;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+/* line 1177, ../../app/stylesheets/site2.sass */
+#intro .moreintro {
+  /* values should add up to intro div height */
+  padding-top: 24px;
+  height: 196px;
+}
+
+/* recaptcha: http://wiki.recaptcha.net/index.php/How_to_change_reCAPTCHA_colors */
+/* line 1184, ../../app/stylesheets/site2.sass */
+#recaptcha_table, .recaptchatable #recaptcha_image {
+  border-color: #295ba0 !important;
+  /* reCaptcha widget border color */
+}
+
+/* users */
+/* line 1190, ../../app/stylesheets/site2.sass */
+#users {
+  margin-top: 20px;
+}
+/* line 1192, ../../app/stylesheets/site2.sass */
+#users .user {
+  margin-top: 6px;
+  overflow: hidden;
+}
+/* line 1195, ../../app/stylesheets/site2.sass */
+#users .user .photobox {
+  vertical-align: middle;
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+/* line 1200, ../../app/stylesheets/site2.sass */
+#users .user .avatar {
+  width: 32px;
+  float: none;
+  margin: auto;
+}
+/* line 1204, ../../app/stylesheets/site2.sass */
+#users .title {
+  vertical-align: middle;
+  font-weight: bold;
+  width: 300px;
+  float: left;
+}
+/* line 1209, ../../app/stylesheets/site2.sass */
+#users .posts, #users .votes {
+  color: #999999;
+  font-size: 12px;
+  float: left;
+  width: 100px;
+}
+/* line 1214, ../../app/stylesheets/site2.sass */
+#users .profile {
+  float: left;
+  color: #999999;
+  font-size: 0.9em;
+}
+/* line 1218, ../../app/stylesheets/site2.sass */
+#users .profile a {
+  text-decoration: underline;
+  color: #999999;
+}
+
+/* create group */
+/* line 1224, ../../app/stylesheets/site2.sass */
+form.new_group input, input.subscription {
+  width: auto;
+}
+
+/* group page */
+/* line 1230, ../../app/stylesheets/site2.sass */
+#send_message .title {
+  font-weight: bold;
+  padding-left: 40px;
+  height: 30px;
+  background: url(/images/send-msg.png) no-repeat;
+}
+/* line 1235, ../../app/stylesheets/site2.sass */
+#send_message input {
+  width: auto;
+  margin-top: 6px;
+}
+
+/* line 1239, ../../app/stylesheets/site2.sass */
+#message_group_form {
+  text-align: right;
+  width: auto;
+}
+
+/* line 1243, ../../app/stylesheets/site2.sass */
+#members h2 {
+  padding-left: 42px;
+  padding-top: 8px;
+  height: 36px;
+  background: url(/images/members.png) no-repeat;
+}
+
+/* groups listings */
+/* line 1251, ../../app/stylesheets/site2.sass */
+.group {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 1252, ../../app/stylesheets/site2.sass */
+.group .title {
+  width: 250px;
+  float: left;
+}
+
+/* groups listings on user page */
+/* line 1260, ../../app/stylesheets/site2.sass */
+#groups {
+  margin: 20px 0;
+}
+/* line 1262, ../../app/stylesheets/site2.sass */
+#groups .title {
+  font-weight: bold;
+}
+/* line 1264, ../../app/stylesheets/site2.sass */
+#groups .group {
+  border-bottom: 1px solid #cccccf;
+  height: 20px;
+  margin-top: 0px;
+}
+/* line 1268, ../../app/stylesheets/site2.sass */
+#groups .more {
+  margin-top: 20px;
+}
+
+/* links */
+/* line 1274, ../../app/stylesheets/site2.sass */
+#links .link {
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #cccccc;
+}
+/* line 1275, ../../app/stylesheets/site2.sass */
+#links .link a {
+  color: #999999;
+}
+/* line 1281, ../../app/stylesheets/site2.sass */
+#links .category .title {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+/* line 1285, ../../app/stylesheets/site2.sass */
+.about_us {
+  margin-top: 10px;
+}
+
+/* line 1288, ../../app/stylesheets/site2.sass */
+.non_profit {
+  font-size: 75%;
+  margin: 10px 0;
+  line-height: 1.2em;
+}
+
+/* line 1293, ../../app/stylesheets/site2.sass */
+.promo_one, .promo_two {
+  font-family: arial;
+  font-size: 14px;
+  color: #939393;
+}
+
+/* line 1298, ../../app/stylesheets/site2.sass */
+.promo_one img, .promo_two img {
+  border: dotted #939393 1px;
+}
+
+/* line 1301, ../../app/stylesheets/site2.sass */
+.promo_one, .promo_two {
+  margin-top: 30px;
+}
+
+/* infowindow popup (maps) */
+/* line 1305, ../../app/stylesheets/site2.sass */
+#popup {
+  overflow: auto;
+  min-height: 100px;
+  max-height: 200px;
+  margin: 4px;
+}

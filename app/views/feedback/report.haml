@@ -1,0 +1,30 @@
+- @title = t('.title')
+= form_tag :action=>'deliver', :method=>'post'
+%p
+  = t('.type')
+  %br/
+  %select{:name => "reason"}
+    %option{:value => ""}= t('.choose')
+    %option= t('.offensive')
+    %option= t('.illegal')
+    %option= t('.reg')
+    %option= t('.wp')
+    %option= t('.suggest')
+    %option= t('.other')
+%p
+  = t('.email')
+  %br/
+  = text_field_tag 'email', (h params[:email]), :maxlength=>100, :size=>60
+  %br/
+  = t('.email_optional')
+%p
+  = t('.comments')
+  %br/
+  = text_area_tag 'comment', (h params[:comment]), :cols =>40, :rows =>4, :id=>:add_comment_text
+  %br/
+  = t('.comment_be_specific')
+%p
+  = recaptcha_tags
+%br/
+%input{:name => "ref", :type => "hidden", :value => (h params[:ref])}/
+= submit_tag t('.submit')

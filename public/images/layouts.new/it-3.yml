@@ -1,0 +1,427 @@
+# Italian translations for Ruby on Rails 
+# by Claudio Poli (masterkain@gmail.com)
+# maintained by Simone Carletti (weppos@weppos.net)
+#
+# This localization file targets Rails 2.3.2.
+# If you need a previous version go to http://github.com/weppos/rails-i18n/
+# and choose between available tags.
+
+it:
+  number:
+    format:
+      separator: ","
+      delimiter: "."
+      precision: 3
+      
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        
+    percentage:
+      format:
+        delimiter: ""
+        # precision: 
+        
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+        
+    human:
+      format:
+        # separator: 
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Byte"
+          kb: "Kb"
+          mb: "Mb"
+          gb: "Gb"
+          tb: "Tb"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names: [Domenica, Lunedì, Martedì, Mercoledì, Giovedì, Venerdì, Sabato]
+    abbr_day_names: [Dom, Lun, Mar, Mer, Gio, Ven, Sab]
+
+    month_names: [~, Gennaio, Febbraio, Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
+    abbr_month_names: [~, Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+          
+    am: 'am'
+    pm: 'pm'
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: "mezzo minuto"
+      less_than_x_seconds:
+        one:  "meno di un secondo"
+        other: "meno di {{count}} secondi"
+      x_seconds:
+        one:  "1 secondo"
+        other: "{{count}} secondi"
+      less_than_x_minutes:
+        one:  "meno di un minuto"
+        other: "meno di {{count}} minuti"
+      x_minutes:
+        one:  "1 minuto"
+        other: "{{count}} minuti"
+      about_x_hours:
+        one:  "circa un'ora"
+        other: "circa {{count}} ore"
+      x_days:
+        one:  "1 giorno"
+        other: "{{count}} giorni"
+      about_x_months:
+        one:  "circa un mese"
+        other: "circa {{count}} mesi"
+      x_months:
+        one:  "1 mese"
+        other: "{{count}} mesi"
+      about_x_years:
+        one:  "circa un anno"
+        other: "circa {{count}} anni"
+      over_x_years:
+        one:  "oltre un anno"
+        other: "oltre {{count}} anni"
+    prompts:
+      year:   "Anno"
+      month:  "Mese"
+      day:    "Giorno"
+      hour:   "Ora"
+      minute: "Minuto"
+      second: "Secondi"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: ", e "
+        
+  activerecord:
+    errors:
+      template:
+        header: 
+          one: "Non posso salvare questo {{model}}: 1 errore"
+          other: "Non posso salvare questo {{model}}: {{count}} errori."
+        body: "Per favore ricontrolla i seguenti campi:"
+      messages:
+        inclusion: "non è incluso nella lista"
+        exclusion: "è riservato"
+        invalid: "non è valido"
+        confirmation: "non coincide con la conferma"
+        accepted: "deve essere accettata"
+        empty: "non può essere vuoto"
+        blank: "non può essere lasciato in bianco"
+        too_long: "è troppo lungo (il massimo è {{count}} lettere)"
+        too_short: "è troppo corto (il minimo è {{count}} lettere)"
+        wrong_length: "è della lunghezza sbagliata (deve essere di {{count}} lettere)"
+        taken: "è già in uso"
+        not_a_number: "non è un numero"
+        greater_than: "deve essere superiore a {{count}}"
+        greater_than_or_equal_to: "deve essere superiore o uguale a {{count}}"
+        equal_to: "deve essere uguale a {{count}}"
+        less_than: "deve essere meno di {{count}}"
+        less_than_or_equal_to: "deve essere meno o uguale a {{count}}"
+        odd: "deve essere dispari"
+        even: "deve essere pari"
+    attributes: # form labels and error messages use these texts
+      water_point:
+        title: "Titolo"
+        note: "Descrizione"
+        notify: "Notifica"
+        photo: "Carica"
+      group:
+        title: "Nome"
+      user:
+        login: "Nome utente"
+
+#global field names
+  login: "Nome utente"
+  email: "Email"
+  password: "Password"
+  confirm_password: "Ripeti password"
+  note: "Qualcosa di me"
+  terms: "termini di servizio"
+  required: "obbligatori"
+
+        
+########################################################
+# Begin site-specific text.
+# 1) Do not use tabs, only spaces!
+# 2) All text should be in UTF8 (be sure your text editor uses that encoding)
+# 3) format is: LABEL: text. 
+# If you need to include a ' in the text, use this format: 
+#    LABEL: "text's got an apostrophe..." (double quotes around string)
+# If you need to include a " in the text, use this format: 
+#    LABEL: "text has \"a quote\" inside" (double quotes and backslash for embedded quotes)
+# Or if you want some leading/trailing whitespace in the text, use this format
+#    LABEL: " some text that begins with some whitespace and/or ends with some whitespace "
+# Otherwise, no need for quotes around text.
+#    LABEL: this is fine
+########################################################
+        
+  mailer:
+    forgot_password:
+      subject: "Ecco la tua nuova password"
+      
+      
+  groups: #/it/groups/*
+    show: # /it/groups/1
+      created_by: "Creato da: "
+      title: "Gruppo {{group}}" #automatically inserts name of group...
+      join_this_group: "iscriviti"
+      save: "Salva"
+      member_list_updated: "La lista è stata aggiornata."
+    members: # members list used on /it/groups/1
+      members: "Membri"
+      view_profile: "Visualizza {{profile}}" #inserts link
+      profile: "profilo"
+      waterpoints: "dripplet"
+      votes: "voti"
+    send_message: #message form on /it/groups/1
+      title: "Invia un messaggio al gruppo"
+      send: "Invia"
+      thanks: "Grazie, il tuo messaggio è stato inviato al gruppo."
+    index: #/it/groups
+      title: "Lista Gruppi"
+      summary: "Vuoi riuniore i water hunters del tuo territorio? Sei interessato a un tipo di dripplet? Vuoi riunire i dripplet in pericolo? Crea o iscriviti a un gruppo d'interesse."
+      create_group: "crea gruppo"
+      created_by: "creato da: "
+    new: #/it/groups/new
+      title: "Crea gruppo"
+      summary: "Qui puoi creare il tuo gruppo e subito dopo inviare messaggi a tutti gli iscritti."
+      submit: "Crea gruppo"
+      
+  users:
+    index: # /it/users
+      title: "Community"
+      sort_by: "Ordina per:"
+      Date: "Data"
+      A-Z: "A-Z"
+      Posts: "Posti"
+      Votes: "Voti"
+    show: # /it/users/1
+      title: "Profilo Utente"
+      about_me: "Qualcosa su di me"
+      user_water_points: "I dripplet di {{user}}" #automatically inserts user name
+      posted: "dripplet registrati"
+      scores: "verifiche ricevute!"
+      Edit: "modifica profilo" #displayed only if viewing user's own profile
+      Back: "torna a Community" #or should we remove this link?
+    edit: # /it/users/1/edit
+      title: "Modifica profilo: {{user}}" #automatically inserts user name
+      hint: "Accettiamo jpeg, gif, o png files fino a 2MB."
+      Update: "Aggiorna profilo"
+      member_of: "Membro di questi gruppi:"
+      Show: "torna al profilo"
+      Back: "torna alla Community"
+    new: # /it/users/new
+      title: "Registrati"
+      summary: "Diventare un Water Hunter è semplice basta registrarsi e cominciare a cercare dripplet."
+      have_read_the_terms: "Ho letto e accetto i {{terms}}" #inserts link
+      terms: "termini di servizio"
+      submit: "Registra!"
+    forgot: # /it/users/forgot
+      title: "Recupera password"
+      summary: "Inserisci il tuo nome utente e l'indirizzo email con cui ti sei registrato, riceverai subito una email per recuperare la tua password."
+      Back: "torna al Login"
+      submit: "invio"
+    user_bar: # -- global snippet used for header
+      logged_in_as: "Water hunter:"
+      log_out: "esci"
+      login: "entra"
+      register: "registrati"
+      
+  welcome:
+      map: # /it/map (Explore...)
+        title: "Esplora"
+      index: # /it (Homepage)
+        title: "Home"
+        text: "Dripplet è un sistema per georeferenziare e condividere punti di acqua potabile accessibile (da ora in poi chiamati "dripplet").<br>
+Nessuna preclusione se si tratta di siti pubblici o privati, l’importante è che sia possibile accederci liberamente o almeno agevolmente.<br>
+Trovare, condividere e proteggere i "Dripplet" è la missione dei Water  Hunters. Che la goccia rimbalzi nelle vostre mani!
+<br><br>
+Dripplet è assolutamente gratuita e senza fini di lucro, ogni centesimo che sarà donato o sarà frutto di pubblicità sarà utilizzato per migliorare la piattaforma o per finanziare progetti che saranno accuratamente esposti e rendicontati.<br>
+Molte delle persone che hanno lavorato al progetto l’hanno fatto gratuitamente o per cifre assolutamente modeste.
+<br><br>
+Dripplet non può rispondere della veridicità delle informazioni immesse dagli iscritti e quindi vanno considerate come indicative."
+      links: # /it/links
+        title: "Dripplet Links"
+        summary: "La redazione di dripplet ha trovato interessanti questi link, se vuoi segnalarcene qualcun'altro scrivi a staff@dripplet.com"
+        category1: "Organizzazioni non governative e fondazioni"
+        category2: "Organizzazioni governative e internazionali"
+        category3: "Volontariato e iniziative sul campo"
+  feedback:
+      report: # /it/feedback/report
+        title: "Feedback"
+        type: "Tipo di feedback"
+        choose: "---Per favore scegli una categoria" #select pulldown
+        offensive: "contenuto offensivo"
+        illegal: "contenuto illegale"
+        reg: "problemi con registrazione o login"
+        wp: "problemi nell'aggiunta di un dripplet"
+        other: "altro"
+        email: "Email:"
+        email_optional: "(opzionale, in modo che ti possiamo contattare)"
+        comments: "Commenti"
+        comment_be_specific: "Per favore sii specifico. Apprezziamo il tuo feedback."
+        submit: "Invia Feedback"
+        
+  water_points:
+      index: # /it/water_points
+        title: "Dripplet"
+        sort_by: "Ordina per:"
+        score: "Voti"
+        comments: "Commenti"
+        date: "Data"
+      show: # /it/water_points/1
+        title: "Dripplet: {{wp}}"
+        created_by: "Creato da:"
+        comments: "Commenti"
+      add_comment: # add comment form on /it/water_points/1
+        receive_notify: "Voglio ricevere una notifica quando vengono aggiunti dei commenti a questo."
+        thanks_message: "Grazie!"
+        submit: "Invia"
+      new: # /it/water_points/new
+        title: "Aggiungi un dripplet"
+        summary: "Hai trovato un nuovo dripplet e vuoi conviderlo con la community? Inserisci le informazioni necessarie: se la foto contiene le coordinate GPS queste saranno autometicamente rilevate, altrimenti utilizza la mappa per posizionare il dripplet. La funzione di cancellazione/modifica di un dripplet è in sviluppo, se hai bisogno di supporto, scrivi a support@dripplet.com saremo felici di aiutarti."
+        when_somebody_posts: "quando qualcuno commenta questo dripplet."
+        your_wp_photo: "l'immagine del dripplet che hai trovato"
+        hint: "Accettiamo file jpg, gif, o png fino a 2MB"
+        if_gps: "Ricorda che se la tua foto contiene le coordinate GPS la posizione verrà individuata automaticamente e dovrai solo confermarla."
+        submit: "Continua"
+      edit: # /it/water_points/1/edit
+        title_gps: "Conferma la posizione del dripplet"
+        title_no_gps: "Inserisci la posizione del dripplet"
+        subtitle_gps: "Se il dripplet è correttamente posizionato usa il tasto conferma, altrimenti sposta la mappa o usa il cerca."
+        subtitle_no_gps: "Posiziona il dripplet trascinando direttamente con il mouse la mappa oppure usa il cerca. "
+        preview: "Anteprima"
+        submit: "Conferma"
+
+  sessions:
+    new: # /login
+      title: "Login"
+      summary: "Inserisci nome utente e password, se ancora non sei diventato un Water Hunter, clicca su registrati! "
+      submit: "Entra"
+      forgot: "recupera password"
+             
+##################################      
+  shared: # snippets included in other pages...
+    users: # user list on /it/users
+      view_profile: "Visualizza {{profile}}" #inserts link
+      profile: "Profilo"
+      waterpoints: "Dripplet"
+      votes: "voti"
+    comment: # individual comment on /it/water_points/1
+      remove_comment: "Elimina"
+    sidebox: # blue sidebox in left column
+      add:
+        title: "Aggiungi un dripplet"
+        text: "Hey Water Hunter! Hai trovato un nuovo dripplet e vuoi conviderlo con la community? Aggiungi subito un dripplet!"
+        submit: "vai"
+      community:
+        title: "Diventa un Waterhunter!"
+        text: "Gli scienziati cercano l'acqua nello spazio, a noi basta trovarla sulla terra! <br>
+Cercare l'acqua nello spazio serve a capire se ci può essere vita nell'universo, trovarla e difenderla sulla terra serve a far continuare la vita dove siamo sicuri che c'è già."
+        submit: "vai"
+      mapsearch:
+        title: "Cerca dripplet"
+        text: "Usa il cerca o spostati direttamente sulla mappa"
+        submit: "cerca"
+        hint: "puoi cercare per Stato, città, via, numero civico: insomma prova!"
+      mapsearchconfirm:
+        title: "Ricerca posizione dripplet"
+        text: "Se la tua foto non contiene le coordinate GPS o non sono state correttamente acquisite, posizionati sulla mappa usando il cerca."
+        submit: "cerca"
+        hint: "puoi cercare per Stato, città, via, numero civico: insomma prova!"
+      upload:
+        title: "Hello Water Hunter!"
+        text: "Se la tua ricerca ha avuto successo e vuoi condividere un nuovo dripplet con tutti noi, qui sei nel posto giusto!"
+
+  layouts: 
+    main: #main layout
+      page_title: "Dripplet.com"
+      app_promo_title: "iPhone app corner"
+      app_title: "Drinking Water"
+      app_text: "La mappa delle fontanelle di Roma. Dove e come bere gratis una delle migliori acque del mondo. <br>
+Semplicemente nel tuo iphone – iPod - iPad" #http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=326356222&mt=8
+      app_link: "Provala subito!"
+      find: "Trova"
+      share: "Condividi"
+      defend: "Difendi"
+      filter: #map filter options
+        by: "filtra risultati per:"
+        all: "tutti"
+        score: "piu' votati"
+        visits: "piu' visitati"
+        comments: "piu' commentati"
+      bookmark_us_at: "Parla di noi sui tuoi social network"
+      steps: #steps promo on homepage
+        login: "entra"
+        or: "o"
+        register: "registrati"
+        explore: "esplora"
+        add_wp: "aggiungi un dripplet"
+        submit: "Registrati ora!"
+      nav:
+        home: "Home"
+        map: "Esplora"
+        users: "Community"
+        groups: "Gruppi"
+        add_wp: "Aggiungi un dripplet"
+        wp: "Dripplet"
+        links: "Link"
+        feedback: "Feedback"
+      copyright: "@ {{year}} MadeInTomorrow s.r.l." #inserts current year
+      powered_by: "powered by {{made}}"
+      madeintomorrow: "MADEINTOMORROW"
+###################
+# flash messages are three types: notice, prompt, error
+  flash: #flash messages.
+    error: #messages appear in red
+      feedback: "si è verificato un problema processando il tuo feedback, per cortesia riprova..."
+      captcha_fail: "controllo CAPTCHA fallito, riprova..."
+      login: "non riuscito autenticarti come {{user}}" #automatically inserts attempted user name
+      forgot: "non troviamo un utente per i dati forniti. riprova"
+      user: "per favore correggi gli errori indicati sotto"
+      terms: "per favore accetta i termini di servizio"
+      activation: #problems w activation code
+        blank: "manca un codice di attivazione"
+        invalid: "non siamo riusciti a trovare un utente per i dati ci hai fornito."
+      not_allowed: "azione non consentita" #l'utente ha provato accedere ad un azione riservata per admin.
+    notice: #messages appear in green
+      feedback: "il tuo feedback e' stato spedito"
+      group: "gruppo creato"
+      group_update: "gruppo aggiornato" #attualmente non usato.
+      forgot: "controlla la tua posta per la tua nuova password"
+      user: "grazie per esserti registrato. controlla la tua posta per il link di conferma"
+      user_update: "i tuoi dati sono stati aggiornati"
+      activated: "ora il tuo account e' attivo. autenticati per continuare."
+      wp: "dripplet creato correttamente"
+    prompt: #messages appear in orange
+      wp: "Dripplet caricato. Se posizionato correttamente, clicca sul bottone conferma."
+      
+  #pagination strings
+  previous: "precedente"
+  next: "successivo"
+      

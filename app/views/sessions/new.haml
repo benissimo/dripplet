@@ -1,0 +1,19 @@
+- @title = t('.title')
+- @side_type = :community
+.summary
+  = t('.summary')
+- form_tag session_path, :id => 'auth' do
+  .row
+    = label_tag 'login', t('login')
+    = text_field_tag 'login', @login
+
+  .row
+    = label_tag 'password', t('password')
+    = password_field_tag 'password', nil
+    = hidden_field_tag 'remember_me', '1'
+
+  %span.submit
+    = submit_tag t('.submit'), :id=>'commit'
+  
+  %span.forgot
+    = link_to t('.forgot'), forgot_password_path

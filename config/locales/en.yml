@@ -1,0 +1,404 @@
+# Italian translations for Ruby on Rails 
+# by Claudio Poli (masterkain@gmail.com)
+# maintained by Simone Carletti (weppos@weppos.net)
+#
+# This localization file targets Rails 2.3.2.
+# If you need a previous version go to http://github.com/weppos/rails-i18n/
+# and choose between available tags.
+
+en:
+  activerecord:
+    attributes: # form labels and error messages use these texts
+      water_point:
+        title: "Title"
+        note: "Note"
+        notify: "Notify me"
+        photo: "Upload"
+      group:
+        title: "Group Name"
+      user:
+        login: "Login"
+    errors:
+      messages:
+        bad_email: "should seem like an email address"
+        bad_login: "use only letters, numbers and -_ please"
+#global field names
+  login: "Login"
+  email: "Email"
+  password: "Password"
+  confirm_password: "Confirm password"
+  note: "About me"
+  terms: "terms of service"
+  required: "required"
+  thanks_to: "thanks to:"
+        
+########################################################
+# Begin site-specific text.
+# 1) Do not use tabs, only spaces!
+# 2) All text should be in UTF8 (be sure your text editor uses that encoding)
+# 3) format is: LABEL: text. 
+# If you need to include a ' in the text, use this format: 
+#    LABEL: "text's got an apostrophe..." (double quotes around string)
+# If you need to include a " in the text, use this format: 
+#    LABEL: "text has \"a quote\" inside" (double quotes and backslash for embedded quotes)
+# Or if you want some leading/trailing whitespace in the text, use this format
+#    LABEL: " some text that begins with some whitespace and/or ends with some whitespace "
+# Otherwise, no need for quotes around text.
+#    LABEL: this is fine
+########################################################
+        
+  mailer:
+    forgot_password:
+      subject: "Here is your new password"
+      text: "You have requested a new password for {{login}}. The password has been changed to: {{password}}  {{link}}"
+      link_text: "{{url}}"
+    comment_notify:
+      subject: "A new comment on a Dripplet you are following"
+      text: "There is a new comment on this dripplet {{link}} written by {{author}}. The text of the comment is: {{text}}"
+      link_text: "(click here to visit)"
+    group_notify:
+      subject: "Message to group {{title}} from {{from}}"
+      text: "A new message has been posted to the group {{title}}. MESSAGE: {{text}} AUTHOR: {{author}} {{link}}"
+      link_text: "Visit here to respond to their post."
+    signup:
+      subject: "Please activate your account"
+      text: "Your account has been created. Login: {{login}} Password: {{password}} {{link}}"
+      link_text: "Click here to activate your account"
+    activated:
+      subject: "Congratulations! Your account is now confirmed."
+      text: "Thanks for activating your account. Welcome to Dripplet.com fellow Water Hunter! {{link}}"
+      link_text: "{{url}}"
+      
+  groups: #/en/groups/*
+    show: # /en/groups/1
+      created_by: "Created by: "
+      title: "Group {{group}}" #automatically inserts name of group...
+      join_this_group: "join"
+      save: "Save"
+      member_list_updated: "The member list has been updated."
+    members: # members list used on /en/groups/1
+      members: "Members"
+      view_profile: "View {{profile}}" #inserts link
+      profile: "profile"
+      waterpoints: "dripplet"
+      votes: "votes"
+    send_message: #message form on /en/groups/1
+      title: "Send a message to the group"
+      send: "Send"
+      thanks: "Thanks, your message has been sent to the group."
+    index: #/en/groups
+      title: "Groups"
+      summary: "Want to meet water hunters in your area? Interested in a type of dripplet? Want to gather dripplets at risk? Make or join an interest group."
+      create_group: "Create Group"
+      created_by: "created by: "
+    new: #/en/groups/new
+      title: "Create a group"
+      summary: "Here you can create your group and send message to group members."
+      submit: "Create"
+      
+  users:
+    index: # /en/users
+      title: "Community"
+      sort_by: "Sort by:"
+      Date: "Date"
+      A-Z: "A-Z"
+      Posts: "Posts"
+      Votes: "Votes"
+    show: # /en/users/1
+      title: "Profile"
+      about_me: "About me"
+      user_water_points: "{{user}}'s dripplets" #automatically inserts user name
+      posted: "dripplets posted"
+      scores: "confirmations!"
+      Edit: "modify profile" #displayed only if viewing user's own profile
+      Back: "back to Community" #or should we remove this link?
+    edit: # /en/users/1/edit
+      title: "Modify profile: {{user}}" #automatically inserts user name
+      hint: "(jpeg, gif, o png files up to 2MB)"
+      Update: "Update profilo"
+      member_of: "Member of these groups:"
+      Show: "back to profile"
+      Back: "back to Community"
+    new: # /en/users/new
+      title: "Register"
+      summary: "It's easy to become a Water Hunter: register and start searching for dripplets."
+      have_read_the_terms: "I have read and accept the {{terms}}" #inserts link
+      terms: "terms of service"
+      submit: "Register!"
+    forgot: # /en/users/forgot
+      title: "Forgot password"
+      summary: "Insert your login and email address you used for registering. You'll receive a new password via email"
+      Back: "back to Login"
+      submit: "send"
+    user_bar: # -- global snippet used for header
+      logged_in_as: "Water hunter:"
+      log_out: "logout"
+      login: "signin"
+      register: "register"
+      
+  welcome:
+      map: # /en/map (Explore...)
+        title: "Explore"
+        fullscreen: "View map in full screen"
+        fullscreen_toggle: "toggle map full screen mode"
+      index: # /it (Homepage)
+        title: "Home"
+        drippletlink: "Dripplets"
+        text1: "Dripplet is a system for georeferencing and sharing accessible sources of drinking water (hereafter called  \"{{drippletlink}}\").<br/>Regardless of whether the sources are public or private, what matters is that one can access them freely or at least easily.<br/>Find, share, and defend the \"Dripplets\" is the Water Hunters' mission. May the drops splash in your hands!"
+        text2: "Dripplet is completely free and non-profit, all donations and advertising revenue will be used to improve the platform and finance projects which will be accurately described and detailed.<br/>Many of the people who have worked on this project have done so for free or for modest sums.<br/>Dripplet can not guarantee the accuracy of the information generated by its registered users."
+        drippletcount: "Dripplets"
+      links: # /en/links
+        title: "Dripplet Links"
+        summary: "Dripplet has found these links interesting, if you want to suggest others write to: staff@dripplet.com"
+        category1: "Non governmental organizations and foundations"
+        category2: "State and international organizations"
+        category3: "Volunteers"
+      story: # /en/story
+        title: "Splashing drops (Dripplet)"
+        summary: "Everyday Lio, back from school, opened the tap and drank water with cupped hands.<br />
+        Everyday Molengue went to get water from the river, but before leaving he drank a handful of water, dipping his hand where the current was stronger.<br />
+        Everyday Luise pulled the bucket up from the well and poured water into the clay amphora. But before leaving she drank three or four times by dipping her cupped hands into the bucket and putting them to her lips.<br />
+<br />
+        One day Lio, coming home, opened the tap and a stream of water  that left red dust came out and tasted of salt. \"There is water in the bottle in the fridge\", said the mother.<br />
+        One day Molengue went down to the river and saw hundreds of fish flat on their back. He took a bit of water in his hand and noticed a smell of gasoline.<br />
+        Behind him a man in uniform with a big smile handed him a plastic bag full of water with writing that said: This is a charitable gift.<br />
+        One day Luise saw that there were people around the well talking animatedly. No bird was bathing in the water spilling from the buckets and a sign with a skull hung from a rope. All said that a cesspool had killed the well.<br />
+        But a rich and friendly people had sent a tanker with water that comes from afar, but people can drink water only after boiling it. Wait every day and just get in line and say thanks.<br />
+<br />
+        Lio, Molengue and Luise went to sleep restless thinking that now their water had a master and dreamed.<br />
+<br />
+        Lio dreamed that a huge drop fell in the ocean and made a drop stretch reaching up to the sky like a tap with the rod upward.<br />
+        Molengue dreamed that millions of huge drops of good water fell from the sky, like a river that came down from heaven.<br />
+        Luise dreamed that the droplets fell to the ground creating millions of wells, clear and fresh.<br />
+        All three dreamed of taking water in cupped hands and drinking it in great gulps while smiling.<br />
+        And all the world people placed cupped hands into the water they want to nurture and protect.<br />
+        And all three of their mothers thought it would be good and right if for every drop that falls free there was a free drop that returns.<br />
+<br />
+        Save Dripplets. Become Water Hunters!<br />
+        Save the dripdrops, become a waterhunter!<br />
+<br />
+        Dripplet born from a dream in Africa thirty years ago.<br />"
+      terms:
+        title: 'Terms &amp; Conditions'
+        summary: "Thank you for visiting the www.dripplet.com  ™ website. Please take the time to read and understand our site's Terms and Conditions, which include our Copyright Policy and our Privacy Policy. This is a legal document that describes your rights and responsibilities as a user.<br />
+By using our website, you agree to these Terms and Conditions. Therefore, if you do not agree to these Terms and Conditions or any other www.dripplet.com policies, do not use this website.<br />
+The Internet is evolving, and so is www.dripplet.com. This means that there will be changes to our website, and www.dripplet.com may modify the website's Terms and Conditions from time to time. Any modifications to our Terms and Conditions will be included on this page, and your use of the website after modifications have been made constitutes acceptance of the Terms and Conditions as modified. <br /><br />
+<br /><br />Content <br />
+This website contains information including, without limitation, reports, data, press releases, photographs, graphics, text, images, logos, icons, designs, software, audio and video material, trademarks, copyrights, other intellectual property and proprietary rights and other material (\"Content\") belong to Made in Tomorrow srl who develops www.dripplet.com.<br />
+It is your responsibility to evaluate the accuracy, completeness and usefulness of all the Content provided on our website. www.dripplet.com does not endorse or represent the reliability, accuracy or quality of any of the Content.<br />
+By using this website, you acknowledge and agree that all Content and the compilation of the Content, is protected by copyright, trademark and other intellectual property and proprietary rights in effect in Canada, the United States, Europe and elsewhere, and that these rights are valid and protected in all forms, mediums and technologies that exist now or are developed or created in the future. No right, title or interest in any Content on this website, including, but not limited to, www.dripplet.com logos and other marks, is transferred to you as a result of your use of this website and www.dripplet.com reserves complete title and full intellectual property rights in and to such Content.<br /><br />
+Privacy Policy<br />
+This is the policy of www.dripplet.com on the protection of personal information www.dripplet.com reserves the right to modify this Privacy Policy to adapt it to any technological or legal change, or simply to adjust it to reflect changes made to our website. All updates of our Privacy Policy will be posted on this page. By continuing to use this website after we post any changes, you are consenting to our use of your information as provided in the modified Privacy Policy.<br />
+Information concerning the use of personal details as per Legislative Decree N° 196/2003. <br />
+personal data will be subject to processing and use for uses connected to the management of the web site www.dripplet.com and any related services, as well as for commercial, promotional and marketing purposes connected to theservices on offer.<br />
+Moreover, such details will also be used.<br /><br />
+
+   1. to provide assistance in the use of the Services and in general for the management of the site www.dripplet.com;<br />
+   2. to send information concerning the use of the services for which users are registered;<br />
+   3. to send commercial information concerning new initiatives by Dripplet;<br />
+   4. for the execution of statistical and market research and studies (on an aggregate basis and never individual);<br />
+   5. for interactive commercial communications. <br /><br />
+
+personal details must be entered before access can be given to the services of the site www.dripplet.com.<br />
+Registration is free but conditional on the receipt of such details and the acceptance by the user of the terms indicated in the general conditions.Dripplet reserves the right to refuse registration and to interrupt the supply of services should any of the details supplied prove to be false.<br />
+any personal details supplied will only be available to:<br /><br />
+
+   1. subsidiary and associated companies of Dripplet and made in Tomorrow srl;<br />
+   2. public and private bodies in conformity with current legislation.<br /><br />
+
+Art.7 of Legislative Decree 196/2003 gives users specific rights concerning the treatment of personal details, including:<br /><br />
+
+   1. the right to obtain confirmation of the existence of details that may concern them;<br />
+   2. the right to update, rectify or complete such details, as well as their cancellation, transformation into anonymous data or their suspension in the case of misuse;<br />
+   3. the right to deny use as per the indications indicated above only for legitimate reasons;<br />
+   4. the right to deny use for commercial or promotional purposes, the forwarding of publicity materials or the administration of market research.<br />
+   5. The holder of the rights to manage such data is Made in Tomorrow srl, Via dei Piceni 40, 00185 Rome. You can communicate with it by e-mail at privacy@madeintomorrow.com or write to Made in Tomorrow srl via dei Piceni 40, 00185 Roma, Italy, preferably by registered mail.
+<br /><br />
+
+Management of your personal information <br />
+Your information is managed by Made in Tomorrow srl, via dei Piceni 40 -00185 Rome. You may contact them at any time. A representative of www.dripplet.com may also contact you to verify and correct, if necessary, the personal information you have provided."
+      netiquette:
+        title: "Netiquette"
+        summary: "A few simple rules of behavior to follow on the Dripplet site
+<br />Please do not insert contents not pertaining to the site's goals, do not send communications unrelated to the site, chain mail and messages intended as advertising. In all interactions, avoid polemics, use an appropriate tone, respect the ideas of others, religions and races different than your own, do not use obscenities and do not insult anyone. Avoid using all capital letters unless strictly necessary and only in order to emphasize a specific point.<br />
+Thank you"
+      credits: # /it/credits
+        title: "Credits"
+        summary: "www.dripplet.com has been produced thanks to the good will and commitment of many people.<br />Made in Tomorrow srl has provided its infrastructure and has supported the initial costs, but all of those who have collaborated have done so for free or for amounts well below their usual rates.<br />In particular Made in Tomorrow thanks: Andrea Dezzi, Ben Ellis, Francesca Ferraro, Elisabetta Gagliardini, Tsuneo Kurihara, Andrea Leganza, Marta Leonori, Maurizio Lo Castro, Camilla Macro, Laura Mencuccini, Valentina Segatori"        
+  feedback:
+      report: # /en/feedback/report
+        title: "Feedback"
+        type: "Type of feedback"
+        choose: "---Please choose a category" #select pulldown
+        offensive: "offensive content"
+        illegal: "illegal content"
+        reg: "problem with registration or login"
+        wp: "problem adding a dripplet"
+        other: "other"
+        suggest: "suggest how to improve the site"
+        email: "Email:"
+        email_optional: "(optional, so we can contact you)"
+        comments: "Comments"
+        comment_be_specific: "Please be specific. We appreciate your feedback."
+        submit: "Send Feedback"
+        
+  water_points:
+      index: # /en/water_points
+        title: "Dripplets"
+        sort_by: "Sort by:"
+        score: "Votes"
+        comments: "Comments"
+        date: "Date"
+      show: # /en/water_points/1
+        title: "Dripplet: {{wp}}"
+        created_by: "Created by:"
+        comments: "Comments"
+      add_comment: # add comment form on /en/water_points/1
+        receive_notify: "Notify me when comments are made on this dripplet."
+        thanks_message: "Thanks!"
+        submit: "Send"
+      new: # /en/water_points/new
+        title: "Add a dripplet"
+        summary: "Found a dripplet and you want to share it with the community? Insert the required information: if you add a photo which contains GPS coordinates these will be automatically detected, otherwise use the map to position the dripplet. Once you have published your dripplet you can edit it afterwards. If you need support, write to support@dripplet.com and we'll be glad to help you"
+        when_somebody_posts: "when someone comments on this dripplet."
+        your_wp_photo: "the photo of the dripplet you found"
+        hint: "(jpeg, gif, o png files up to 2MB)"
+        if_gps: "Remember if your photo contains GPS coordinates the location will be automatically detected and you will only have to confirm it."
+        submit: "Continue"
+      edit: # /en/water_points/1/edit
+        title_gps: "Confirm the dripplet location"
+        title_no_gps: "Indicate the dripplet location"
+        subtitle_gps: "If the dripplet is correctly located, press the confirm button, otherwise drag the map or use the search form to find the proper location."
+        subtitle_no_gps: "GPS coordinates not found. Locate the dripplet dragging the map with your mouse or use the search form."
+        preview: "Preview"
+        submit: "Confirm"
+
+  sessions:
+    new: # /login
+      title: "Login"
+      summary: "Enter login and password."
+      submit: "Enter"
+      forgot: "forgot password"
+             
+##################################      
+  shared: # snippets included in other pages...
+    users: # user list on /en/users
+      view_profile: "View {{profile}}" #inserts link
+      profile: "Profile"
+      waterpoints: "Dripplet"
+      votes: "votes"
+    comment: # individual comment on /en/water_points/1
+      remove_comment: "Remove"
+    groups:
+      join: "Join or create a new group"
+      member_of: "Member of:"      
+    sidebox: # blue sidebox in left column
+      add:
+        title: "Add a dripplet"
+        text: "Hey Water Hunter! Found a new dripplet and you want to share it with the community? Add a dripplet now!"
+        submit: "go"
+      community:
+        title: "Become a Waterhunter!"
+        text: "Scientists are searching for water in outer space, for us it's enough just to find it here on earth!<br/>
+Searching for water in outer space helps us to understand if there's life elsewhere in the universe. Finding and defending water here on earth helps us sustain life where we already know it exists."
+        submit: "go"
+      mapsearch:
+        title: "dripplet search"
+        text: "Use the search form or browse by dragging the map."
+        submit: "search"
+        hint: "you can search by country, city, street name, address: try it!"
+      mapsearchconfirm:
+        title: "dripplet location search"
+        text: "If your photo does not contain GPS coordinates or if they were not correctly detected, position the map using the search form."
+        submit: "search"
+        hint: "you can search by country, city, street name, address: try it!"
+      upload:
+        title: "Hello Water Hunter!"
+        text: "If your search was successful and you want to share a new dripplet with all of us, you're in the right place!"
+
+  layouts: 
+    main: #main layout
+      page_title: "Dripplet.com"
+      app_promo_title: "iPhone app corner"
+      app_title: "Drinking Water"
+      app_text: "Maps drinking water in Rome. Where to find and how to drink some of the world's best drinking water. <br/>
+Easily with your iphone – iPod - iPad" #http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=326356222&mt=8
+      app_link: "Try now!"
+      paypal_title: "Support Dripplet"
+      paypal_text1: "Support Dripplet - help us to improve Dripplet with new features."
+      paypal_text2: "Paypal is a secure system for making instant payments online (www.paypal.com)"
+      #these next 3 become obsolete
+      find: "Find"
+      share: "Share"
+      defend: "Defend"
+      #new strings
+      breadcrumb_in: "You are in:"
+      big_header: "Dripplet, the world map of drinking sources"
+      medium_header: "Find & Share in the map all accessible drinking water"
+      filter: #map filter options
+        by: "filter results by:"
+        all: "all"
+        score: "most voted"
+        visits: "most visited"
+        comments: "most commented"
+      bookmark_us_at: "Talk about us on your social networks"
+      steps: #steps promo on homepage
+        login: "signin"
+        or: "or"
+        register: "register"
+        explore: "explore"
+        add_wp: "add a dripplet"
+        submit: "Register now!"
+      nav:
+        home: "Home"
+        map: "Map"
+        users: "Community"
+        groups: "Groups"
+        add_wp: "Add a dripplet"
+        wp: "All Dripplets"
+        links: "Link"
+        feedback: "Feedback"
+      copyright: "&copy; {{year}} MadeInTomorrow s.r.l." #inserts current year
+      netiquette: "Netiquette"
+      credits: "Credits"
+      powered_by: "powered by {{made}}"
+      madeintomorrow: "MADEINTOMORROW"
+    mailer: #These texts are used when the site sends email messags
+      footer1: "We inform you that you can modify your email notification preferences accessing your account on our website."
+      footer2: "This message has been sent to {{email}} by an automated system. Please do not reply to this email directly."
+    
+###################
+# flash messages are three types: notice, prompt, error
+  flash: #flash messages.
+    error: #messages appear in red
+      feedback: "There was a problem processing your feedback. Please try again..."
+      captcha_fail: "CAPTCHA check failed, try again..."
+      login: "unable to sign you in as {{user}}" #automatically inserts attempted user name
+      forgot: "no account found for the data you supplied. try again"
+      user: "please correct the errors indicated below"
+      terms: "please accept the terms of service"
+      activation: #problems w activation code
+        blank: "activation code missing"
+        invalid: "unable to find an account for the data you provided."
+      not_allowed: "action not allowed" #l'utente ha provato accedere ad un azione riservata per admin.
+    notice: #messages appear in green
+      feedback: "your feedback has been sent"
+      group: "group created"
+      group_update: "group updated" #attualmente non usato.
+      forgot: "check your email for your new password"
+      user: "thanks for registering. check your email for the activation link"
+      user_update: "your data has been updated"
+      activated: "your account has been activated. signin to continue."
+      wp: "dripplet created"
+    prompt: #messages appear in orange
+      wp: "Dripplet loaded. If correctly located, click the confirm button."
+      
+  #pagination strings
+  previous: "previous"
+  next: "next"
+  
+  #breadcrumb strings, overrides for page titles where they would be too long
+  bc:
+    Groups: Group Listings
+    Group: Group
+    EditWaterPoint: Edit Dripplet

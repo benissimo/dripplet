@@ -1,0 +1,20 @@
+%h1 Listing comments
+%table
+  %tr
+    %th Text
+    %th Water point
+    %th User
+    %th Created at
+    %th Ip addr
+  - @comments.each do |comment|
+    %tr
+      %td= h comment.text
+      %td= h comment.water_point_id
+      %td= h comment.user_id
+      %td= h comment.created_at
+      %td= h comment.ip_addr
+      %td= link_to 'Show', comment
+      %td= link_to 'Edit', edit_comment_path(comment)
+      %td= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New comment', new_comment_path

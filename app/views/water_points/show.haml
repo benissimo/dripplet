@@ -1,0 +1,36 @@
+- @title = t('.title', :wp =>(h @water_point.title) )
+%br/
+.bluelinebottom
+  = image_tag 'marker_shadow.png', {:align=>'left'}
+  %span
+    = h @water_point.title
+    - if current_user && current_user.login == @water_point.posted_by.login
+      = link_to("(Edit)", {:action=>"edit"})
+      = link_to '(Delete)', disable_water_point_path, :confirm => 'Are you sure?', :method => :delete, :action => :disable
+  %span{:style => "float:right"}
+    = t('.created_by')
+    = link_to(h(@water_point.posted_by.login), @water_point.posted_by)
+  %br{:clear => "all"}/
+.wpdetailwrapper2
+  .wpdetailwrapper
+    .wpdetail
+      .wpinner
+        = photo_for @water_point, :medium
+        %span.wpnote= h @water_point.note
+    .wpvote
+      .wpinner
+        = render('votes/vote', :locals=>{         |
+          :water_point => @water_point,           |
+          :up_score => @water_point.up_score,     |
+          :down_score => @water_point.down_score, |
+          :current_vote => @current_vote })       |
+  %br{:clear => "both/"}
+%br{:clear => "both"}/
+#comments
+  .commentheader
+    %span.title= t('.comments')
+  - unless @water_point.comments.visible.blank?
+    - @water_point.comments.visible.each do |comment|
+      = render 'shared/comment', :object => comment
+- if logged_in?
+  = render 'water_points/add_comment'

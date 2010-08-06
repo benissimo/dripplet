@@ -1,0 +1,48 @@
+!!!
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %title
+      = t('layouts.main.page_title')
+    = stylesheet_link_tag :all, :cache => true
+    / Make the document body take up the full screen    
+    :css
+      v\:* {behavior:url(#default#VML);}
+      html, body {width: 100%; height: 100%}
+      body {margin-top: 0px; margin-right: 0px; margin-left: 0px; margin-bottom: 0px}
+    %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+    %meta{:content => "3Os66Agb0jnNDNPxdPu_vthSCSUXMFMySWr4m6s2ADI", :name => "google-site-verification"}/
+  %body
+    #fullscreen_overlay{:style => "min-height:100px; height:18%;"}
+      .topsearch{:style => "float:right"}
+        = render 'shared/sidebox/mapsearch'
+        %div
+          %form#sort_filter{:method => "GET", :onsubmit => "return false;"}
+            %span.mapfilterlabel= t('layouts.main.filter.by')
+            = radio_button_tag 'sort', 'all', (params[:sort].blank? or params[:sort] == "all")
+            %label{:for => "sort_all"}= t('layouts.main.filter.all')
+            = radio_button_tag 'sort', 'score', (params[:sort] == "score")
+            %label{:for => "sort_score"}= t('layouts.main.filter.score')
+            = radio_button_tag 'sort', 'visits', (params[:sort] == "visits")
+            %label{:for => "sort_visits"}= t('layouts.main.filter.visits')
+            = radio_button_tag 'sort', 'comments', (params[:sort] == "comments")
+            %label{:for => "sort_comments"}= t('layouts.main.filter.comments')
+          - deferred do
+            = javascript_tag "new Form.EventObserver($('sort_filter'),WH_LoadMarkerFeedRadioButtonFire);"
+      .logos
+        = link_to '<img id="logo" src="/images/logo_gray.png" border="0" />', root_path
+        = link_to '<img id="sitename" src="/images/dripplet_'+@locale+'.png" border="0" />', root_path
+        = link_to 'back', 'javascript:history.go(-1)'
+      %br{:clear => "all"}/
+    #map{:style => "width:99%; height:80%; margin:0; padding:0; margin:0 auto;"}
+    = javascript_include_tag "prototype", "effects", "builder", "dragdrop", "controls", "application", "lightbox", :cache => true
+    - if @map
+      / begin map header      
+      :javascript
+        var mgr;
+        var feed_type;
+      = GMap.header(:hl=>"#{@locale}")
+      = @map.to_html
+      / end map header    
+    / deferred javascript calls    
+    = @deferred_content
