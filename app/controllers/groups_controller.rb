@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   layout :choose_layout
-  
+
   before_filter :login_required, :except => [ :index, :show  ]
   before_filter :admin_required, :only => [ :destroy ]
   # GET /groups
@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
 
 
 
-  
+
   def message
     @group = Group.find(params[:id])
     # send message to all members.
@@ -72,8 +72,8 @@ class GroupsController < ApplicationController
       format.js #groups/message.rjs.js
     end
   end
-  
-  
+
+
 
   ##############The following methods are currently NOT USED. moved them to private so
   ##############that they cannot be accessed by accident. Once final page flow is confirmed,
@@ -108,12 +108,12 @@ class GroupsController < ApplicationController
         format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
       end
     end
-  end    
-  
-  
+  end
+
+
   # GET /groups/1/edit
   def edit
     @group = Group.find(params[:id])
   end
-  
+
 end

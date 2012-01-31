@@ -1,12 +1,12 @@
 class FeedbackController < ApplicationController
   layout :choose_layout
-  
+
   def report
     if params[:ref].blank?
       params[:ref] = request.referrer
     end
   end
-  
+
   def deliver
     comment = params[:comment]
     email = params[:email]
@@ -26,9 +26,9 @@ class FeedbackController < ApplicationController
       end
     end
   end
-  
+
   def thanks
-    
+
   end
 
 end

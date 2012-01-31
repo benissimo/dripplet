@@ -2,5 +2,5 @@ page.replace_html :votebox, :partial => 'votes/vote', :locals => {:water_point =
 #page.visual_effect(:fade, 'add_comment', :duration => 0.5)
 #page[:add_comment_text].value = ''
 #page[:add_comment_form].reset
-#page.visual_effect(:slide_down, 'thanks', :duration => 2.0) 
+#page.visual_effect(:slide_down, 'thanks', :duration => 2.0)
 #page.visual_effect(:slide_up, 'thanks', :duration => 2.0)

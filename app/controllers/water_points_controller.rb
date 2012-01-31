@@ -12,8 +12,8 @@ class WaterPointsController < ApplicationController
   def index
 
 =begin
-list of water points, paginated. 
-  filter by up_score (default), commented, recent. 
+list of water points, paginated.
+  filter by up_score (default), commented, recent.
 
 up_score, commented: pagination only while num is greater than zero
 --------
@@ -49,13 +49,13 @@ score based only on votes “yes”. keep track of votes “no” but use that o
     if request.format.to_sym == :json
       {:order=>"visits DESC, created_at DESC", :conditions=>"visits > 0"}
     else
-      {:order=>"visits DESC, created_at DESC"}      
+      {:order=>"visits DESC, created_at DESC"}
     end
   when :score
     if request.format.to_sym == :json
       {:order=>"up_score DESC, created_at DESC", :conditions=>"up_score > 0"}
     else
-      {:order=>"up_score DESC, created_at DESC"}      
+      {:order=>"up_score DESC, created_at DESC"}
     end
   when :date
     {:order=>"created_at DESC"}
@@ -73,9 +73,9 @@ score based only on votes “yes”. keep track of votes “no” but use that o
       conditions[:bounds] = b
     end
     @water_points = WaterPoint.visible.all(conditions)
-    
+
     # limit based on location?
-    
+
   else
     #avoid doing individual select for each result...
     conditions[:include] = :photo
@@ -102,10 +102,10 @@ score based only on votes “yes”. keep track of votes “no” but use that o
     @subscribed = current_user && Follower.find_by_user_id_and_water_point_id(@current_user.id, @water_point.id)
 
     make_map('detail')
-    
+
     @page_ancestors = [{:name=>'Dripplets', :url=> water_points_path}]
     @bc_title = 'Dripplet'
-    
+
     respond_to(:html,:iphone)
 
   end
@@ -116,7 +116,7 @@ score based only on votes “yes”. keep track of votes “no” but use that o
     @water_point = WaterPoint.new
 
     respond_to(:html,:iphone)
-    
+
   end
 
   # GET /water_points/1/edit
@@ -176,14 +176,14 @@ score based only on votes “yes”. keep track of votes “no” but use that o
 
   # PUT /water_points/1
   # PUT /water_points/1.xml
-  def update        
-        
+  def update
+
     @water_point = WaterPoint.find_by_id_and_user_id(params[:id], @current_user.id)
 
-####Begin: adjust for an update    
+####Begin: adjust for an update
     #@user = current_user
-    @photo = @water_point.photo #default is whatever photo (if any) already exists    
-        
+    @photo = @water_point.photo #default is whatever photo (if any) already exists
+
     if params[:photo_file] && !params[:photo_file].blank?
       @photo = Photo.new(:uploaded_data => params[:photo_file])
       @coords = @photo.getGPS
@@ -194,7 +194,7 @@ score based only on votes “yes”. keep track of votes “no” but use that o
         params[:water_point][:lng] = @coords[1]
       end
       @service = WaterPointService.new(@water_point, @photo)
-      save_attempt = @service.update_attributes(params[:water_point], params[:photo_file]) 
+      save_attempt = @service.update_attributes(params[:water_point], params[:photo_file])
     else
       save_attempt = @water_point.update_attributes(params[:water_point])
     end
@@ -205,11 +205,11 @@ score based only on votes “yes”. keep track of votes “no” but use that o
           flash[:prompt] = t('flash.prompt.wp') #'WaterPoint loaded. Please confirm location to publish.'
           #format.html { redirect_to(@water_point) }
           format.any(:html,:iphone) { redirect_to(:action=>:edit,:id=>@water_point.id)  }
-          format.xml  { render :xml => @water_point, :status => :created, :location => @water_point }          
+          format.xml  { render :xml => @water_point, :status => :created, :location => @water_point }
         else
           flash[:notice] = t('flash.notice.wp') #'WaterPoint published.'
           format.any(:html,:iphone) { redirect_to(@water_point) }
-          format.xml  { head :ok }          
+          format.xml  { head :ok }
         end
       else
         format.any(:html,:iphone) { render :action => "edit" }
@@ -240,9 +240,9 @@ score based only on votes “yes”. keep track of votes “no” but use that o
       format.xml { head :ok }
     end
   end
-  
+
   protected
-  
+
   def log_visit
     #debugger
     if session[:user_agent_and_session_ok]
@@ -259,7 +259,7 @@ score based only on votes “yes”. keep track of votes “no” but use that o
       end
     end
   end
-  
 
-  
+
+
 end

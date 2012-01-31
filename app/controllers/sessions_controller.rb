@@ -1,10 +1,10 @@
-# This controller handles the login/logout function of the site.  
+# This controller handles the login/logout function of the site.
 class SessionsController < ApplicationController
   layout :choose_layout
 
   # render new.rhtml
   def new
-    respond_to(:html,:iphone)    
+    respond_to(:html,:iphone)
   end
 
   def create

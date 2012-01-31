@@ -1,13 +1,13 @@
 - if logged_in?
   //#user-bar-greeting
   = t('.logged_in_as')
-  %span.username= link_to_current_user :content_method => :login, :content_text=>truncate("#{h current_user.login}",:length=>16,:omission=>'...') 
-  \| 
+  %span.username= link_to_current_user :content_method => :login, :content_text=>truncate("#{h current_user.login}",:length=>16,:omission=>'...')
+  \|
   //#user-bar-action
   = link_to t('.log_out'), logout_path, { :title => t('.log_out') }
 - else
   //#user-bar-greeting
-  = link_to_login_with_IP t('.login'), :style => 'border: none;' 
-  \| 
+  = link_to_login_with_IP t('.login'), :style => 'border: none;'
+  \|
   //#user-bar-action
   = link_to t('.register'), signup_path, { :title => t('.register') }

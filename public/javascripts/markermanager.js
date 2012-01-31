@@ -7,13 +7,13 @@
  * @fileoverview Marker manager is an interface between the map and the user,
  * designed to manage adding and removing many points when the viewport changes.
  * <br /><br />
- * <b>How it Works</b>:<br/> 
+ * <b>How it Works</b>:<br/>
  * The MarkerManager places its markers onto a grid, similar to the map tiles.
  * When the user moves the viewport, it computes which grid cells have
  * entered or left the viewport, and shows or hides all the markers in those
  * cells.
  * (If the users scrolls the viewport beyond the markers that are loaded,
- * no markers will be visible until the <code>EVENT_moveend</code> 
+ * no markers will be visible until the <code>EVENT_moveend</code>
  * triggers an update.)
  * In practical consequences, this allows 10,000 markers to be distributed over
  * a large area, and as long as only 100-200 are visible in any given viewport,
@@ -34,7 +34,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  */
 
 /**
@@ -51,7 +51,7 @@
  *     visible.
  * @property {Boolean} [trackMarkers=false] Indicates whether or not a marker
  *     manager should track markers' movements. If you wish to move managed
- *     markers using the {@link setPoint}/{@link setLatLng} methods, 
+ *     markers using the {@link setPoint}/{@link setLatLng} methods,
  *     this option should be set to {@link true}.
  */
 
@@ -369,35 +369,35 @@ MarkerManager.prototype.getMarkerCount = function (zoom) {
   return total;
 };
 
-/** 
- * Returns a marker given latitude, longitude and zoom. If the marker does not 
- * exist, the method will return a new marker. If a new marker is created, 
- * it will NOT be added to the manager. 
- * 
- * @param {Number} lat - the latitude of a marker. 
- * @param {Number} lng - the longitude of a marker. 
- * @param {Number} zoom - the zoom level 
- * @return {GMarker} marker - the marker found at lat and lng 
- */ 
-MarkerManager.prototype.getMarker = function(lat, lng, zoom) { 
-  var me = this; 
-  var mPoint = new GLatLng(lat, lng); 
-  var gridPoint = me.getTilePoint_(mPoint, zoom, GSize.ZERO); 
+/**
+ * Returns a marker given latitude, longitude and zoom. If the marker does not
+ * exist, the method will return a new marker. If a new marker is created,
+ * it will NOT be added to the manager.
+ *
+ * @param {Number} lat - the latitude of a marker.
+ * @param {Number} lng - the longitude of a marker.
+ * @param {Number} zoom - the zoom level
+ * @return {GMarker} marker - the marker found at lat and lng
+ */
+MarkerManager.prototype.getMarker = function(lat, lng, zoom) {
+  var me = this;
+  var mPoint = new GLatLng(lat, lng);
+  var gridPoint = me.getTilePoint_(mPoint, zoom, GSize.ZERO);
 
-  var marker = new GMarker(mPoint); 
-  var cellArray = me.getGridCellNoCreate_(gridPoint.x, gridPoint.y, zoom); 
-  if(cellArray != undefined){ 
-    for (var i = 0; i < cellArray.length; i++) 
-    { 
-      if(lat == cellArray[i].getLatLng().lat() && 
-         lng == cellArray[i].getLatLng().lng()) 
-      { 
-        marker = cellArray[i]; 
-      } 
-    } 
-  } 
-  return marker; 
-}; 
+  var marker = new GMarker(mPoint);
+  var cellArray = me.getGridCellNoCreate_(gridPoint.x, gridPoint.y, zoom);
+  if(cellArray != undefined){
+    for (var i = 0; i < cellArray.length; i++)
+    {
+      if(lat == cellArray[i].getLatLng().lat() &&
+         lng == cellArray[i].getLatLng().lng())
+      {
+        marker = cellArray[i];
+      }
+    }
+  }
+  return marker;
+};
 
 /**
  * Add a single marker to the map.

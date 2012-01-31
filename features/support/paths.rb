@@ -7,7 +7,7 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    
+
     when /the home\s?page/
       '/'
     when /the new frooble page/
@@ -16,7 +16,7 @@ module NavigationHelpers
       new_water_point_path
     when /the english version of the forgot password page/
       '/en/forgot_password'
-    
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

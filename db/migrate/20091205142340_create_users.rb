@@ -24,7 +24,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :water_points_count, :default=>0 #how many has user posted
       t.integer :up_scores, :default=>0 #sum of up_score for all water_points posted
       t.string :locale, :default=>'en'
-      
+
     end
     add_index :users, :login, :unique => true
     add_index :users, :water_points_count, :unique => false

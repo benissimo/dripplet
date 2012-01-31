@@ -5,7 +5,7 @@
     %title
       = t('layouts.main.page_title')
     = stylesheet_link_tag :all, :cache => true
-    / Make the document body take up the full screen    
+    / Make the document body take up the full screen
     :css
       v\:* {behavior:url(#default#VML);}
       html, body {width: 100%; height: 100%}
@@ -37,12 +37,12 @@
     #map{:style => "width:99%; height:80%; margin:0; padding:0; margin:0 auto;"}
     = javascript_include_tag "prototype", "effects", "builder", "dragdrop", "controls", "application", "lightbox", :cache => true
     - if @map
-      / begin map header      
+      / begin map header
       :javascript
         var mgr;
         var feed_type;
       = GMap.header(:hl=>"#{@locale}")
       = @map.to_html
-      / end map header    
-    / deferred javascript calls    
+      / end map header
+    / deferred javascript calls
     = @deferred_content

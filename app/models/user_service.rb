@@ -1,21 +1,21 @@
 #---
 # Excerpted from "Advanced Rails Recipes",
 # published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
+# Copyrights apply to this code. It may not be used to create training material,
 # courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
+# We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/fr_arr for more book information.
 #---
 
 class UserService
-  
+
   attr_reader :user, :avatar
-  
+
   def initialize(user, avatar)
     @user = user
     @avatar = avatar
   end
-  
+
   def save
     return false unless valid?
     begin
@@ -33,12 +33,12 @@ class UserService
     end
   end
 
-  def valid?    
+  def valid?
     @user.valid? && @avatar && @avatar.valid?
   end
-  
-  
-  
+
+
+
   def update_attributes(user_attributes, avatar_file)
     @user.attributes = user_attributes
     unless avatar_file.blank?
@@ -46,8 +46,8 @@ class UserService
     end
     save
   end
-  
-  
+
+
 
 end
 

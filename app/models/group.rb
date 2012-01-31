@@ -22,5 +22,5 @@ class Group < ActiveRecord::Base
   def before_save
     self.lowercase_title = self.title.mb_chars.downcase
   end
-  
+
 end

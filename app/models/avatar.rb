@@ -18,15 +18,15 @@
 
 class Avatar < ActiveRecord::Base
   belongs_to :user
-  
-  has_attachment :content_type => :image, 
-                 :storage      => :file_system, 
+
+  has_attachment :content_type => :image,
+                 :storage      => :file_system,
                  :max_size     => 2.megabytes,
                  :resize_to    => '384x384',
-                 :thumbnails   => { 
+                 :thumbnails   => {
                    :large =>  '96x96',
                    :medium => '64x64',
-                   :small =>  '32x32' 
+                   :small =>  '32x32'
                  }
 
   validates_as_attachment

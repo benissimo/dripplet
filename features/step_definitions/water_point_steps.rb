@@ -12,9 +12,9 @@ Given /^I sign in correctly$/ do
   visit login_url
   fill_in "login", :with=>@user.login
   fill_in "password", :with=>'password'
-  begin 
+  begin
     click_button "commit"
-  rescue 
+  rescue
     save_and_open_page
     raise
   end
@@ -41,7 +41,7 @@ When /^I fill in the water point creation form and submit$/ do
  end
 end
 
-Then /^a new water point is created$/ do 
+Then /^a new water point is created$/ do
   flash[:notice].should == "WaterPoint loaded. Please confirm location to publish."
 end
 

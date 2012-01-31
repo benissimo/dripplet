@@ -2,9 +2,9 @@ Feature: Multiple language support
   In order to access the site in their native language
   a user visiting waterhunting.com
   wants to indicate which language they want to use and receive messages consistently in that language.
-  Browsing the site, the web pages should always be served in the language the user 
-  has currently selected. 
-  However email messages sent from the site should always use the language associated 
+  Browsing the site, the web pages should always be served in the language the user
+  has currently selected.
+  However email messages sent from the site should always use the language associated
   with the user's registration.
 
 	Scenario: User has forgotten password.
@@ -15,4 +15,3 @@ Feature: Multiple language support
 	And the password reminder message is in italian
 	But the site is in english
 
-	

@@ -5,8 +5,8 @@ class UserObserver < ActiveRecord::Observer
   end
 
   def after_save(user)
-    user.reload  
+    user.reload
     UserMailer.deliver_activation(user) if user.recently_activated? and user.batch_id.nil?
-  
+
   end
 end

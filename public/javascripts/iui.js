@@ -74,7 +74,7 @@ window.iui =
 			if (cb)
 				cb(false);
 		};
-		
+
 		req.onreadystatechange = function()
 		{
 			if (req.readyState == 4)
@@ -105,7 +105,7 @@ window.iui =
 			req.send(null);
 		}
 	},
-	
+
 	insertPages: function(nodes)
 	{
 		var targetPage;
@@ -125,13 +125,13 @@ window.iui =
 
 				if (child.getAttribute("selected") == "true" || !targetPage)
 					targetPage = child;
-				
+
 				--i;
 			}
 		}
 
 		if (targetPage)
-			iui.showPage(targetPage);	 
+			iui.showPage(targetPage);
 	},
 
 	getSelectedPage: function()
@@ -140,7 +140,7 @@ window.iui =
 		{
 			if (child.nodeType == 1 && child.getAttribute("selected") == "true")
 				return child;
-		}	 
+		}
 	},
 	isNativeUrl: function(href)
 	{
@@ -161,7 +161,7 @@ window.iui =
 		new RegExp("\/water_points\/\\d+"), //added
 		new RegExp("\/(en|it)\/$"), //added. these are really hacky but adding targets to all the right links is a hassle
 		new RegExp("\/water_points\/new\/?$"),
-		
+
 	]
 };
 
@@ -171,13 +171,13 @@ addEventListener("load", function(event)
 {
 	var page = iui.getSelectedPage();
 	var locPage = getPageFromLoc();
-		
+
 	if (page)
 			iui.showPage(page);
-	
+
 	if (locPage && (locPage != page))
 		iui.showPage(locPage);
-	
+
 	setTimeout(preloadImages, 0);
 	if (typeof window.onorientationchange == "object")
 	{
@@ -193,14 +193,14 @@ addEventListener("unload", function(event)
 {
 	return;
 }, false);
-	
+
 addEventListener("click", function(event)
 {
 	var link = findParent(event.target, "a");
 	if (link)
 	{
 		function unselect() { link.removeAttribute("selected"); }
-		
+
 		if (iui.isNativeUrl(link.href)) //bumped this check to top so I could add my overrides without having to fiddle w target
 		{
 			return;
@@ -246,8 +246,8 @@ addEventListener("click", function(event)
 		}
 		else
 			return;
-		
-		event.preventDefault();		   
+
+		event.preventDefault();
 	}
 }, true);
 
@@ -257,7 +257,7 @@ addEventListener("click", function(event)
 	if (div && hasClass(div, "toggle"))
 	{
 		div.setAttribute("toggled", div.getAttribute("toggled") != "true");
-		event.preventDefault();		   
+		event.preventDefault();
 	}
 }, true);
 
@@ -279,10 +279,10 @@ function orientChangeHandler()
 	{
 	case 0:
 		setOrientation(portraitVal);
-		break;	
-		
+		break;
+
 	case 90:
-	case -90: 
+	case -90:
 		setOrientation(landscapeVal);
 		break;
 	}
@@ -294,7 +294,7 @@ function checkOrientAndLocation()
 	if (!hasOrientationEvent)
 	{
 	  if (window.innerWidth != currentWidth)
-	  {	  
+	  {
 		  currentWidth = window.innerWidth;
 		  var orient = currentWidth == 320 ? portraitVal : landscapeVal;
 		  setOrientation(orient);
@@ -318,7 +318,7 @@ function showDialog(page)
 {
 	currentDialog = page;
 	page.setAttribute("selected", "true");
-	
+
 	if (hasClass(page, "dialog") && !page.target)
 		showForm(page);
 }
@@ -330,7 +330,7 @@ function showForm(form)
 		event.preventDefault();
 		submitForm(form);
 	};
-	
+
 	form.onclick = function(event)
 	{
 		if (event.target == form && hasClass(form, "dialog"))
@@ -357,7 +357,7 @@ function updatePage(page, fromPage)
 
 	if (page.localName.toLowerCase() == "form" && !page.target)
 		showForm(page);
-		
+
 	var backButton = $("backButton");
 	if (backButton)
 	{
@@ -369,15 +369,15 @@ function updatePage(page, fromPage)
 		}
 		else
 			backButton.style.display = "none";
-	}	 
+	}
 }
 
 function slidePages(fromPage, toPage, backwards)
-{		 
+{
 	var axis = (backwards ? fromPage : toPage).getAttribute("axis");
 
 	clearInterval(checkTimer);
-	
+
 	if (canDoSlideAnim() && axis != 'y')
 	{
 	  slide2(fromPage, toPage, backwards, slideDone);
@@ -424,7 +424,7 @@ function slide1(fromPage, toPage, backwards, axis, cb)
 			clearInterval(timer);
 			cb();
 		}
-	
+
 		if (axis == "y")
 		{
 			backwards
@@ -433,8 +433,8 @@ function slide1(fromPage, toPage, backwards, axis, cb)
 		}
 		else
 		{
-			fromPage.style.left = (backwards ? (100-percent) : (percent-100)) + "%"; 
-			toPage.style.left = (backwards ? -percent : percent) + "%"; 
+			fromPage.style.left = (backwards ? (100-percent) : (percent-100)) + "%";
+			toPage.style.left = (backwards ? -percent : percent) + "%";
 		}
 	}
 }
@@ -486,7 +486,7 @@ function encodeForm(form)
 	encode(form.getElementsByTagName("input"));
 	encode(form.getElementsByTagName("textarea"));
 	encode(form.getElementsByTagName("select"));
-	return args;	
+	return args;
 }
 
 function findParent(node, localName)

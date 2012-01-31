@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 
   layout :choose_layout
-  
-  before_filter :login_required, :except => [ :index, :show,  ]  
-  
+
+  before_filter :login_required, :except => [ :index, :show,  ]
+
   # GET /comments
   # GET /comments.xml
   def index
@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
       if @comment.save
         flash[:notice] = 'Comment was successfully created.' unless request.xhr?
         #format.html { redirect_to(@comment) }
-        format.any(:html,:iphone) { if request.xhr? 
+        format.any(:html,:iphone) { if request.xhr?
                         render :partial => 'shared/comment', :locals => {:comment => @comment}
                       else
                         #remove this?

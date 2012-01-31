@@ -1,2 +1,2 @@
 page.replace_html :members, :partial => 'groups/members'
-page.visual_effect(:slide_down, 'memberlistupdated', :duration => 2.0) 
+page.visual_effect(:slide_down, 'memberlistupdated', :duration => 2.0)

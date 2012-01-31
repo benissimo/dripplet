@@ -63,8 +63,8 @@ function downloadScript(url) {
 }
 
 WH_LoadMarkerFeedRadioButtonFire = function () {
-	var sort = $$('input:checked[type=radio]').pluck('value')[0]; 
-	//window.alert('fire sort='+sort); 
+	var sort = $$('input:checked[type=radio]').pluck('value')[0];
+	//window.alert('fire sort='+sort);
 	WH_LoadMarkerFeed(map, window.WH_mgr, sort);
 }
 
@@ -112,7 +112,7 @@ function WH_LoadMarkerFeed(map,mgr,feed_type,old_id_to_skip) {
 	var yellowIcon = new google.maps.MarkerImage("/images/markers/yellow.png");
 	var pinkIcon = new google.maps.MarkerImage("/images/markers/pink.png");
 	var violetIcon = new google.maps.MarkerImage("/images/markers/violet.png");
-	
+
 	markerOptions = {};
 	switch (window.WH_feed_type) {
 		case 'all':
@@ -120,15 +120,15 @@ function WH_LoadMarkerFeed(map,mgr,feed_type,old_id_to_skip) {
 			break;
 		case 'visits':
  			markerOptions.icon=greenIcon;
-			break;					
+			break;
 		case 'comments':
 	 		markerOptions.icon=orangeIcon;
 			break;
 		case 'score':
 			markerOptions.icon=yellowIcon;
-			break;					
+			break;
 		default: //search...
-			markerOptions.icon=redIcon;		
+			markerOptions.icon=redIcon;
 	}
 
   //data is null??
@@ -170,7 +170,7 @@ function WH_LoadMarkerFeed(map,mgr,feed_type,old_id_to_skip) {
 	mgr.addMarkers(batch,0);
 	mgr.refresh();
 	});//end downloadUrl's anonymous callback...
-	
+
 }
 
 
@@ -180,7 +180,7 @@ function createMarker(iconimg, info_content, latlng) {
 	  icon: iconimg,
 	  map: map
 	  });
-		  
+
 	google.maps.event.addListener(m_marker, "click", function() {
 	  if (typeof(infowindow) != 'undefined') {
 	    infowindow.close();
@@ -192,20 +192,20 @@ function createMarker(iconimg, info_content, latlng) {
 }
 
 function WH_address_search(query,showMarker) {
-	
+
   //street view does not update when map relocates. so better to hide street view each time a search is performed.
   map.getStreetView().setVisible(false);
 
 	var redIcon = new google.maps.MarkerImage("/images/markers/red.png");
 
-	
+
 	//window.alert('1) map query:'+query);
 	//example of lat lon query = 43.345000,12.803061
 	//window.alert('1) map query:'+query);
   var latlonquery;
   latlonquery = query.match(/([-+]?\d\d?(?:\.\d{0,8})?)[ ,]([-+]?\d\d?(?:\.\d{0,8})?)/);
   //latlonquery = query.match(/(\d+).*(\d+)/);
-  
+
   //showMarker is set on normal searches (from main map page only)
   //showMarker is NOT set for the confirm location page (marker interferes with map centering)
   //lat lon queries should be centered precisely on lat lon query.
@@ -216,8 +216,8 @@ function WH_address_search(query,showMarker) {
   } else {
 
   }
-  
-	
+
+
 	if (geocoder) {
 	  geocoder.geocode({'address': query}, function (results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -225,14 +225,14 @@ function WH_address_search(query,showMarker) {
   	  if (window.search_marker) {
   		  window.search_marker.setMap(null);
   	  }
-	
+
   		if (showMarker) {
         window.search_marker = new google.maps.Marker({
-            map: map, 
+            map: map,
             icon: redIcon,
             position: results[0].geometry.location
           });
-     
+
 
 		  // Desirable? Leave as clickable...?
 //		  window.search_marker.bindInfoWindowHtml(place.address);
@@ -251,9 +251,9 @@ function WH_address_search(query,showMarker) {
 		  }
 	  } else {
 			//error handling on fail?
-			
+
 	  }
-	      
+
 	}//end callback for geocode
 	);//end geocode call...
 }//end if geocoder
@@ -261,23 +261,23 @@ function WH_address_search(query,showMarker) {
 }
 
 function toggleMap() {
-  
+
   $('map').toggleClassName('fullscreen');
-  
+
   $('map_toggle').toggleClassName('fullscreen');
   $('sort_filter').toggleClassName('fullscreen');
   $('logos').toggleClassName('fullscreen');
   $('mapsearch').toggleClassName('fullscreen');
-  
-  //google writes position=relative inline so a class definition toggle isn't sufficient. 
+
+  //google writes position=relative inline so a class definition toggle isn't sufficient.
   //have to toggle this property manually
   if ($('map').style.position == 'relative') {
     $('map').style.position = 'fixed';
   } else {
     $('map').style.position = 'relative';
   }
-  
-  google.maps.event.trigger(map, 'resize'); 
+
+  google.maps.event.trigger(map, 'resize');
 
 
 }

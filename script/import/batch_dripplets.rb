@@ -9,7 +9,7 @@ ActionMailer::Base.perform_deliveries = false
 class AddBatchDripplets
 
   include CsvMapper
-  
+
   # Parse a yaml file containing list of dripplets (water_points) to be created.
   # For each dripplet,
   ## If no user or if user's dripplet count > user_wp_max, create new user
@@ -33,15 +33,15 @@ class AddBatchDripplets
   ### but: problems with batch insert:
   #### 1) in cases where I need to do geocode lookup, can't efficiently ask that of google maps. easier to do one at a time.
   #### 2) in cases where I need to download and upload a photo for the wp, need to do that one at a time.
-  
-  
+
+
   # simplify user/wp association:
   ## count how many wp there are to import
   ### divide by user_wp_max, round up. create that number of users, keep track of the IDs of each created user
   ### then for each wp I add, choose randomly from the created IDs.
   ### this way you first create users, then create wp. hmm, but downside is, any problems, I have a bunch of empty users.
   ### that's OK, after wp creation, mark them as activated. leave them unactivated during import.
-  
+
   # http://www.igvita.com/2007/07/11/efficient-updates-data-import-in-rails/
 
 
@@ -59,7 +59,7 @@ class AddBatchDripplets
 
 
   def run
-    
+
     unless ARGV[0] and File.file?(ARGV[0])
       puts "indicate which CSV to load."
       return
@@ -84,20 +84,20 @@ class AddBatchDripplets
         wp.confirmed = true
         wp.save and AddBatchDripplets.add_wp_count
       }
-      
+
       start_at_row 1
       [lat, lng, title, note, photo_url, addr]
-    end    
-    
+    end
+
     #report
     puts "Looped over #{results.count} results"
     puts "#{@@wp_count} dripplets imported for #{@@user_count} users."
   end
-  
+
   def self.user_wp_max
     10
   end
-  
+
   def self.get_user
     if (@@user.nil? or (@@user.water_points_count > self.user_wp_max))
       @@user = _new_user
@@ -106,7 +106,7 @@ class AddBatchDripplets
     puts "User has #{@@user.water_points_count} wp compared to max of #{self.user_wp_max}"
     @@user
   end
-  
+
   def self._new_user
     # generate users with realistic looking names.
     # this is just a stub. need to generate these not randomly but rather using a set of canned data.
@@ -117,19 +117,19 @@ class AddBatchDripplets
     @@user.activate!
     @@user
   end
-  
+
   def self.get_batch_id
     @@batch_id
   end
-  
+
   def self.add_wp_count
     @@wp_count += 1
   end
-  
+
   def self.add_user_count
     @@user_count += 1
   end
-  
+
   def self.undo
     puts "deleting"
     #@@batch_id = nil
@@ -144,7 +144,7 @@ class AddBatchDripplets
       puts "no batch_id to undo. skipping delete."
     end
   end
-  
+
 end
 
 

@@ -5,11 +5,11 @@ module ApplicationHelper
   def vote_up(water_point)
     vote(water_point,1,'upvote','downvote')
   end
-  
+
   def vote_down(water_point)
     vote(water_point,-1,'downvote','upvote')
   end
-  
+
   def vote(water_point,rating,which_on,which_off)
     remote_function(:url  => "/#{@locale}/votes/toggle",
                     :method => :post,
@@ -38,5 +38,5 @@ module ApplicationHelper
     @deferred_content ||= ""
     @deferred_content << capture(&block)
   end
-  
+
 end
