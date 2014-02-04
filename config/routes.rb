@@ -1,9 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  
+
 
   map.filter :locale
-  
-  
+
+
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :votes
   map.resources :comments
   map.resources :water_points, :member => {:disable => :delete}
-  
+
   map.forgot_password 'forgot_password', :controller=>"users", :action => "forgot"
   map.forgot_password_check 'forgot_password_check', :controller=>"users", :action => "forgot_check", :method => 'post'
 
@@ -49,7 +49,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments
@@ -64,7 +64,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   map.root :controller => "welcome"
-  
+
   map.map '/map', :controller => "welcome", :action => "map"
   map.links '/links', :controller => "welcome", :action => "links"
   map.terms '/terms', :controller => "welcome", :action => "terms"

@@ -18,7 +18,7 @@ namespace :backup do
     skip_tables = Array(skip_backup_tables).join(',')
     run "cd #{current_path}; rake db:backup:create RAILS_ENV=#{rails_env} BACKUP_DIR=#{backup_path} SKIP_TABLES=#{skip_tables}"
   end
-  
+
   desc "Retreive a backup from the server. Gets the latest by default, set :backup_version to specify which version to copy"
   task :download, :roles => :db, :only => {:primary => true} do
     version = fetch(:backup_version, latest)
@@ -29,12 +29,12 @@ namespace :backup do
     `tar -C backups -zxf backups/#{version}.tar.gz`
     `rm backups/#{version}.tar.gz`
   end
-  
+
   desc "Creates a new remote backup and clones it to the local database"
   task :mirror, :roles => :db, :only => {:primary => true} do
     create
     download
     `rake db:backup:restore`
   end
-  
+
 end

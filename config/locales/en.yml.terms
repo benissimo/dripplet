@@ -1,4 +1,4 @@
-# Italian translations for Ruby on Rails 
+# Italian translations for Ruby on Rails
 # by Claudio Poli (masterkain@gmail.com)
 # maintained by Simone Carletti (weppos@weppos.net)
 #
@@ -31,22 +31,22 @@ en:
   terms: "terms of service"
   required: "required"
 
-        
+
 ########################################################
 # Begin site-specific text.
 # 1) Do not use tabs, only spaces!
 # 2) All text should be in UTF8 (be sure your text editor uses that encoding)
-# 3) format is: LABEL: text. 
-# If you need to include a ' in the text, use this format: 
+# 3) format is: LABEL: text.
+# If you need to include a ' in the text, use this format:
 #    LABEL: "text's got an apostrophe..." (double quotes around string)
-# If you need to include a " in the text, use this format: 
+# If you need to include a " in the text, use this format:
 #    LABEL: "text has \"a quote\" inside" (double quotes and backslash for embedded quotes)
 # Or if you want some leading/trailing whitespace in the text, use this format
 #    LABEL: " some text that begins with some whitespace and/or ends with some whitespace "
 # Otherwise, no need for quotes around text.
 #    LABEL: this is fine
 ########################################################
-        
+
   mailer:
     forgot_password:
       subject: "Here is your new password"
@@ -68,7 +68,7 @@ en:
       subject: "Congratulations! Your account is now confirmed."
       text: "Thanks for activating your account. Welcome to Dripplet.com fellow Water Hunter! {{link}}"
       link_text: "{{url}}"
-      
+
   groups: #/en/groups/*
     show: # /en/groups/1
       created_by: "Created by: "
@@ -95,7 +95,7 @@ en:
       title: "Create a group"
       summary: "Here you can create your group and send message to group members."
       submit: "Create"
-      
+
   users:
     index: # /en/users
       title: "Community"
@@ -135,7 +135,7 @@ en:
       log_out: "logout"
       login: "signin"
       register: "register"
-      
+
   welcome:
       map: # /en/map (Explore...)
         title: "Explore"
@@ -223,7 +223,7 @@ Your information is managed by Made in Tomorrow srl, via dei Piceni 40 -00185 Ro
 Thank you"
       credits: # /it/credits
         title: "Credits"
-        summary: "www.dripplet.com has been produced thanks to the good will and commitment of may people.<br />Made in Tomorrow srl has provided its infrastructure and has supported the initial costs, but all of those who have collaborated have done so for free or for amounts well below their usual rates.<br />In particular Made in Tomorrow thanks: Andrea Dezzi, Ben Ellis, Francesca Ferraro, Elisabetta Gagliardini, Tsuneo Kurihara, Andrea Leganza, Marta Leonori, Maurizio Lo Castro, Camilla Macro, Laura Mencuccini, Valentina Segatori"        
+        summary: "www.dripplet.com has been produced thanks to the good will and commitment of may people.<br />Made in Tomorrow srl has provided its infrastructure and has supported the initial costs, but all of those who have collaborated have done so for free or for amounts well below their usual rates.<br />In particular Made in Tomorrow thanks: Andrea Dezzi, Ben Ellis, Francesca Ferraro, Elisabetta Gagliardini, Tsuneo Kurihara, Andrea Leganza, Marta Leonori, Maurizio Lo Castro, Camilla Macro, Laura Mencuccini, Valentina Segatori"
   feedback:
       report: # /en/feedback/report
         title: "Feedback"
@@ -240,7 +240,7 @@ Thank you"
         comments: "Comments"
         comment_be_specific: "Please be specific. We appreciate your feedback."
         submit: "Send Feedback"
-        
+
   water_points:
       index: # /en/water_points
         title: "Dripplets"
@@ -278,8 +278,8 @@ Thank you"
       summary: "Enter login and password."
       submit: "Enter"
       forgot: "forgot password"
-             
-##################################      
+
+##################################
   shared: # snippets included in other pages...
     users: # user list on /en/users
       view_profile: "View {{profile}}" #inserts link
@@ -312,7 +312,7 @@ Searching for water in outer space helps us to understand if there's life elsewh
         title: "Hello Water Hunter!"
         text: "If your search was successful and you want to share a new dripplet with all of us, you're in the right place!"
 
-  layouts: 
+  layouts:
     main: #main layout
       page_title: "Dripplet.com"
       app_promo_title: "iPhone app corner"
@@ -357,7 +357,7 @@ Easily with your iphone – iPod - iPad" #http://itunes.apple.com/WebObjects/MZS
     mailer: #These texts are used when the site sends email messags
       footer1: "We inform you that you can modify your email notification preferences accessing your account on our website."
       footer2: "This message has been sent to {{email}} by an automated system. Please do not reply to this email directly."
-    
+
 ###################
 # flash messages are three types: notice, prompt, error
   flash: #flash messages.
@@ -383,7 +383,7 @@ Easily with your iphone – iPod - iPad" #http://itunes.apple.com/WebObjects/MZS
       wp: "dripplet created"
     prompt: #messages appear in orange
       wp: "Dripplet loaded. If correctly located, click the confirm button."
-      
+
   #pagination strings
   previous: "previous"
   next: "next"

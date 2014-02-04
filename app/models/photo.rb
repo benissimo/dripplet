@@ -19,30 +19,30 @@
 #---
 # Excerpted from "Advanced Rails Recipes",
 # published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
+# Copyrights apply to this code. It may not be used to create training material,
 # courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
+# We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/fr_arr for more book information.
 #---
 
 class Photo < ActiveRecord::Base
   belongs_to :water_point
-  
-  has_attachment :content_type => :image, 
-                 :storage      => :file_system, 
+
+  has_attachment :content_type => :image,
+                 :storage      => :file_system,
                  :max_size     => 2.megabytes,
                  :resize_to    => '640x480>',
-                 :thumbnails   => { 
+                 :thumbnails   => {
                    :large =>  '96x96>',
                    :medium => '64x64>',
-                   :small =>  '48x48>' 
+                   :small =>  '48x48>'
                  }
 
   validates_as_attachment
   require 'exifr'
   require 'flt'
   include Flt
-  
+
   def getGPS
     logger.info("getGPS begin")
   # EXIFR::JPEG.new('public/images/foto.jpg').gps_latitude
@@ -63,24 +63,24 @@ class Photo < ActiveRecord::Base
       [latdec, londec]
     end
   end
-  
+
 end
 
 
 =begin
 
-  validate :attachment_valid?  
+  validate :attachment_valid?
 
   def attachment_valid?
     unless self.filename
-      errors.add_to_base("No cover image file was selected") 
+      errors.add_to_base("No cover image file was selected")
     end
-    
+
     content_type = attachment_options[:content_type]
     unless content_type.nil? || content_type.include?(self.content_type)
       errors.add_to_base("Cover image content type must an image")
     end
-    
+
     size = attachment_options[:size]
     unless size.nil? || size.include?(self.size)
       errors.add_to_base("Cover image must be 500-KB or less")

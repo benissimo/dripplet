@@ -22,16 +22,16 @@
 #
 
 class WaterPoint < ActiveRecord::Base
-  
+
   acts_as_mappable
-  
+
   has_many :comments, :dependent => :destroy
   has_many :votes, :dependent => :destroy
   has_many :followers, :dependent => :destroy
   has_one :photo, :dependent => :destroy
-  belongs_to :posted_by, :class_name => 'User', :foreign_key => "user_id"  
- 
-  ###### Easier to just delegate this to app flow. creation: lat/lng empty. confirm: provided from map. 
+  belongs_to :posted_by, :class_name => 'User', :foreign_key => "user_id"
+
+  ###### Easier to just delegate this to app flow. creation: lat/lng empty. confirm: provided from map.
 #  validates_presence_of :lat
 #  validates_numericality_of :lat
 #  validates_presence_of :lng
@@ -39,11 +39,11 @@ class WaterPoint < ActiveRecord::Base
 
   validates_presence_of :title
   validates_presence_of :user_id
-  
-  named_scope :visible, :conditions => {:confirmed => true, :state => "active" }  
+
+  named_scope :visible, :conditions => {:confirmed => true, :state => "active" }
   named_scope :filo, :order => "created_at DESC"
   named_scope :with_photo, {:joins => :photo}
-  
+
   after_save :update_wp_count
   after_destroy :update_wp_count
 
@@ -52,16 +52,16 @@ class WaterPoint < ActiveRecord::Base
     # u.water_points_count = u.water_points.visible.count
     # u.save
     # end
-    
+
   def update_wp_count
     #credit for this approach: http://blog.eldoy.com/posts/14-Custom-counter-cache-column
     self.posted_by.update_attribute :water_points_count, self.posted_by.water_points.visible.count
   end
-  
+
   def delete!
     self.update_attribute :state, "deleted"
   end
-  
+
   def addr=(address)
     if address.nil? or address.length < 3
       #do nothing
@@ -71,10 +71,10 @@ class WaterPoint < ActiveRecord::Base
       self.lat, self.lng = geo.lat, geo.lng if geo.success
     end
   end
-  
+
   def addr
     #this method added for now just so csv-mapper won't complain. could add a reverse geocode call if this were ever needed.
     nil
   end
-  
+
 end

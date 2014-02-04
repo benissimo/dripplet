@@ -1,16 +1,16 @@
 class FeedbackMailer < ActionMailer::Base
 
   layout 'mailer' #use mailer.text.(html|plain).erb as the layout
-  
+
   # call once per follower (do offline if need to scale. use delayed_job's "send_later")
   def feedback(comment, email, reason, ref)
     setup_email(comment, email, reason)
     @subject    += reason
-  
+
     @body[:url]  = ref
-  
+
   end
-  
+
   protected
     def setup_email(comment, email, reason)
       @recipients  = "info@madeintomorrow.com"

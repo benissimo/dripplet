@@ -7,13 +7,13 @@
  * @fileoverview Marker manager is an interface between the map and the user,
  * designed to manage adding and removing many points when the viewport changes.
  * <br /><br />
- * <b>How it Works</b>:<br/> 
+ * <b>How it Works</b>:<br/>
  * The MarkerManager places its markers onto a grid, similar to the map tiles.
  * When the user moves the viewport, it computes which grid cells have
  * entered or left the viewport, and shows or hides all the markers in those
  * cells.
  * (If the users scrolls the viewport beyond the markers that are loaded,
- * no markers will be visible until the <code>EVENT_moveend</code> 
+ * no markers will be visible until the <code>EVENT_moveend</code>
  * triggers an update.)
  * In practical consequences, this allows 10,000 markers to be distributed over
  * a large area, and as long as only 100-200 are visible in any given viewport,
@@ -34,7 +34,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  */
 
 /**
@@ -51,7 +51,7 @@
  *     visible.
  * @property {Boolean} trackMarkers=false Indicates whether or not a marker
  *     manager should track markers' movements. If you wish to move managed
- *     markers using the {@link setPoint}/{@link setLatLng} methods, 
+ *     markers using the {@link setPoint}/{@link setLatLng} methods,
  *     this option should be set to {@link true}.
  */
 
@@ -75,7 +75,7 @@ function MarkerManager(map, opt_opts) {
   var me = this;
   me.map_ = map;
   me.mapZoom_ = map.getZoom();
-  
+
   me.projectionHelper_ = new ProjectionHelperOverlay(map);
   google.maps.event.addListener(me.projectionHelper_, 'ready', function () {
     me.projection_ = this.getProjection();
@@ -83,10 +83,10 @@ function MarkerManager(map, opt_opts) {
   });
 }
 
-  
+
 MarkerManager.prototype.initialize = function (map, opt_opts) {
   var me = this;
-  
+
   opt_opts = opt_opts || {};
   me.tileSize_ = MarkerManager.DEFAULT_TILE_SIZE_;
 
@@ -102,7 +102,7 @@ MarkerManager.prototype.initialize = function (map, opt_opts) {
       }
     }
   }
-  
+
   me.maxZoom_  = opt_opts.maxZoom || 19;
 
   me.trackMarkers_ = opt_opts.trackMarkers;
@@ -164,9 +164,9 @@ MarkerManager.prototype.initialize = function (map, opt_opts) {
   me.shownMarkers_ = 0;
 
   me.shownBounds_ = me.getMapGridBounds_();
-  
+
   google.maps.event.trigger(me, 'loaded');
-  
+
 };
 
 /**
@@ -249,8 +249,8 @@ MarkerManager.prototype.addMarkerBatch_ = function (marker, minZoom, maxZoom) {
 
   var mPoint = marker.getPosition();
   marker.MarkerManager_minZoom = minZoom;
-  
-  
+
+
   // Tracking markers is expensive, so we do this only if the
   // user explicitly requested it when creating marker manager.
   if (this.trackMarkers_) {
@@ -428,33 +428,33 @@ MarkerManager.prototype.getMarkerCount = function (zoom) {
   return total;
 };
 
-/** 
- * Returns a marker given latitude, longitude and zoom. If the marker does not 
- * exist, the method will return a new marker. If a new marker is created, 
- * it will NOT be added to the manager. 
- * 
- * @param {Number} lat - the latitude of a marker. 
- * @param {Number} lng - the longitude of a marker. 
- * @param {Number} zoom - the zoom level 
- * @return {GMarker} marker - the marker found at lat and lng 
- */ 
+/**
+ * Returns a marker given latitude, longitude and zoom. If the marker does not
+ * exist, the method will return a new marker. If a new marker is created,
+ * it will NOT be added to the manager.
+ *
+ * @param {Number} lat - the latitude of a marker.
+ * @param {Number} lng - the longitude of a marker.
+ * @param {Number} zoom - the zoom level
+ * @return {GMarker} marker - the marker found at lat and lng
+ */
 MarkerManager.prototype.getMarker = function (lat, lng, zoom) {
-  var mPoint = new google.maps.LatLng(lat, lng); 
+  var mPoint = new google.maps.LatLng(lat, lng);
   var gridPoint = this.getTilePoint_(mPoint, zoom, new google.maps.Size(0, 0, 0, 0));
 
-  var marker = new google.maps.Marker({position: mPoint}); 
-    
+  var marker = new google.maps.Marker({position: mPoint});
+
   var cellArray = this.getGridCellNoCreate_(gridPoint.x, gridPoint.y, zoom);
   if (cellArray !== undefined) {
-    for (var i = 0; i < cellArray.length; i++) 
-    { 
+    for (var i = 0; i < cellArray.length; i++)
+    {
       if (lat === cellArray[i].getLatLng().lat() && lng === cellArray[i].getLatLng().lng()) {
-        marker = cellArray[i]; 
-      } 
-    } 
-  } 
-  return marker; 
-}; 
+        marker = cellArray[i];
+      }
+    }
+  }
+  return marker;
+};
 
 /**
  * Add a single marker to the map.
@@ -484,12 +484,12 @@ MarkerManager.prototype.addMarker = function (marker, minZoom, opt_maxZoom) {
  */
 function GridBounds(bounds) {
   // [sw, ne]
-  
+
   this.minX = Math.min(bounds[0].x, bounds[1].x);
   this.maxX = Math.max(bounds[0].x, bounds[1].x);
   this.minY = Math.min(bounds[0].y, bounds[1].y);
   this.maxY = Math.max(bounds[0].y, bounds[1].y);
-      
+
 }
 
 /**
@@ -502,7 +502,7 @@ GridBounds.prototype.equals = function (gridBounds) {
     return true;
   } else {
     return false;
-  }  
+  }
 };
 
 /**
@@ -555,7 +555,7 @@ MarkerManager.prototype.getGridCellCreate_ = function (x, y, z) {
  */
 MarkerManager.prototype.getGridCellNoCreate_ = function (x, y, z) {
   var grid = this.grid_[z];
-  
+
   if (x < 0) {
     x += this.gridWidth_[z];
   }
@@ -617,7 +617,7 @@ MarkerManager.prototype.getMapGridBounds_ = function () {
  * NOTE: Use a timeout so that the user is not blocked
  * from moving the map.
  *
- * Removed this because a a lack of a scopy override/callback function on events. 
+ * Removed this because a a lack of a scopy override/callback function on events.
  */
 MarkerManager.prototype.onMapMoveEnd_ = function () {
   this.objectSetTimeout_(this, this.updateMarkers_, 0);
@@ -719,7 +719,7 @@ MarkerManager.prototype.refresh = function () {
 MarkerManager.prototype.updateMarkers_ = function () {
   this.mapZoom_ = this.map_.getZoom();
   var newBounds = this.getMapGridBounds_();
-    
+
   // If the move does not include new grid sections,
   // we have no work to do:
   if (newBounds.equals(this.shownBounds_) && newBounds.z === this.shownBounds_.z) {
@@ -910,7 +910,7 @@ MarkerManager.prototype.removeFromArray_ = function (array, value, opt_notype) {
 *   @param {Map} map The map to manage.
 **/
 function ProjectionHelperOverlay(map) {
-  
+
   this.setMap(map);
 
   var TILEFACTOR = 8;
@@ -924,7 +924,7 @@ function ProjectionHelperOverlay(map) {
   this._X1 =
   this._Y1 = -1;
 
-  
+
 }
 ProjectionHelperOverlay.prototype = new google.maps.OverlayView();
 

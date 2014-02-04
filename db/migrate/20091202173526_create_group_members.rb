@@ -9,7 +9,7 @@ class CreateGroupMembers < ActiveRecord::Migration
     add_index :group_members, [:user_id, :group_id], :unique => true
     add_index :group_members, :group_id, :unique => false
     add_index :group_members, :user_id, :unique => false
-    
+
   end
 
   def self.down

@@ -1,9 +1,9 @@
 class GroupMembersController < ApplicationController
 
-  before_filter :login_required, :except => [ :index, :show  ]  
+  before_filter :login_required, :except => [ :index, :show  ]
 
   def toggle
-    
+
     #Check whether already subscribed
     params[:group_member][:user_id] = @current_user.id
     @member = GroupMember.find_by_user_id_and_group_id(@current_user.id, params[:group_member][:group_id])
@@ -29,13 +29,13 @@ class GroupMembersController < ApplicationController
         format.js {
           #get list of members. rjs template needs them.
           @group = Group.find(params[:group_member][:group_id])
-        }#{ head :ok }    
+        }#{ head :ok }
       else
         format.any(:html,:iphone) { redirect_to('/') } # error msg?
         format.xml  { render :xml => @member.errors, :status => :unprocessable_entity }
-        format.js if request.xhr? { head :unprocessable_entity }      
+        format.js if request.xhr? { head :unprocessable_entity }
       end
     end
-    
+
   end
 end

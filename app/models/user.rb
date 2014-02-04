@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
-  # uff.  this is really an authorization, not authentication routine.  
+  # uff.  this is really an authorization, not authentication routine.
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   #
@@ -109,7 +109,7 @@ class User < ActiveRecord::Base
 
 
   protected
-    
+
     def make_activation_code
         self.deleted_at = nil
         self.activation_code = self.class.make_token

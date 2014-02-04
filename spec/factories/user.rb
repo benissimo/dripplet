@@ -15,7 +15,7 @@ Factory.define :user do |u|
   u.locale 'en'
 end
 
-Factory.sequence :login do |n| 
+Factory.sequence :login do |n|
   "user#{n}"
 end
 

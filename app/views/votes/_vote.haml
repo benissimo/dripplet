@@ -13,9 +13,9 @@
         = h @water_point.up_score
       .vote
         - if @current_user && @current_user.login == @water_point.posted_by.login
-          / (you can't vote on your own posts)  
+          / (you can't vote on your own posts)
           %a{:class=>up_class,:id=>'upvote',:href=>'javascript:void(0)',:title=>"cannot vote your own post"}
-        - else     
+        - else
           = link_to_remote("&nbsp;",                                                 |
             :update=>'votebox',                                                      |
             :url=>"/#{@locale}/votes/toggle",                                        |
@@ -27,9 +27,9 @@
         = h @water_point.down_score
       .vote
         - if @current_user && @current_user.login == @water_point.posted_by.login
-          / (you can't vote on your own posts)  
+          / (you can't vote on your own posts)
           %a{:class=>down_class,:id=>'downvote',:href=>'javascript:void(0)',:title=>"cannot vote your own post"}
-        - else     
+        - else
           = link_to_remote("&nbsp;",                                                  |
             :update=>'votebox',                                                       |
             :url=>"/#{@locale}/votes/toggle",                                         |

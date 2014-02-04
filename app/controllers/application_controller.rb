@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
 
 
   include AuthenticatedSystem
-  
+
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :confirm_password
-  
+
   before_filter :host_check if ENV["RAILS_ENV"] == 'production'
   before_filter :session_user_agent_check
   before_filter :set_locale
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   #move this to different class?
   def make_map(type='detail',satellite=false,world=false)
-        # Create a new map object, also defining the div ("map") 
+        # Create a new map object, also defining the div ("map")
         # where the map will be rendered in the view
         @map_type = type.to_sym
         case @map_type
@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
             :height => 200
           }
         end
-        
+
 
         @map = {};
         # ym4r/gm plugin api: http://ym4r.rubyforge.org/ym4r_gm-doc/
@@ -56,21 +56,21 @@ class ApplicationController < ActionController::Base
           @map['zoom'] = 4
         else
           @map['zoom'] = 18
-          
+
         end
         @map['zoom'] = 11 if world
 
-      
+
         if !@water_point.blank? && !@water_point.lat.blank? && !@water_point.lng.blank?
           @map['lat'] = @water_point.lat
           @map['lng'] = @water_point.lng
           @map['zoom'] = 18
-          
+
           if (@map_type == :detail) or (@map_type == :search)
             #  @map.global_init(@map.enable_google_bar())
             #note = @water_point.note.to_s.mb_chars.length > 160 ? @water_point.note.to_s.mb_chars[0,160].to_s+'...</a>' : @water_point.note;
             note = @water_point.note
-            
+
             if @map_type == :detail
               @map['marker_info'] = "<b>#{@water_point.title}</b><br/>#{note}"
             else
@@ -78,22 +78,22 @@ class ApplicationController < ActionController::Base
               photo = @template.photo_for(@water_point, :large)
               @map['marker_info'] = "<div style='overflow:hidden'><b><a href='/#{@locale}/water_points/#{@water_point.id}'>#{@water_point.title}</a></b><br/>#{photo}<br/>"+t('thanks_to')+" <a href='/#{@locale}/users/#{@water_point.posted_by.id}'>#{@water_point.posted_by.login}</a></div>"
             end
-            
-            
+
+
             @map['marker_title'] = @water_point.title
             ### Bug in GM library? The following line should work, but instead generates an error:
             #@map.icon_global_init(GIcon.new(:image => "/images/markers/lightblue.png"), "detail_icon")
-            ### instead need to specify these other attribs as well, even though gmaps api doesn't require them!  
-            
+            ### instead need to specify these other attribs as well, even though gmaps api doesn't require them!
 
-                     
+
+
             #@map.icon_global_init(GIcon.new(:image => "/images/markers/lightblue.png", :icon_size => GSize.new(16,16),:icon_anchor => GPoint.new(8.0,8.0),:info_window_anchor => GPoint.new(8.0,8.0),:shadow => "/images/markers/shadow.png", :shadowSize => GSize.new(25.0,16.0)),"detail_icon")
             #detail_icon = Variable.new("detail_icon")
-            #marker = GMarker.new([@water_point.lat,@water_point.lng], 
+            #marker = GMarker.new([@water_point.lat,@water_point.lng],
              #                 :title=> @water_point.title,
               #                :icon=> detail_icon
               #                )
-            #@map.declare_init(marker, "marker") #THANK YOU to this post: http://blog.odeley.com/?p=40                    
+            #@map.declare_init(marker, "marker") #THANK YOU to this post: http://blog.odeley.com/?p=40
             #@map.overlay_init(marker)
 
             ###@map.record_init 'window.alert("foo "+detail_icon.image+" typeof "+typeof detail_icon+" mic "+marker.getIcon().image);'
@@ -104,7 +104,7 @@ class ApplicationController < ActionController::Base
           end
         else
           # Default center location. no auto open marker.
-          #@map.center_zoom_init([41.898,12.518],zoom)   
+          #@map.center_zoom_init([41.898,12.518],zoom)
           @map['lat'] = 41.898
           @map['lng'] = 12.518
         end
@@ -114,11 +114,11 @@ class ApplicationController < ActionController::Base
         #@map.record_init "window.WH_mgr = new MarkerManager(map);"#,:managed_markers => [managed_markers1,managed_markers2,managed_markers3])
 
 #        @map.declare_init(mm,"mgr")
-        
+
         @map['skip_id'] = @water_point.blank? ? '' : @water_point.id
-        
+
         #@map.record_init "WH_LoadMarkerFeed(map,window.WH_mgr,'all'"+skip_id+");"
-        
+
         # Thank you: http://www.daftlogic.com/sandbox-google-maps-centre-crosshairs.htm
         crosshair_js = <<CROSSHAIR_JS_BLOCK
         //var crosshairsSize=19;
@@ -145,14 +145,14 @@ class ApplicationController < ActionController::Base
         };
 
         map.addCrosshairs();
-        
+
         //Extra stuff
         google.maps.event.addListener(map,'bounds_changed',function() {
           var center = map.getCenter();
           $('water_point_lat').value = center.lat();
           $('water_point_lng').value = center.lng();
         });
-        
+
         //move this to server-side...
         //populate w current center val if empty...
         if (!($('water_point_lat').value && $('water_point_lng').value)) {
@@ -165,7 +165,7 @@ CROSSHAIR_JS_BLOCK
   end
 
 
-protected 
+protected
   def set_locale
     if params[:locale].blank?
       redirect_to :locale => 'en'
@@ -174,11 +174,11 @@ protected
     WillPaginate::ViewHelpers.pagination_options[:previous_label] = I18n.translate('previous')
     WillPaginate::ViewHelpers.pagination_options[:next_label] = I18n.translate('next')
   end
-     
+
   def is_megatron?
     request.user_agent =~ /\b(Baidu|Gigabot|Googlebot|libwww-perl|lwp-trivial|msnbot|SiteUptime|Slurp|WordPress|ZIBB|ZyBorg)\b/i
-  end     
-    
+  end
+
   def session_user_agent_check
     ##################################################
     #If user agent matches bot pattern
@@ -214,22 +214,22 @@ protected
   def adjust_format_for_iphone
     # iPhone sub-comain request
     # request.format = :iphone if iphone_subdomain?
-    
+
     # Detect from iPhone user-agent
     # html and js (or whatever gets generated via xhr by iui OK. json no.)
     request.format = :iphone if iphone_user_agent? and (request.format != :json)
   end
-  
+
   def iphone_user_agent?
     request.env["HTTP_USER_AGENT"] &&
     request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/] &&
     !request.env["HTTP_USER_AGENT"][/Ipad/]
   end
-  
+
   def choose_layout
     'main'
   end
-  
+
   def choose_layout_OLD
     if request.format == 'iphone'
       #debugger
@@ -244,8 +244,8 @@ protected
         'minimal'
       end
     else
-      'main'    
-    end    
+      'main'
+    end
   end
-          
+
 end

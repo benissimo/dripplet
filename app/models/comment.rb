@@ -16,11 +16,11 @@
 class Comment < ActiveRecord::Base
   belongs_to :water_point #water_points.comments_count filled via update_comment_count() method below
   belongs_to :author, :class_name => 'User', :foreign_key => "user_id"
-  
+
   validates_presence_of :text
   validates_presence_of :water_point_id
   validates_presence_of :user_id
-  
+
   named_scope :visible, :conditions => {:enabled => true }
 
   after_save :update_comment_count
@@ -31,5 +31,5 @@ class Comment < ActiveRecord::Base
     #credit for this approach: http://blog.eldoy.com/posts/14-Custom-counter-cache-column
     self.water_point.update_attributes :comments_count => self.water_point.comments.visible.count
   end
-  
+
 end

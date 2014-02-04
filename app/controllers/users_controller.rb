@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   # Protect these actions behind an admin login
   before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
-  
-  before_filter :login_required, :only => [ :edit, :update ]  
+
+  before_filter :login_required, :only => [ :edit, :update ]
 
 
-  
+
   # render new.rhtml
   def new
     @user = User.new
@@ -19,13 +19,13 @@ class UsersController < ApplicationController
     @user = User.new
     respond_to(:html,:iphone)
   end
-  
+
   def forgot_check
     @user = User.find_by_login_and_email(params[:login],params[:email])
     if @user
       flash[:notice] = t('flash.notice.forgot') #"Please check your email. We have sent you a new password."
       @user.send_new_password
-      redirect_back_or_default('/')      
+      redirect_back_or_default('/')
     else
       flash.now[:error] = t('flash.error.forgot') #"We couldn't find any account matching that data. Please try again."
       @login       = params[:login]
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       render :action => 'forgot'
     end
   end
- 
+
   def create
     logout_keeping_session!
     params[:user][:locale] ||= @locale
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       render :action => 'new'
     #@user.errors.push "You must accept the terms of service"
     end
-    
+
   end
 
   def activate
@@ -70,19 +70,19 @@ class UsersController < ApplicationController
     when params[:activation_code].blank?
       flash[:error] = t('flash.error.activation.blank') #"The activation code was missing.  Please follow the URL from your email."
       redirect_back_or_default(root_path)
-    else 
+    else
       flash[:error]  = t('flash.error.activation.invalid') #"We couldn't find a user with that activation code -- check your email? Or maybe you've already activated -- try signing in."
       redirect_back_or_default(root_path)
     end
   end
 
   def suspend
-    @user.suspend! 
+    @user.suspend!
     redirect_to users_path
   end
 
   def unsuspend
-    @user.unsuspend! 
+    @user.unsuspend!
     redirect_to users_path
   end
 
@@ -97,7 +97,7 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path
   end
-  
+
   # There's no page here to update or destroy a user.  If you add those, be
   # smart -- make sure you check that the visitor is authorized to do so, that they
   # supply their old password along with a new one to update it, etc.
@@ -122,7 +122,7 @@ class UsersController < ApplicationController
     when :date
       {:order=>"created_at DESC"} #most recent
     end
-    conditions[:include] = :avatar   
+    conditions[:include] = :avatar
     conditions[:page] = params[:page] || 1
     conditions[:per_page] = 6
     @conditions = conditions
@@ -143,10 +143,10 @@ class UsersController < ApplicationController
     if @user.state != 'active' or @user.login == 'admin'
       return redirect_to users_path
     end
-    
+
     @page_ancestors = [{:name=>'Community', :url=> users_path}]
     @bc_title = 'User Profile'
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.iphone
@@ -167,9 +167,9 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @avatar = @user.avatar
-    
+
     @service = UserService.new(@user, @avatar)
-    
+
     params[:user][:last_ip] = request.env['REMOTE_ADDR']
     respond_to do |format|
       if @service.update_attributes(params[:user], params[:avatar_file]) ###@user.update_attributes(params[:user])
@@ -185,12 +185,12 @@ class UsersController < ApplicationController
   end
 
   ##################### END methods copied over from previously generated user mode
-  
+
 protected
   def find_user
     @user = User.find(params[:id])
   end
-  
+
   def admin_required
     unless (logged_in? && @current_user && @current_user.login == 'admin')
       flash[:error]  = t('flash.error.not_allowed') #"Action not allowed."

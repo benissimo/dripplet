@@ -2,7 +2,7 @@ class VotesController < ApplicationController
 
   layout :choose_layout
 
-  before_filter :login_required, :except => [ :index, :show,  ]  
+  before_filter :login_required, :except => [ :index, :show,  ]
 
   # GET /votes
   # GET /votes.xml
@@ -50,31 +50,31 @@ class VotesController < ApplicationController
       @vote = Vote.new(params[:vote])
       save_attempt = @vote.save
     end
-    
+
     # Do lookups to populate rjs partial. NB these are similar to water_points_controller#show They should be refactored.
     @water_point = @vote.water_point
     @current_vote = current_user && Vote.find_by_user_id_and_water_point_id(@current_user.id, @water_point.id)
     @subscribed = current_user && Follower.find_by_user_id_and_water_point_id(@current_user.id, @water_point.id)
-    
-    
+
+
     respond_to do |format|
       if save_attempt
-        #format.js { head :ok }    
-        format.any(:html,:iphone) { 
+        #format.js { head :ok }
+        format.any(:html,:iphone) {
           if request.xhr?
             render :partial=>'votes/vote'
           else
-            redirect_to(@vote) 
+            redirect_to(@vote)
           end
           } #where to send?
         format.xml  { head :ok }
       else
-        format.js if request.xhr? { head :unprocessable_entity }      
+        format.js if request.xhr? { head :unprocessable_entity }
         format.any(:html,:iphone) { render :action => "new" }
         format.xml  { render :xml => @vote.errors, :status => :unprocessable_entity }
       end
     end
-    
+
   end
 
   # GET /votes/1/edit

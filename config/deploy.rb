@@ -41,12 +41,12 @@ namespace :assets do
       rm -rf #{release_path}/public/avatars &&
       rm -rf #{release_path}/public/photos &&
       rm -rf #{release_path}/backups &&
-      ln -nfs #{shared_path}/assets/avatars #{release_path}/public/avatars &&     
+      ln -nfs #{shared_path}/assets/avatars #{release_path}/public/avatars &&
       ln -nfs #{shared_path}/assets/photos #{release_path}/public/photos &&
       ln -nfs #{shared_path}/backups #{release_path}/backups
     CMD
   end
-  
+
   task :create_dirs, :roles => :app do
       %w(avatars photos).each do |name|
         run "mkdir -p #{shared_path}/assets/#{name}"
@@ -58,7 +58,7 @@ end
 
 # Passenger
 namespace :deploy do
-  
+
   desc "Restart Application"
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
@@ -67,11 +67,11 @@ namespace :deploy do
   # Not needed
   task :start do
   end
- 
+
   # Not needed
   task :stop do
   end
-      
+
 end
 
 after "deploy:update_code", :link_production_db

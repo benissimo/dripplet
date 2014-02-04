@@ -7,7 +7,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :ip_addr
       t.boolean :enabled, :default=>true
 
-      t.timestamps      
+      t.timestamps
     end
     add_index :comments, :user_id, :unique => false
     add_index :comments, :water_point_id , :unique=> false
